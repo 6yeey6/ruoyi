@@ -53,8 +53,10 @@ public class SysLoginService
      */
     public SysUser login(String username, String password)
     {
+        Object attribute = ServletUtils.getRequest().getAttribute(ShiroConstants.CURRENT_CAPTCHA);
+        System.out.println(attribute);
         // 验证码校验
-        if (ShiroConstants.CAPTCHA_ERROR.equals(ServletUtils.getRequest().getAttribute(ShiroConstants.CURRENT_CAPTCHA)))
+        if (ShiroConstants.CAPTCHA_ERROR.equals(attribute))
         {
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.jcaptcha.error")));
             throw new CaptchaException();
