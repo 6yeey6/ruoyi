@@ -686,7 +686,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="secInfo21 != null">sec_info21 = #{secInfo21},</if>
             <if test="secInfo22 != null">sec_info22 = #{secInfo22},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
-            <if test="updatedTime != null">updated_time = #{updatedTime},</if>
+            updated_time = NOW(),
             <if test="userId != null">user_id = #{userId},</if>
         </trim>
         where id = #{id}
