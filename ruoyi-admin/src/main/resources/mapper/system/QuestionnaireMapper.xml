@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.QuestionnaireMapper">
+    
+    <resultMap type="Questionnaire" id="QuestionnaireResult">
+        <result property="id"    column="id"    />
+        <result property="companyName"    column="company_name"    />
+        <result property="socialCreditCode"    column="social_credit_code"    />
+        <result property="industry"    column="industry"    />
+        <result property="priorYearIncome"    column="prior_year_income"    />
+        <result property="overseasSalesArea"    column="overseas_sales_area"    />
+        <result property="operatingIncomeRatio"    column="operating_income_ratio"    />
+        <result property="employeesNumber"    column="employees_number"    />
+        <result property="contactName"    column="contact_name"    />
+        <result property="contactMobile"    column="contact_mobile"    />
+        <result property="email"    column="email"    />
+        <result property="cloudServer"    column="cloud_server"    />
+        <result property="ip"    column="ip"    />
+        <result property="bandwidths"    column="bandwidths"    />
+        <result property="operator"    column="operator"    />
+        <result property="networkTopology"    column="network_topology"    />
+        <result property="networkTopologyPath"    column="network_topology_path"    />
+        <result property="extranetArea"    column="extranet_area"    />
+        <result property="dmzArea"    column="dmz_area"    />
+        <result property="intranetArea"    column="intranet_area"    />
+        <result property="officeArea"    column="office_area"    />
+        <result property="operationArea"    column="operation_area"    />
+        <result property="industrialZone"    column="industrial_zone"    />
+        <result property="ipSegment"    column="ip_segment"    />
+        <result property="isFirewalls"    column="is_firewalls"    />
+        <result property="firewallsBrand"    column="firewalls_brand"    />
+        <result property="firewallsDate"    column="firewalls_date"    />
+        <result property="isFirewallsInnocence"    column="is_firewalls_innocence"    />
+        <result property="isDatabaseAudits"    column="is_database_audits"    />
+        <result property="databaseAuditsBrand"    column="database_audits_brand"    />
+        <result property="databaseAuditsDate"    column="database_audits_date"    />
+        <result property="isDatabaseAuditsInnocence"    column="is_database_audits_innocence"    />
+        <result property="isLogAudit"    column="is_log_audit"    />
+        <result property="logAuditBrand"    column="log_audit_brand"    />
+        <result property="logAuditDate"    column="log_audit_date"    />
+        <result property="isLogAuditInnocence"    column="is_log_audit_innocence"    />
+        <result property="isCitadel"    column="is_citadel"    />
+        <result property="citadelBrand"    column="citadel_brand"    />
+        <result property="citadelDate"    column="citadel_date"    />
+        <result property="isCitadelInnocence"    column="is_citadel_innocence"    />
+        <result property="isSituational"    column="is_situational"    />
+        <result property="situationalBrand"    column="situational_brand"    />
+        <result property="situationalDate"    column="situational_date"    />
+        <result property="isSituationalInnocence"    column="is_situational_innocence"    />
+        <result property="isWaf"    column="is_waf"    />
+        <result property="wafBrand"    column="waf_brand"    />
+        <result property="wafDate"    column="waf_date"    />
+        <result property="isWafInnocence"    column="is_waf_innocence"    />
+        <result property="isScan"    column="is_scan"    />
+        <result property="scanBrand"    column="scan_brand"    />
+        <result property="scanDate"    column="scan_date"    />
+        <result property="isScanInnocence"    column="is_scan_innocence"    />
+        <result property="isEdr"    column="is_edr"    />
+        <result property="edrBrand"    column="edr_brand"    />
+        <result property="edrDate"    column="edr_date"    />
+        <result property="isEdrInnocence"    column="is_edr_innocence"    />
+        <result property="isPrivilegedEnv"    column="is_privileged_env"    />
+        <result property="privilegedEnvBrand"    column="privileged_env_brand"    />
+        <result property="privilegedEnvDate"    column="privileged_env_date"    />
+        <result property="isPrivilegedEnvInnocence"    column="is_privileged_env_innocence"    />
+        <result property="isInternetAccess"    column="is_internet_access"    />
+        <result property="internetAccessBrand"    column="internet_access_brand"    />
+        <result property="internetAccessDate"    column="internet_access_date"    />
+        <result property="isInternetAccessInnocence"    column="is_internet_access_innocence"    />
+        <result property="isInternetDevice"    column="is_internet_device"    />
+        <result property="internetDeviceBrand"    column="internet_device_brand"    />
+        <result property="internetDeviceDate"    column="internet_device_date"    />
+        <result property="isInternetDeviceInnocence"    column="is_internet_device_innocence"    />
+        <result property="isAntiSoftware"    column="is_anti_software"    />
+        <result property="antiSoftwareBrand"    column="anti_software_brand"    />
+        <result property="antiSoftwareDate"    column="anti_software_date"    />
+        <result property="isAntiSoftwareInnocence"    column="is_anti_software_innocence"    />
+        <result property="isProbes"    column="is_probes"    />
+        <result property="probesBrand"    column="probes_brand"    />
+        <result property="probesDate"    column="probes_date"    />
+        <result property="isProbesInnocence"    column="is_probes_innocence"    />
+        <result property="safetyOther"    column="safety_other"    />
+        <result property="cyberSecurity"    column="cyber_security"    />
+        <result property="hardwareRes"    column="hardware_res"    />
+        <result property="officeRes"    column="office_res"    />
+        <result property="businessRes"    column="business_res"    />
+        <result property="ancillaryRes"    column="ancillary_res"    />
+        <result property="pagingSystem"    column="paging_system"    />
+        <result property="messageSystem"    column="message_system"    />
+        <result property="environmentalSystem"    column="environmental_system"    />
+        <result property="externalSystemOther"    column="external_system_other"    />
+        <result property="webPortal"    column="web_portal"    />
+        <result property="internetBusinessSite"    column="internet_business_site"    />
+        <result property="aliPay"    column="ali_pay"    />
+        <result property="wechatPay"    column="wechat_pay"    />
+        <result property="wechatPublicNumber"    column="wechat_public_number"    />
+        <result property="externalSystemBusOther"    column="external_system_bus_other"    />
+        <result property="unlimitedNetwork"    column="unlimited_network"    />
+        <result property="selfServiceMachine"    column="self_service_machine"    />
+        <result property="scanningMachine"    column="scanning_machine"    />
+        <result property="padDevice"    column="pad_device"    />
+        <result property="handheldDevice"    column="handheld_device"    />
+        <result property="ancillaryDeviceOther"    column="ancillary_device_other"    />
+        <result property="ancillaryDeviceOtherEre"    column="ancillary_device_other_ere"    />
+        <result property="equalProtectionSystemA"    column="equal_protection_system_a"    />
+        <result property="equalProtectionSystemADetail"    column="equal_protection_system_a_detail"    />
+        <result property="equalProtectionSystemB"    column="equal_protection_system_b"    />
+        <result property="equalProtectionSystemBDetail"    column="equal_protection_system_b_detail"    />
+        <result property="equalProtectionSystemC"    column="equal_protection_system_c"    />
+        <result property="equalProtectionSystemCDetail"    column="equal_protection_system_c_detail"    />
+        <result property="cybersecurityServices"    column="cybersecurity_services"    />
+        <result property="cybersecurityServicesSub"    column="cybersecurity_services_sub"    />
+        <result property="secInfo1"    column="sec_info1"    />
+        <result property="secInfo2"    column="sec_info2"    />
+        <result property="secInfo3"    column="sec_info3"    />
+        <result property="secInfo4"    column="sec_info4"    />
+        <result property="secInfo5"    column="sec_info5"    />
+        <result property="secInfo6"    column="sec_info6"    />
+        <result property="secInfo7"    column="sec_info7"    />
+        <result property="secInfo8"    column="sec_info8"    />
+        <result property="secInfo9"    column="sec_info9"    />
+        <result property="secInfo10"    column="sec_info10"    />
+        <result property="secInfo11"    column="sec_info11"    />
+        <result property="secInfo12"    column="sec_info12"    />
+        <result property="secInfo13"    column="sec_info13"    />
+        <result property="secInfo14"    column="sec_info14"    />
+        <result property="secInfo15"    column="sec_info15"    />
+        <result property="secInfo16"    column="sec_info16"    />
+        <result property="secInfo17"    column="sec_info17"    />
+        <result property="secInfo18"    column="sec_info18"    />
+        <result property="secInfo19"    column="sec_info19"    />
+        <result property="secInfo20"    column="sec_info20"    />
+        <result property="secInfo21"    column="sec_info21"    />
+        <result property="secInfo22"    column="sec_info22"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updatedTime"    column="updated_time"    />
+        <result property="userId"    column="user_id"    />
+    </resultMap>
+
+    <sql id="selectQuestionnaireVo">
+        select id, company_name, social_credit_code, industry, prior_year_income, overseas_sales_area, operating_income_ratio, employees_number, contact_name, contact_mobile, email, cloud_server, ip, bandwidths, operator, network_topology, network_topology_path, extranet_area, dmz_area, intranet_area, office_area, operation_area, industrial_zone, ip_segment, is_firewalls, firewalls_brand, firewalls_date, is_firewalls_innocence, is_database_audits, database_audits_brand, database_audits_date, is_database_audits_innocence, is_log_audit, log_audit_brand, log_audit_date, is_log_audit_innocence, is_citadel, citadel_brand, citadel_date, is_citadel_innocence, is_situational, situational_brand, situational_date, is_situational_innocence, is_waf, waf_brand, waf_date, is_waf_innocence, is_scan, scan_brand, scan_date, is_scan_innocence, is_edr, edr_brand, edr_date, is_edr_innocence, is_privileged_env, privileged_env_brand, privileged_env_date, is_privileged_env_innocence, is_internet_access, internet_access_brand, internet_access_date, is_internet_access_innocence, is_internet_device, internet_device_brand, internet_device_date, is_internet_device_innocence, is_anti_software, anti_software_brand, anti_software_date, is_anti_software_innocence, is_probes, probes_brand, probes_date, is_probes_innocence, safety_other, cyber_security, hardware_res, office_res, business_res, ancillary_res, paging_system, message_system, environmental_system, external_system_other, web_portal, internet_business_site, ali_pay, wechat_pay, wechat_public_number, external_system_bus_other, unlimited_network, self_service_machine, scanning_machine, pad_device, handheld_device, ancillary_device_other, ancillary_device_other_ere, equal_protection_system_a, equal_protection_system_a_detail, equal_protection_system_b, equal_protection_system_b_detail, equal_protection_system_c, equal_protection_system_c_detail, cybersecurity_services, cybersecurity_services_sub, sec_info1, sec_info2, sec_info3, sec_info4, sec_info5, sec_info6, sec_info7, sec_info8, sec_info9, sec_info10, sec_info11, sec_info12, sec_info13, sec_info14, sec_info15, sec_info16, sec_info17, sec_info18, sec_info19, sec_info20, sec_info21, sec_info22, create_time, updated_time, user_id from questionnaire
+    </sql>
+
+    <select id="selectQuestionnaireList" parameterType="Questionnaire" resultMap="QuestionnaireResult">
+        <include refid="selectQuestionnaireVo"/>
+        <where>  
+            <if test="companyName != null  and companyName != ''"> and company_name like concat('%', #{companyName}, '%')</if>
+            <if test="socialCreditCode != null  and socialCreditCode != ''"> and social_credit_code = #{socialCreditCode}</if>
+            <if test="industry != null  and industry != ''"> and industry = #{industry}</if>
+            <if test="priorYearIncome != null  and priorYearIncome != ''"> and prior_year_income = #{priorYearIncome}</if>
+            <if test="overseasSalesArea != null  and overseasSalesArea != ''"> and overseas_sales_area = #{overseasSalesArea}</if>
+            <if test="operatingIncomeRatio != null  and operatingIncomeRatio != ''"> and operating_income_ratio = #{operatingIncomeRatio}</if>
+            <if test="employeesNumber != null  and employeesNumber != ''"> and employees_number = #{employeesNumber}</if>
+            <if test="contactName != null  and contactName != ''"> and contact_name like concat('%', #{contactName}, '%')</if>
+            <if test="contactMobile != null  and contactMobile != ''"> and contact_mobile = #{contactMobile}</if>
+            <if test="email != null  and email != ''"> and email = #{email}</if>
+            <if test="cloudServer != null  and cloudServer != ''"> and cloud_server = #{cloudServer}</if>
+            <if test="ip != null  and ip != ''"> and ip = #{ip}</if>
+            <if test="bandwidths != null  and bandwidths != ''"> and bandwidths = #{bandwidths}</if>
+            <if test="operator != null  and operator != ''"> and operator = #{operator}</if>
+            <if test="networkTopology != null  and networkTopology != ''"> and network_topology = #{networkTopology}</if>
+            <if test="networkTopologyPath != null  and networkTopologyPath != ''"> and network_topology_path = #{networkTopologyPath}</if>
+            <if test="extranetArea != null  and extranetArea != ''"> and extranet_area = #{extranetArea}</if>
+            <if test="dmzArea != null  and dmzArea != ''"> and dmz_area = #{dmzArea}</if>
+            <if test="intranetArea != null  and intranetArea != ''"> and intranet_area = #{intranetArea}</if>
+            <if test="officeArea != null  and officeArea != ''"> and office_area = #{officeArea}</if>
+            <if test="operationArea != null  and operationArea != ''"> and operation_area = #{operationArea}</if>
+            <if test="industrialZone != null  and industrialZone != ''"> and industrial_zone = #{industrialZone}</if>
+            <if test="ipSegment != null  and ipSegment != ''"> and ip_segment = #{ipSegment}</if>
+            <if test="isFirewalls != null  and isFirewalls != ''"> and is_firewalls = #{isFirewalls}</if>
+            <if test="firewallsBrand != null  and firewallsBrand != ''"> and firewalls_brand = #{firewallsBrand}</if>
+            <if test="firewallsDate != null "> and firewalls_date = #{firewallsDate}</if>
+            <if test="isFirewallsInnocence != null  and isFirewallsInnocence != ''"> and is_firewalls_innocence = #{isFirewallsInnocence}</if>
+            <if test="isDatabaseAudits != null  and isDatabaseAudits != ''"> and is_database_audits = #{isDatabaseAudits}</if>
+            <if test="databaseAuditsBrand != null  and databaseAuditsBrand != ''"> and database_audits_brand = #{databaseAuditsBrand}</if>
+            <if test="databaseAuditsDate != null "> and database_audits_date = #{databaseAuditsDate}</if>
+            <if test="isDatabaseAuditsInnocence != null  and isDatabaseAuditsInnocence != ''"> and is_database_audits_innocence = #{isDatabaseAuditsInnocence}</if>
+            <if test="isLogAudit != null  and isLogAudit != ''"> and is_log_audit = #{isLogAudit}</if>
+            <if test="logAuditBrand != null  and logAuditBrand != ''"> and log_audit_brand = #{logAuditBrand}</if>
+            <if test="logAuditDate != null "> and log_audit_date = #{logAuditDate}</if>
+            <if test="isLogAuditInnocence != null  and isLogAuditInnocence != ''"> and is_log_audit_innocence = #{isLogAuditInnocence}</if>
+            <if test="isCitadel != null  and isCitadel != ''"> and is_citadel = #{isCitadel}</if>
+            <if test="citadelBrand != null  and citadelBrand != ''"> and citadel_brand = #{citadelBrand}</if>
+            <if test="citadelDate != null "> and citadel_date = #{citadelDate}</if>
+            <if test="isCitadelInnocence != null  and isCitadelInnocence != ''"> and is_citadel_innocence = #{isCitadelInnocence}</if>
+            <if test="isSituational != null  and isSituational != ''"> and is_situational = #{isSituational}</if>
+            <if test="situationalBrand != null  and situationalBrand != ''"> and situational_brand = #{situationalBrand}</if>
+            <if test="situationalDate != null "> and situational_date = #{situationalDate}</if>
+            <if test="isSituationalInnocence != null  and isSituationalInnocence != ''"> and is_situational_innocence = #{isSituationalInnocence}</if>
+            <if test="isWaf != null  and isWaf != ''"> and is_waf = #{isWaf}</if>
+            <if test="wafBrand != null  and wafBrand != ''"> and waf_brand = #{wafBrand}</if>
+            <if test="wafDate != null "> and waf_date = #{wafDate}</if>
+            <if test="isWafInnocence != null  and isWafInnocence != ''"> and is_waf_innocence = #{isWafInnocence}</if>
+            <if test="isScan != null  and isScan != ''"> and is_scan = #{isScan}</if>
+            <if test="scanBrand != null  and scanBrand != ''"> and scan_brand = #{scanBrand}</if>
+            <if test="scanDate != null "> and scan_date = #{scanDate}</if>
+            <if test="isScanInnocence != null  and isScanInnocence != ''"> and is_scan_innocence = #{isScanInnocence}</if>
+            <if test="isEdr != null  and isEdr != ''"> and is_edr = #{isEdr}</if>
+            <if test="edrBrand != null  and edrBrand != ''"> and edr_brand = #{edrBrand}</if>
+            <if test="edrDate != null "> and edr_date = #{edrDate}</if>
+            <if test="isEdrInnocence != null  and isEdrInnocence != ''"> and is_edr_innocence = #{isEdrInnocence}</if>
+            <if test="isPrivilegedEnv != null  and isPrivilegedEnv != ''"> and is_privileged_env = #{isPrivilegedEnv}</if>
+            <if test="privilegedEnvBrand != null  and privilegedEnvBrand != ''"> and privileged_env_brand = #{privilegedEnvBrand}</if>
+            <if test="privilegedEnvDate != null "> and privileged_env_date = #{privilegedEnvDate}</if>
+            <if test="isPrivilegedEnvInnocence != null  and isPrivilegedEnvInnocence != ''"> and is_privileged_env_innocence = #{isPrivilegedEnvInnocence}</if>
+            <if test="isInternetAccess != null  and isInternetAccess != ''"> and is_internet_access = #{isInternetAccess}</if>
+            <if test="internetAccessBrand != null  and internetAccessBrand != ''"> and internet_access_brand = #{internetAccessBrand}</if>
+            <if test="internetAccessDate != null "> and internet_access_date = #{internetAccessDate}</if>
+            <if test="isInternetAccessInnocence != null  and isInternetAccessInnocence != ''"> and is_internet_access_innocence = #{isInternetAccessInnocence}</if>
+            <if test="isInternetDevice != null  and isInternetDevice != ''"> and is_internet_device = #{isInternetDevice}</if>
+            <if test="internetDeviceBrand != null  and internetDeviceBrand != ''"> and internet_device_brand = #{internetDeviceBrand}</if>
+            <if test="internetDeviceDate != null "> and internet_device_date = #{internetDeviceDate}</if>
+            <if test="isInternetDeviceInnocence != null  and isInternetDeviceInnocence != ''"> and is_internet_device_innocence = #{isInternetDeviceInnocence}</if>
+            <if test="isAntiSoftware != null  and isAntiSoftware != ''"> and is_anti_software = #{isAntiSoftware}</if>
+            <if test="antiSoftwareBrand != null  and antiSoftwareBrand != ''"> and anti_software_brand = #{antiSoftwareBrand}</if>
+            <if test="antiSoftwareDate != null "> and anti_software_date = #{antiSoftwareDate}</if>
+            <if test="isAntiSoftwareInnocence != null  and isAntiSoftwareInnocence != ''"> and is_anti_software_innocence = #{isAntiSoftwareInnocence}</if>
+            <if test="isProbes != null  and isProbes != ''"> and is_probes = #{isProbes}</if>
+            <if test="probesBrand != null  and probesBrand != ''"> and probes_brand = #{probesBrand}</if>
+            <if test="probesDate != null "> and probes_date = #{probesDate}</if>
+            <if test="isProbesInnocence != null  and isProbesInnocence != ''"> and is_probes_innocence = #{isProbesInnocence}</if>
+            <if test="safetyOther != null  and safetyOther != ''"> and safety_other = #{safetyOther}</if>
+            <if test="cyberSecurity != null  and cyberSecurity != ''"> and cyber_security = #{cyberSecurity}</if>
+            <if test="hardwareRes != null  and hardwareRes != ''"> and hardware_res = #{hardwareRes}</if>
+            <if test="officeRes != null  and officeRes != ''"> and office_res = #{officeRes}</if>
+            <if test="businessRes != null  and businessRes != ''"> and business_res = #{businessRes}</if>
+            <if test="ancillaryRes != null  and ancillaryRes != ''"> and ancillary_res = #{ancillaryRes}</if>
+            <if test="pagingSystem != null  and pagingSystem != ''"> and paging_system = #{pagingSystem}</if>
+            <if test="messageSystem != null  and messageSystem != ''"> and message_system = #{messageSystem}</if>
+            <if test="environmentalSystem != null  and environmentalSystem != ''"> and environmental_system = #{environmentalSystem}</if>
+            <if test="externalSystemOther != null  and externalSystemOther != ''"> and external_system_other = #{externalSystemOther}</if>
+            <if test="webPortal != null  and webPortal != ''"> and web_portal = #{webPortal}</if>
+            <if test="internetBusinessSite != null  and internetBusinessSite != ''"> and internet_business_site = #{internetBusinessSite}</if>
+            <if test="aliPay != null  and aliPay != ''"> and ali_pay = #{aliPay}</if>
+            <if test="wechatPay != null  and wechatPay != ''"> and wechat_pay = #{wechatPay}</if>
+            <if test="wechatPublicNumber != null  and wechatPublicNumber != ''"> and wechat_public_number = #{wechatPublicNumber}</if>
+            <if test="externalSystemBusOther != null  and externalSystemBusOther != ''"> and external_system_bus_other = #{externalSystemBusOther}</if>
+            <if test="unlimitedNetwork != null  and unlimitedNetwork != ''"> and unlimited_network = #{unlimitedNetwork}</if>
+            <if test="selfServiceMachine != null  and selfServiceMachine != ''"> and self_service_machine = #{selfServiceMachine}</if>
+            <if test="scanningMachine != null  and scanningMachine != ''"> and scanning_machine = #{scanningMachine}</if>
+            <if test="padDevice != null  and padDevice != ''"> and pad_device = #{padDevice}</if>
+            <if test="handheldDevice != null  and handheldDevice != ''"> and handheld_device = #{handheldDevice}</if>
+            <if test="ancillaryDeviceOther != null  and ancillaryDeviceOther != ''"> and ancillary_device_other = #{ancillaryDeviceOther}</if>
+            <if test="ancillaryDeviceOtherEre != null  and ancillaryDeviceOtherEre != ''"> and ancillary_device_other_ere = #{ancillaryDeviceOtherEre}</if>
+            <if test="equalProtectionSystemA != null  and equalProtectionSystemA != ''"> and equal_protection_system_a = #{equalProtectionSystemA}</if>
+            <if test="equalProtectionSystemADetail != null  and equalProtectionSystemADetail != ''"> and equal_protection_system_a_detail = #{equalProtectionSystemADetail}</if>
+            <if test="equalProtectionSystemB != null  and equalProtectionSystemB != ''"> and equal_protection_system_b = #{equalProtectionSystemB}</if>
+            <if test="equalProtectionSystemBDetail != null  and equalProtectionSystemBDetail != ''"> and equal_protection_system_b_detail = #{equalProtectionSystemBDetail}</if>
+            <if test="equalProtectionSystemC != null  and equalProtectionSystemC != ''"> and equal_protection_system_c = #{equalProtectionSystemC}</if>
+            <if test="equalProtectionSystemCDetail != null  and equalProtectionSystemCDetail != ''"> and equal_protection_system_c_detail = #{equalProtectionSystemCDetail}</if>
+            <if test="cybersecurityServices != null  and cybersecurityServices != ''"> and cybersecurity_services = #{cybersecurityServices}</if>
+            <if test="cybersecurityServicesSub != null  and cybersecurityServicesSub != ''"> and cybersecurity_services_sub = #{cybersecurityServicesSub}</if>
+            <if test="secInfo1 != null  and secInfo1 != ''"> and sec_info1 = #{secInfo1}</if>
+            <if test="secInfo2 != null  and secInfo2 != ''"> and sec_info2 = #{secInfo2}</if>
+            <if test="secInfo3 != null  and secInfo3 != ''"> and sec_info3 = #{secInfo3}</if>
+            <if test="secInfo4 != null  and secInfo4 != ''"> and sec_info4 = #{secInfo4}</if>
+            <if test="secInfo5 != null  and secInfo5 != ''"> and sec_info5 = #{secInfo5}</if>
+            <if test="secInfo6 != null  and secInfo6 != ''"> and sec_info6 = #{secInfo6}</if>
+            <if test="secInfo7 != null  and secInfo7 != ''"> and sec_info7 = #{secInfo7}</if>
+            <if test="secInfo8 != null  and secInfo8 != ''"> and sec_info8 = #{secInfo8}</if>
+            <if test="secInfo9 != null  and secInfo9 != ''"> and sec_info9 = #{secInfo9}</if>
+            <if test="secInfo10 != null  and secInfo10 != ''"> and sec_info10 = #{secInfo10}</if>
+            <if test="secInfo11 != null  and secInfo11 != ''"> and sec_info11 = #{secInfo11}</if>
+            <if test="secInfo12 != null  and secInfo12 != ''"> and sec_info12 = #{secInfo12}</if>
+            <if test="secInfo13 != null  and secInfo13 != ''"> and sec_info13 = #{secInfo13}</if>
+            <if test="secInfo14 != null  and secInfo14 != ''"> and sec_info14 = #{secInfo14}</if>
+            <if test="secInfo15 != null  and secInfo15 != ''"> and sec_info15 = #{secInfo15}</if>
+            <if test="secInfo16 != null  and secInfo16 != ''"> and sec_info16 = #{secInfo16}</if>
+            <if test="secInfo17 != null  and secInfo17 != ''"> and sec_info17 = #{secInfo17}</if>
+            <if test="secInfo18 != null  and secInfo18 != ''"> and sec_info18 = #{secInfo18}</if>
+            <if test="secInfo19 != null  and secInfo19 != ''"> and sec_info19 = #{secInfo19}</if>
+            <if test="secInfo20 != null  and secInfo20 != ''"> and sec_info20 = #{secInfo20}</if>
+            <if test="secInfo21 != null  and secInfo21 != ''"> and sec_info21 = #{secInfo21}</if>
+            <if test="secInfo22 != null  and secInfo22 != ''"> and sec_info22 = #{secInfo22}</if>
+            <if test="updatedTime != null "> and updated_time = #{updatedTime}</if>
+            <if test="userId != null  and userId != ''"> and user_id = #{userId}</if>
+        </where>
+    </select>
+    
+    <select id="selectQuestionnaireById" parameterType="Long" resultMap="QuestionnaireResult">
+        <include refid="selectQuestionnaireVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertQuestionnaire" parameterType="Questionnaire" useGeneratedKeys="true" keyProperty="id">
+        insert into questionnaire
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="companyName != null and companyName != ''">company_name,</if>
+            <if test="socialCreditCode != null">social_credit_code,</if>
+            <if test="industry != null">industry,</if>
+            <if test="priorYearIncome != null">prior_year_income,</if>
+            <if test="overseasSalesArea != null">overseas_sales_area,</if>
+            <if test="operatingIncomeRatio != null">operating_income_ratio,</if>
+            <if test="employeesNumber != null">employees_number,</if>
+            <if test="contactName != null">contact_name,</if>
+            <if test="contactMobile != null">contact_mobile,</if>
+            <if test="email != null">email,</if>
+            <if test="cloudServer != null">cloud_server,</if>
+            <if test="ip != null">ip,</if>
+            <if test="bandwidths != null">bandwidths,</if>
+            <if test="operator != null">operator,</if>
+            <if test="networkTopology != null">network_topology,</if>
+            <if test="networkTopologyPath != null">network_topology_path,</if>
+            <if test="extranetArea != null">extranet_area,</if>
+            <if test="dmzArea != null">dmz_area,</if>
+            <if test="intranetArea != null">intranet_area,</if>
+            <if test="officeArea != null">office_area,</if>
+            <if test="operationArea != null">operation_area,</if>
+            <if test="industrialZone != null">industrial_zone,</if>
+            <if test="ipSegment != null">ip_segment,</if>
+            <if test="isFirewalls != null">is_firewalls,</if>
+            <if test="firewallsBrand != null">firewalls_brand,</if>
+            <if test="firewallsDate != null">firewalls_date,</if>
+            <if test="isFirewallsInnocence != null">is_firewalls_innocence,</if>
+            <if test="isDatabaseAudits != null">is_database_audits,</if>
+            <if test="databaseAuditsBrand != null">database_audits_brand,</if>
+            <if test="databaseAuditsDate != null">database_audits_date,</if>
+            <if test="isDatabaseAuditsInnocence != null">is_database_audits_innocence,</if>
+            <if test="isLogAudit != null">is_log_audit,</if>
+            <if test="logAuditBrand != null">log_audit_brand,</if>
+            <if test="logAuditDate != null">log_audit_date,</if>
+            <if test="isLogAuditInnocence != null">is_log_audit_innocence,</if>
+            <if test="isCitadel != null">is_citadel,</if>
+            <if test="citadelBrand != null">citadel_brand,</if>
+            <if test="citadelDate != null">citadel_date,</if>
+            <if test="isCitadelInnocence != null">is_citadel_innocence,</if>
+            <if test="isSituational != null">is_situational,</if>
+            <if test="situationalBrand != null">situational_brand,</if>
+            <if test="situationalDate != null">situational_date,</if>
+            <if test="isSituationalInnocence != null">is_situational_innocence,</if>
+            <if test="isWaf != null">is_waf,</if>
+            <if test="wafBrand != null">waf_brand,</if>
+            <if test="wafDate != null">waf_date,</if>
+            <if test="isWafInnocence != null">is_waf_innocence,</if>
+            <if test="isScan != null">is_scan,</if>
+            <if test="scanBrand != null">scan_brand,</if>
+            <if test="scanDate != null">scan_date,</if>
+            <if test="isScanInnocence != null">is_scan_innocence,</if>
+            <if test="isEdr != null">is_edr,</if>
+            <if test="edrBrand != null">edr_brand,</if>
+            <if test="edrDate != null">edr_date,</if>
+            <if test="isEdrInnocence != null">is_edr_innocence,</if>
+            <if test="isPrivilegedEnv != null">is_privileged_env,</if>
+            <if test="privilegedEnvBrand != null">privileged_env_brand,</if>
+            <if test="privilegedEnvDate != null">privileged_env_date,</if>
+            <if test="isPrivilegedEnvInnocence != null">is_privileged_env_innocence,</if>
+            <if test="isInternetAccess != null">is_internet_access,</if>
+            <if test="internetAccessBrand != null">internet_access_brand,</if>
+            <if test="internetAccessDate != null">internet_access_date,</if>
+            <if test="isInternetAccessInnocence != null">is_internet_access_innocence,</if>
+            <if test="isInternetDevice != null">is_internet_device,</if>
+            <if test="internetDeviceBrand != null">internet_device_brand,</if>
+            <if test="internetDeviceDate != null">internet_device_date,</if>
+            <if test="isInternetDeviceInnocence != null">is_internet_device_innocence,</if>
+            <if test="isAntiSoftware != null">is_anti_software,</if>
+            <if test="antiSoftwareBrand != null">anti_software_brand,</if>
+            <if test="antiSoftwareDate != null">anti_software_date,</if>
+            <if test="isAntiSoftwareInnocence != null">is_anti_software_innocence,</if>
+            <if test="isProbes != null">is_probes,</if>
+            <if test="probesBrand != null">probes_brand,</if>
+            <if test="probesDate != null">probes_date,</if>
+            <if test="isProbesInnocence != null">is_probes_innocence,</if>
+            <if test="safetyOther != null">safety_other,</if>
+            <if test="cyberSecurity != null">cyber_security,</if>
+            <if test="hardwareRes != null">hardware_res,</if>
+            <if test="officeRes != null">office_res,</if>
+            <if test="businessRes != null">business_res,</if>
+            <if test="ancillaryRes != null">ancillary_res,</if>
+            <if test="pagingSystem != null">paging_system,</if>
+            <if test="messageSystem != null">message_system,</if>
+            <if test="environmentalSystem != null">environmental_system,</if>
+            <if test="externalSystemOther != null">external_system_other,</if>
+            <if test="webPortal != null">web_portal,</if>
+            <if test="internetBusinessSite != null">internet_business_site,</if>
+            <if test="aliPay != null">ali_pay,</if>
+            <if test="wechatPay != null">wechat_pay,</if>
+            <if test="wechatPublicNumber != null">wechat_public_number,</if>
+            <if test="externalSystemBusOther != null">external_system_bus_other,</if>
+            <if test="unlimitedNetwork != null">unlimited_network,</if>
+            <if test="selfServiceMachine != null">self_service_machine,</if>
+            <if test="scanningMachine != null">scanning_machine,</if>
+            <if test="padDevice != null">pad_device,</if>
+            <if test="handheldDevice != null">handheld_device,</if>
+            <if test="ancillaryDeviceOther != null">ancillary_device_other,</if>
+            <if test="ancillaryDeviceOtherEre != null">ancillary_device_other_ere,</if>
+            <if test="equalProtectionSystemA != null">equal_protection_system_a,</if>
+            <if test="equalProtectionSystemADetail != null">equal_protection_system_a_detail,</if>
+            <if test="equalProtectionSystemB != null">equal_protection_system_b,</if>
+            <if test="equalProtectionSystemBDetail != null">equal_protection_system_b_detail,</if>
+            <if test="equalProtectionSystemC != null">equal_protection_system_c,</if>
+            <if test="equalProtectionSystemCDetail != null">equal_protection_system_c_detail,</if>
+            <if test="cybersecurityServices != null">cybersecurity_services,</if>
+            <if test="cybersecurityServicesSub != null">cybersecurity_services_sub,</if>
+            <if test="secInfo1 != null">sec_info1,</if>
+            <if test="secInfo2 != null">sec_info2,</if>
+            <if test="secInfo3 != null">sec_info3,</if>
+            <if test="secInfo4 != null">sec_info4,</if>
+            <if test="secInfo5 != null">sec_info5,</if>
+            <if test="secInfo6 != null">sec_info6,</if>
+            <if test="secInfo7 != null">sec_info7,</if>
+            <if test="secInfo8 != null">sec_info8,</if>
+            <if test="secInfo9 != null">sec_info9,</if>
+            <if test="secInfo10 != null">sec_info10,</if>
+            <if test="secInfo11 != null">sec_info11,</if>
+            <if test="secInfo12 != null">sec_info12,</if>
+            <if test="secInfo13 != null">sec_info13,</if>
+            <if test="secInfo14 != null">sec_info14,</if>
+            <if test="secInfo15 != null">sec_info15,</if>
+            <if test="secInfo16 != null">sec_info16,</if>
+            <if test="secInfo17 != null">sec_info17,</if>
+            <if test="secInfo18 != null">sec_info18,</if>
+            <if test="secInfo19 != null">sec_info19,</if>
+            <if test="secInfo20 != null">sec_info20,</if>
+            <if test="secInfo21 != null">sec_info21,</if>
+            <if test="secInfo22 != null">sec_info22,</if>
+            create_time,
+            updated_time,
+            <if test="userId != null">user_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="companyName != null and companyName != ''">#{companyName},</if>
+            <if test="socialCreditCode != null">#{socialCreditCode},</if>
+            <if test="industry != null">#{industry},</if>
+            <if test="priorYearIncome != null">#{priorYearIncome},</if>
+            <if test="overseasSalesArea != null">#{overseasSalesArea},</if>
+            <if test="operatingIncomeRatio != null">#{operatingIncomeRatio},</if>
+            <if test="employeesNumber != null">#{employeesNumber},</if>
+            <if test="contactName != null">#{contactName},</if>
+            <if test="contactMobile != null">#{contactMobile},</if>
+            <if test="email != null">#{email},</if>
+            <if test="cloudServer != null">#{cloudServer},</if>
+            <if test="ip != null">#{ip},</if>
+            <if test="bandwidths != null">#{bandwidths},</if>
+            <if test="operator != null">#{operator},</if>
+            <if test="networkTopology != null">#{networkTopology},</if>
+            <if test="networkTopologyPath != null">#{networkTopologyPath},</if>
+            <if test="extranetArea != null">#{extranetArea},</if>
+            <if test="dmzArea != null">#{dmzArea},</if>
+            <if test="intranetArea != null">#{intranetArea},</if>
+            <if test="officeArea != null">#{officeArea},</if>
+            <if test="operationArea != null">#{operationArea},</if>
+            <if test="industrialZone != null">#{industrialZone},</if>
+            <if test="ipSegment != null">#{ipSegment},</if>
+            <if test="isFirewalls != null">#{isFirewalls},</if>
+            <if test="firewallsBrand != null">#{firewallsBrand},</if>
+            <if test="firewallsDate != null">#{firewallsDate},</if>
+            <if test="isFirewallsInnocence != null">#{isFirewallsInnocence},</if>
+            <if test="isDatabaseAudits != null">#{isDatabaseAudits},</if>
+            <if test="databaseAuditsBrand != null">#{databaseAuditsBrand},</if>
+            <if test="databaseAuditsDate != null">#{databaseAuditsDate},</if>
+            <if test="isDatabaseAuditsInnocence != null">#{isDatabaseAuditsInnocence},</if>
+            <if test="isLogAudit != null">#{isLogAudit},</if>
+            <if test="logAuditBrand != null">#{logAuditBrand},</if>
+            <if test="logAuditDate != null">#{logAuditDate},</if>
+            <if test="isLogAuditInnocence != null">#{isLogAuditInnocence},</if>
+            <if test="isCitadel != null">#{isCitadel},</if>
+            <if test="citadelBrand != null">#{citadelBrand},</if>
+            <if test="citadelDate != null">#{citadelDate},</if>
+            <if test="isCitadelInnocence != null">#{isCitadelInnocence},</if>
+            <if test="isSituational != null">#{isSituational},</if>
+            <if test="situationalBrand != null">#{situationalBrand},</if>
+            <if test="situationalDate != null">#{situationalDate},</if>
+            <if test="isSituationalInnocence != null">#{isSituationalInnocence},</if>
+            <if test="isWaf != null">#{isWaf},</if>
+            <if test="wafBrand != null">#{wafBrand},</if>
+            <if test="wafDate != null">#{wafDate},</if>
+            <if test="isWafInnocence != null">#{isWafInnocence},</if>
+            <if test="isScan != null">#{isScan},</if>
+            <if test="scanBrand != null">#{scanBrand},</if>
+            <if test="scanDate != null">#{scanDate},</if>
+            <if test="isScanInnocence != null">#{isScanInnocence},</if>
+            <if test="isEdr != null">#{isEdr},</if>
+            <if test="edrBrand != null">#{edrBrand},</if>
+            <if test="edrDate != null">#{edrDate},</if>
+            <if test="isEdrInnocence != null">#{isEdrInnocence},</if>
+            <if test="isPrivilegedEnv != null">#{isPrivilegedEnv},</if>
+            <if test="privilegedEnvBrand != null">#{privilegedEnvBrand},</if>
+            <if test="privilegedEnvDate != null">#{privilegedEnvDate},</if>
+            <if test="isPrivilegedEnvInnocence != null">#{isPrivilegedEnvInnocence},</if>
+            <if test="isInternetAccess != null">#{isInternetAccess},</if>
+            <if test="internetAccessBrand != null">#{internetAccessBrand},</if>
+            <if test="internetAccessDate != null">#{internetAccessDate},</if>
+            <if test="isInternetAccessInnocence != null">#{isInternetAccessInnocence},</if>
+            <if test="isInternetDevice != null">#{isInternetDevice},</if>
+            <if test="internetDeviceBrand != null">#{internetDeviceBrand},</if>
+            <if test="internetDeviceDate != null">#{internetDeviceDate},</if>
+            <if test="isInternetDeviceInnocence != null">#{isInternetDeviceInnocence},</if>
+            <if test="isAntiSoftware != null">#{isAntiSoftware},</if>
+            <if test="antiSoftwareBrand != null">#{antiSoftwareBrand},</if>
+            <if test="antiSoftwareDate != null">#{antiSoftwareDate},</if>
+            <if test="isAntiSoftwareInnocence != null">#{isAntiSoftwareInnocence},</if>
+            <if test="isProbes != null">#{isProbes},</if>
+            <if test="probesBrand != null">#{probesBrand},</if>
+            <if test="probesDate != null">#{probesDate},</if>
+            <if test="isProbesInnocence != null">#{isProbesInnocence},</if>
+            <if test="safetyOther != null">#{safetyOther},</if>
+            <if test="cyberSecurity != null">#{cyberSecurity},</if>
+            <if test="hardwareRes != null">#{hardwareRes},</if>
+            <if test="officeRes != null">#{officeRes},</if>
+            <if test="businessRes != null">#{businessRes},</if>
+            <if test="ancillaryRes != null">#{ancillaryRes},</if>
+            <if test="pagingSystem != null">#{pagingSystem},</if>
+            <if test="messageSystem != null">#{messageSystem},</if>
+            <if test="environmentalSystem != null">#{environmentalSystem},</if>
+            <if test="externalSystemOther != null">#{externalSystemOther},</if>
+            <if test="webPortal != null">#{webPortal},</if>
+            <if test="internetBusinessSite != null">#{internetBusinessSite},</if>
+            <if test="aliPay != null">#{aliPay},</if>
+            <if test="wechatPay != null">#{wechatPay},</if>
+            <if test="wechatPublicNumber != null">#{wechatPublicNumber},</if>
+            <if test="externalSystemBusOther != null">#{externalSystemBusOther},</if>
+            <if test="unlimitedNetwork != null">#{unlimitedNetwork},</if>
+            <if test="selfServiceMachine != null">#{selfServiceMachine},</if>
+            <if test="scanningMachine != null">#{scanningMachine},</if>
+            <if test="padDevice != null">#{padDevice},</if>
+            <if test="handheldDevice != null">#{handheldDevice},</if>
+            <if test="ancillaryDeviceOther != null">#{ancillaryDeviceOther},</if>
+            <if test="ancillaryDeviceOtherEre != null">#{ancillaryDeviceOtherEre},</if>
+            <if test="equalProtectionSystemA != null">#{equalProtectionSystemA},</if>
+            <if test="equalProtectionSystemADetail != null">#{equalProtectionSystemADetail},</if>
+            <if test="equalProtectionSystemB != null">#{equalProtectionSystemB},</if>
+            <if test="equalProtectionSystemBDetail != null">#{equalProtectionSystemBDetail},</if>
+            <if test="equalProtectionSystemC != null">#{equalProtectionSystemC},</if>
+            <if test="equalProtectionSystemCDetail != null">#{equalProtectionSystemCDetail},</if>
+            <if test="cybersecurityServices != null">#{cybersecurityServices},</if>
+            <if test="cybersecurityServicesSub != null">#{cybersecurityServicesSub},</if>
+            <if test="secInfo1 != null">#{secInfo1},</if>
+            <if test="secInfo2 != null">#{secInfo2},</if>
+            <if test="secInfo3 != null">#{secInfo3},</if>
+            <if test="secInfo4 != null">#{secInfo4},</if>
+            <if test="secInfo5 != null">#{secInfo5},</if>
+            <if test="secInfo6 != null">#{secInfo6},</if>
+            <if test="secInfo7 != null">#{secInfo7},</if>
+            <if test="secInfo8 != null">#{secInfo8},</if>
+            <if test="secInfo9 != null">#{secInfo9},</if>
+            <if test="secInfo10 != null">#{secInfo10},</if>
+            <if test="secInfo11 != null">#{secInfo11},</if>
+            <if test="secInfo12 != null">#{secInfo12},</if>
+            <if test="secInfo13 != null">#{secInfo13},</if>
+            <if test="secInfo14 != null">#{secInfo14},</if>
+            <if test="secInfo15 != null">#{secInfo15},</if>
+            <if test="secInfo16 != null">#{secInfo16},</if>
+            <if test="secInfo17 != null">#{secInfo17},</if>
+            <if test="secInfo18 != null">#{secInfo18},</if>
+            <if test="secInfo19 != null">#{secInfo19},</if>
+            <if test="secInfo20 != null">#{secInfo20},</if>
+            <if test="secInfo21 != null">#{secInfo21},</if>
+            <if test="secInfo22 != null">#{secInfo22},</if>
+            NOW(),
+            NOW(),
+            <if test="userId != null">#{userId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateQuestionnaire" parameterType="Questionnaire">
+        update questionnaire
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="companyName != null and companyName != ''">company_name = #{companyName},</if>
+            <if test="socialCreditCode != null">social_credit_code = #{socialCreditCode},</if>
+            <if test="industry != null">industry = #{industry},</if>
+            <if test="priorYearIncome != null">prior_year_income = #{priorYearIncome},</if>
+            <if test="overseasSalesArea != null">overseas_sales_area = #{overseasSalesArea},</if>
+            <if test="operatingIncomeRatio != null">operating_income_ratio = #{operatingIncomeRatio},</if>
+            <if test="employeesNumber != null">employees_number = #{employeesNumber},</if>
+            <if test="contactName != null">contact_name = #{contactName},</if>
+            <if test="contactMobile != null">contact_mobile = #{contactMobile},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="cloudServer != null">cloud_server = #{cloudServer},</if>
+            <if test="ip != null">ip = #{ip},</if>
+            <if test="bandwidths != null">bandwidths = #{bandwidths},</if>
+            <if test="operator != null">operator = #{operator},</if>
+            <if test="networkTopology != null">network_topology = #{networkTopology},</if>
+            <if test="networkTopologyPath != null">network_topology_path = #{networkTopologyPath},</if>
+            <if test="extranetArea != null">extranet_area = #{extranetArea},</if>
+            <if test="dmzArea != null">dmz_area = #{dmzArea},</if>
+            <if test="intranetArea != null">intranet_area = #{intranetArea},</if>
+            <if test="officeArea != null">office_area = #{officeArea},</if>
+            <if test="operationArea != null">operation_area = #{operationArea},</if>
+            <if test="industrialZone != null">industrial_zone = #{industrialZone},</if>
+            <if test="ipSegment != null">ip_segment = #{ipSegment},</if>
+            <if test="isFirewalls != null">is_firewalls = #{isFirewalls},</if>
+            <if test="firewallsBrand != null">firewalls_brand = #{firewallsBrand},</if>
+            <if test="firewallsDate != null">firewalls_date = #{firewallsDate},</if>
+            <if test="isFirewallsInnocence != null">is_firewalls_innocence = #{isFirewallsInnocence},</if>
+            <if test="isDatabaseAudits != null">is_database_audits = #{isDatabaseAudits},</if>
+            <if test="databaseAuditsBrand != null">database_audits_brand = #{databaseAuditsBrand},</if>
+            <if test="databaseAuditsDate != null">database_audits_date = #{databaseAuditsDate},</if>
+            <if test="isDatabaseAuditsInnocence != null">is_database_audits_innocence = #{isDatabaseAuditsInnocence},</if>
+            <if test="isLogAudit != null">is_log_audit = #{isLogAudit},</if>
+            <if test="logAuditBrand != null">log_audit_brand = #{logAuditBrand},</if>
+            <if test="logAuditDate != null">log_audit_date = #{logAuditDate},</if>
+            <if test="isLogAuditInnocence != null">is_log_audit_innocence = #{isLogAuditInnocence},</if>
+            <if test="isCitadel != null">is_citadel = #{isCitadel},</if>
+            <if test="citadelBrand != null">citadel_brand = #{citadelBrand},</if>
+            <if test="citadelDate != null">citadel_date = #{citadelDate},</if>
+            <if test="isCitadelInnocence != null">is_citadel_innocence = #{isCitadelInnocence},</if>
+            <if test="isSituational != null">is_situational = #{isSituational},</if>
+            <if test="situationalBrand != null">situational_brand = #{situationalBrand},</if>
+            <if test="situationalDate != null">situational_date = #{situationalDate},</if>
+            <if test="isSituationalInnocence != null">is_situational_innocence = #{isSituationalInnocence},</if>
+            <if test="isWaf != null">is_waf = #{isWaf},</if>
+            <if test="wafBrand != null">waf_brand = #{wafBrand},</if>
+            <if test="wafDate != null">waf_date = #{wafDate},</if>
+            <if test="isWafInnocence != null">is_waf_innocence = #{isWafInnocence},</if>
+            <if test="isScan != null">is_scan = #{isScan},</if>
+            <if test="scanBrand != null">scan_brand = #{scanBrand},</if>
+            <if test="scanDate != null">scan_date = #{scanDate},</if>
+            <if test="isScanInnocence != null">is_scan_innocence = #{isScanInnocence},</if>
+            <if test="isEdr != null">is_edr = #{isEdr},</if>
+            <if test="edrBrand != null">edr_brand = #{edrBrand},</if>
+            <if test="edrDate != null">edr_date = #{edrDate},</if>
+            <if test="isEdrInnocence != null">is_edr_innocence = #{isEdrInnocence},</if>
+            <if test="isPrivilegedEnv != null">is_privileged_env = #{isPrivilegedEnv},</if>
+            <if test="privilegedEnvBrand != null">privileged_env_brand = #{privilegedEnvBrand},</if>
+            <if test="privilegedEnvDate != null">privileged_env_date = #{privilegedEnvDate},</if>
+            <if test="isPrivilegedEnvInnocence != null">is_privileged_env_innocence = #{isPrivilegedEnvInnocence},</if>
+            <if test="isInternetAccess != null">is_internet_access = #{isInternetAccess},</if>
+            <if test="internetAccessBrand != null">internet_access_brand = #{internetAccessBrand},</if>
+            <if test="internetAccessDate != null">internet_access_date = #{internetAccessDate},</if>
+            <if test="isInternetAccessInnocence != null">is_internet_access_innocence = #{isInternetAccessInnocence},</if>
+            <if test="isInternetDevice != null">is_internet_device = #{isInternetDevice},</if>
+            <if test="internetDeviceBrand != null">internet_device_brand = #{internetDeviceBrand},</if>
+            <if test="internetDeviceDate != null">internet_device_date = #{internetDeviceDate},</if>
+            <if test="isInternetDeviceInnocence != null">is_internet_device_innocence = #{isInternetDeviceInnocence},</if>
+            <if test="isAntiSoftware != null">is_anti_software = #{isAntiSoftware},</if>
+            <if test="antiSoftwareBrand != null">anti_software_brand = #{antiSoftwareBrand},</if>
+            <if test="antiSoftwareDate != null">anti_software_date = #{antiSoftwareDate},</if>
+            <if test="isAntiSoftwareInnocence != null">is_anti_software_innocence = #{isAntiSoftwareInnocence},</if>
+            <if test="isProbes != null">is_probes = #{isProbes},</if>
+            <if test="probesBrand != null">probes_brand = #{probesBrand},</if>
+            <if test="probesDate != null">probes_date = #{probesDate},</if>
+            <if test="isProbesInnocence != null">is_probes_innocence = #{isProbesInnocence},</if>
+            <if test="safetyOther != null">safety_other = #{safetyOther},</if>
+            <if test="cyberSecurity != null">cyber_security = #{cyberSecurity},</if>
+            <if test="hardwareRes != null">hardware_res = #{hardwareRes},</if>
+            <if test="officeRes != null">office_res = #{officeRes},</if>
+            <if test="businessRes != null">business_res = #{businessRes},</if>
+            <if test="ancillaryRes != null">ancillary_res = #{ancillaryRes},</if>
+            <if test="pagingSystem != null">paging_system = #{pagingSystem},</if>
+            <if test="messageSystem != null">message_system = #{messageSystem},</if>
+            <if test="environmentalSystem != null">environmental_system = #{environmentalSystem},</if>
+            <if test="externalSystemOther != null">external_system_other = #{externalSystemOther},</if>
+            <if test="webPortal != null">web_portal = #{webPortal},</if>
+            <if test="internetBusinessSite != null">internet_business_site = #{internetBusinessSite},</if>
+            <if test="aliPay != null">ali_pay = #{aliPay},</if>
+            <if test="wechatPay != null">wechat_pay = #{wechatPay},</if>
+            <if test="wechatPublicNumber != null">wechat_public_number = #{wechatPublicNumber},</if>
+            <if test="externalSystemBusOther != null">external_system_bus_other = #{externalSystemBusOther},</if>
+            <if test="unlimitedNetwork != null">unlimited_network = #{unlimitedNetwork},</if>
+            <if test="selfServiceMachine != null">self_service_machine = #{selfServiceMachine},</if>
+            <if test="scanningMachine != null">scanning_machine = #{scanningMachine},</if>
+            <if test="padDevice != null">pad_device = #{padDevice},</if>
+            <if test="handheldDevice != null">handheld_device = #{handheldDevice},</if>
+            <if test="ancillaryDeviceOther != null">ancillary_device_other = #{ancillaryDeviceOther},</if>
+            <if test="ancillaryDeviceOtherEre != null">ancillary_device_other_ere = #{ancillaryDeviceOtherEre},</if>
+            <if test="equalProtectionSystemA != null">equal_protection_system_a = #{equalProtectionSystemA},</if>
+            <if test="equalProtectionSystemADetail != null">equal_protection_system_a_detail = #{equalProtectionSystemADetail},</if>
+            <if test="equalProtectionSystemB != null">equal_protection_system_b = #{equalProtectionSystemB},</if>
+            <if test="equalProtectionSystemBDetail != null">equal_protection_system_b_detail = #{equalProtectionSystemBDetail},</if>
+            <if test="equalProtectionSystemC != null">equal_protection_system_c = #{equalProtectionSystemC},</if>
+            <if test="equalProtectionSystemCDetail != null">equal_protection_system_c_detail = #{equalProtectionSystemCDetail},</if>
+            <if test="cybersecurityServices != null">cybersecurity_services = #{cybersecurityServices},</if>
+            <if test="cybersecurityServicesSub != null">cybersecurity_services_sub = #{cybersecurityServicesSub},</if>
+            <if test="secInfo1 != null">sec_info1 = #{secInfo1},</if>
+            <if test="secInfo2 != null">sec_info2 = #{secInfo2},</if>
+            <if test="secInfo3 != null">sec_info3 = #{secInfo3},</if>
+            <if test="secInfo4 != null">sec_info4 = #{secInfo4},</if>
+            <if test="secInfo5 != null">sec_info5 = #{secInfo5},</if>
+            <if test="secInfo6 != null">sec_info6 = #{secInfo6},</if>
+            <if test="secInfo7 != null">sec_info7 = #{secInfo7},</if>
+            <if test="secInfo8 != null">sec_info8 = #{secInfo8},</if>
+            <if test="secInfo9 != null">sec_info9 = #{secInfo9},</if>
+            <if test="secInfo10 != null">sec_info10 = #{secInfo10},</if>
+            <if test="secInfo11 != null">sec_info11 = #{secInfo11},</if>
+            <if test="secInfo12 != null">sec_info12 = #{secInfo12},</if>
+            <if test="secInfo13 != null">sec_info13 = #{secInfo13},</if>
+            <if test="secInfo14 != null">sec_info14 = #{secInfo14},</if>
+            <if test="secInfo15 != null">sec_info15 = #{secInfo15},</if>
+            <if test="secInfo16 != null">sec_info16 = #{secInfo16},</if>
+            <if test="secInfo17 != null">sec_info17 = #{secInfo17},</if>
+            <if test="secInfo18 != null">sec_info18 = #{secInfo18},</if>
+            <if test="secInfo19 != null">sec_info19 = #{secInfo19},</if>
+            <if test="secInfo20 != null">sec_info20 = #{secInfo20},</if>
+            <if test="secInfo21 != null">sec_info21 = #{secInfo21},</if>
+            <if test="secInfo22 != null">sec_info22 = #{secInfo22},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updatedTime != null">updated_time = #{updatedTime},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteQuestionnaireById" parameterType="Long">
+        delete from questionnaire where id = #{id}
+    </delete>
+
+    <delete id="deleteQuestionnaireByIds" parameterType="String">
+        delete from questionnaire where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

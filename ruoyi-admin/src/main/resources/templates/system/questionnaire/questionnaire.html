@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('调查问卷库列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>企业名称：</label>
+                                <input type="text" name="companyName"/>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="system:questionnaire:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="system:questionnaire:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="system:questionnaire:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="system:questionnaire:export">
+                    <i class="fa fa-download"></i> 导出
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('system:questionnaire:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('system:questionnaire:remove')}]];
+        var prefix = ctx + "system/questionnaire";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "调查问卷库",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'id',
+                    title: '',
+                    visible: false
+                },
+                {
+                    field: 'companyName',
+                    title: '企业名称'
+                },
+                {
+                    field: 'socialCreditCode',
+                    title: '统一社会信用代码'
+                },
+                {
+                    field: 'industry',
+                    title: '所属行业'
+                },
+                {
+                    field: 'priorYearIncome',
+                    title: '上一年度营业收入'
+                },
+                {
+                    field: 'overseasSalesArea',
+                    title: '海外销售区域包括'
+                },
+                {
+                    field: 'operatingIncomeRatio',
+                    title: '分别的营业收入占比为'
+                },
+                {
+                    field: 'employeesNumber',
+                    title: '员工人数'
+                },
+                {
+                    field: 'contactName',
+                    title: '联系姓名'
+                },
+                {
+                    field: 'contactMobile',
+                    title: '联系电话'
+                },
+                {
+                    field: 'email',
+                    title: '电子邮箱'
+                },
+                {
+                    field: 'cloudServer',
+                    title: '是否云服务器'
+                },
+                {
+                    field: 'ip',
+                    title: 'IP地址'
+                },
+                {
+                    field: 'bandwidths',
+                    title: '带宽'
+                },
+                {
+                    field: 'operator',
+                    title: '运营商'
+                },
+                {
+                    field: 'networkTopology',
+                    title: '是否存在网络拓扑图'
+                },
+                {
+                    field: 'networkTopologyPath',
+                    title: '附件上传地址'
+                },
+                {
+                    field: 'extranetArea',
+                    title: '外网区'
+                },
+                {
+                    field: 'dmzArea',
+                    title: 'DMZ区'
+                },
+                {
+                    field: 'intranetArea',
+                    title: '内网区'
+                },
+                {
+                    field: 'officeArea',
+                    title: '办公区'
+                },
+                {
+                    field: 'operationArea',
+                    title: '运维区'
+                },
+                {
+                    field: 'industrialZone',
+                    title: '工业区'
+                },
+                {
+                    field: 'ipSegment',
+                    title: '单位使用的IP段及其用途'
+                },
+                {
+                    field: 'isFirewalls',
+                    title: '防火墙是否存在'
+                },
+                {
+                    field: 'firewallsBrand',
+                    title: '防火墙品牌'
+                },
+                {
+                    field: 'firewallsDate',
+                    title: '防火墙上线日期'
+                },
+                {
+                    field: 'isFirewallsInnocence',
+                    title: '防火墙是否在保'
+                },
+                {
+                    field: 'isDatabaseAudits',
+                    title: '数据库审计系统是否存在'
+                },
+                {
+                    field: 'databaseAuditsBrand',
+                    title: '数据库审计系统品牌'
+                },
+                {
+                    field: 'databaseAuditsDate',
+                    title: '数据库审计系统上线日期'
+                },
+                {
+                    field: 'isDatabaseAuditsInnocence',
+                    title: '数据库审计系统是否在保'
+                },
+                {
+                    field: 'isLogAudit',
+                    title: '日志审计系统是否存在'
+                },
+                {
+                    field: 'logAuditBrand',
+                    title: '日志审计系统品牌'
+                },
+                {
+                    field: 'logAuditDate',
+                    title: '日志审计系统上线日期'
+                },
+                {
+                    field: 'isLogAuditInnocence',
+                    title: '日志审计系统是否在保'
+                },
+                {
+                    field: 'isCitadel',
+                    title: '堡垒机是否存在'
+                },
+                {
+                    field: 'citadelBrand',
+                    title: '堡垒机品牌'
+                },
+                {
+                    field: 'citadelDate',
+                    title: '堡垒机上线日期'
+                },
+                {
+                    field: 'isCitadelInnocence',
+                    title: '堡垒机是否在保'
+                },
+                {
+                    field: 'isSituational',
+                    title: '态势感知是否存在'
+                },
+                {
+                    field: 'situationalBrand',
+                    title: '态势感知品牌'
+                },
+                {
+                    field: 'situationalDate',
+                    title: '态势感知上线日期'
+                },
+                {
+                    field: 'isSituationalInnocence',
+                    title: '态势感知是否在保'
+                },
+                {
+                    field: 'isWaf',
+                    title: 'WAF是否存在'
+                },
+                {
+                    field: 'wafBrand',
+                    title: 'WAF品牌'
+                },
+                {
+                    field: 'wafDate',
+                    title: 'WAF上线日期'
+                },
+                {
+                    field: 'isWafInnocence',
+                    title: 'WAF是否在保'
+                },
+                {
+                    field: 'isScan',
+                    title: '漏洞扫描是否存在'
+                },
+                {
+                    field: 'scanBrand',
+                    title: '漏洞扫描品牌'
+                },
+                {
+                    field: 'scanDate',
+                    title: '漏洞扫描上线日期'
+                },
+                {
+                    field: 'isScanInnocence',
+                    title: '漏洞扫描是否在保'
+                },
+                {
+                    field: 'isEdr',
+                    title: 'EDR是否存在'
+                },
+                {
+                    field: 'edrBrand',
+                    title: 'EDR品牌'
+                },
+                {
+                    field: 'edrDate',
+                    title: 'EDR上线日期'
+                },
+                {
+                    field: 'isEdrInnocence',
+                    title: 'EDR是否在保'
+                },
+                {
+                    field: 'isPrivilegedEnv',
+                    title: '蜜罐是否存在'
+                },
+                {
+                    field: 'privilegedEnvBrand',
+                    title: '蜜罐品牌'
+                },
+                {
+                    field: 'privilegedEnvDate',
+                    title: '蜜罐上线日期'
+                },
+                {
+                    field: 'isPrivilegedEnvInnocence',
+                    title: '蜜罐是否在保'
+                },
+                {
+                    field: 'isInternetAccess',
+                    title: '网闸是否存在'
+                },
+                {
+                    field: 'internetAccessBrand',
+                    title: '网闸品牌'
+                },
+                {
+                    field: 'internetAccessDate',
+                    title: '网闸上线日期'
+                },
+                {
+                    field: 'isInternetAccessInnocence',
+                    title: '网闸是否在保'
+                },
+                {
+                    field: 'isInternetDevice',
+                    title: '上网行为管理设备是否存在'
+                },
+                {
+                    field: 'internetDeviceBrand',
+                    title: '上网行为管理设备品牌'
+                },
+                {
+                    field: 'internetDeviceDate',
+                    title: '上网行为管理设备上线日期'
+                },
+                {
+                    field: 'isInternetDeviceInnocence',
+                    title: '上网行为管理设备是否在保'
+                },
+                {
+                    field: 'isAntiSoftware',
+                    title: '杀毒软件是否存在'
+                },
+                {
+                    field: 'antiSoftwareBrand',
+                    title: '杀毒软件品牌'
+                },
+                {
+                    field: 'antiSoftwareDate',
+                    title: '杀毒软件上线日期'
+                },
+                {
+                    field: 'isAntiSoftwareInnocence',
+                    title: '杀毒软件是否在保'
+                },
+                {
+                    field: 'isProbes',
+                    title: '探针是否存在'
+                },
+                {
+                    field: 'probesBrand',
+                    title: '探针品牌'
+                },
+                {
+                    field: 'probesDate',
+                    title: '探针上线日期'
+                },
+                {
+                    field: 'isProbesInnocence',
+                    title: '探针是否在保'
+                },
+                {
+                    field: 'safetyOther',
+                    title: '安全设备其他'
+                },
+                {
+                    field: 'cyberSecurity',
+                    title: '请列出您所在单位现有的网络安全专业从业人员情况'
+                },
+                {
+                    field: 'hardwareRes',
+                    title: '请列出您所在单位现有的硬件服务器设备及用途'
+                },
+                {
+                    field: 'officeRes',
+                    title: '办公系统'
+                },
+                {
+                    field: 'businessRes',
+                    title: '业务系统'
+                },
+                {
+                    field: 'ancillaryRes',
+                    title: '辅助系统'
+                },
+                {
+                    field: 'pagingSystem',
+                    title: '传呼系统'
+                },
+                {
+                    field: 'messageSystem',
+                    title: '短信系统'
+                },
+                {
+                    field: 'environmentalSystem',
+                    title: '环保系统'
+                },
+                {
+                    field: 'externalSystemOther',
+                    title: '其他外部系统 其他'
+                },
+                {
+                    field: 'webPortal',
+                    title: '门户网站'
+                },
+                {
+                    field: 'internetBusinessSite',
+                    title: '互联网业务站点'
+                },
+                {
+                    field: 'aliPay',
+                    title: '支付宝小程序'
+                },
+                {
+                    field: 'wechatPay',
+                    title: '微信小程序'
+                },
+                {
+                    field: 'wechatPublicNumber',
+                    title: '微信公众号'
+                },
+                {
+                    field: 'externalSystemBusOther',
+                    title: '外部业务系统 其他'
+                },
+                {
+                    field: 'unlimitedNetwork',
+                    title: '您所在单位是否提供无线局域网环境'
+                },
+                {
+                    field: 'selfServiceMachine',
+                    title: '自助机'
+                },
+                {
+                    field: 'scanningMachine',
+                    title: '扫码一体机'
+                },
+                {
+                    field: 'padDevice',
+                    title: 'PAD设备'
+                },
+                {
+                    field: 'handheldDevice',
+                    title: '手持遥控设备'
+                },
+                {
+                    field: 'ancillaryDeviceOther',
+                    title: '辅助设备其他'
+                },
+                {
+                    field: 'ancillaryDeviceOtherEre',
+                    title: '如存在联网辅助设备，请列出具体设备名称'
+                },
+                {
+                    field: 'equalProtectionSystemA',
+                    title: '等保系统1名称'
+                },
+                {
+                    field: 'equalProtectionSystemADetail',
+                    title: '等保等级1保护建设情况'
+                },
+                {
+                    field: 'equalProtectionSystemB',
+                    title: '等保系统2名称'
+                },
+                {
+                    field: 'equalProtectionSystemBDetail',
+                    title: '等保等级2保护建设情况'
+                },
+                {
+                    field: 'equalProtectionSystemC',
+                    title: '等保系统3名称'
+                },
+                {
+                    field: 'equalProtectionSystemCDetail',
+                    title: '等保等级3保护建设情况'
+                },
+                {
+                    field: 'cybersecurityServices',
+                    title: '网络安全服务情况'
+                },
+                {
+                    field: 'cybersecurityServicesSub',
+                    title: '网络安全情报订阅情况'
+                },
+                {
+                    field: 'secInfo1',
+                    title: '安全情况表格1'
+                },
+                {
+                    field: 'secInfo2',
+                    title: '安全情况表格2'
+                },
+                {
+                    field: 'secInfo3',
+                    title: '安全情况表格3'
+                },
+                {
+                    field: 'secInfo4',
+                    title: '安全情况表格4'
+                },
+                {
+                    field: 'secInfo5',
+                    title: '安全情况表格5'
+                },
+                {
+                    field: 'secInfo6',
+                    title: '安全情况表格6'
+                },
+                {
+                    field: 'secInfo7',
+                    title: '安全情况表格7'
+                },
+                {
+                    field: 'secInfo8',
+                    title: '安全情况表格8'
+                },
+                {
+                    field: 'secInfo9',
+                    title: '安全情况表格9'
+                },
+                {
+                    field: 'secInfo10',
+                    title: '安全情况表格10'
+                },
+                {
+                    field: 'secInfo11',
+                    title: '安全情况表格11'
+                },
+                {
+                    field: 'secInfo12',
+                    title: '安全情况表格12'
+                },
+                {
+                    field: 'secInfo13',
+                    title: '安全情况表格13'
+                },
+                {
+                    field: 'secInfo14',
+                    title: '安全情况表格14'
+                },
+                {
+                    field: 'secInfo15',
+                    title: '安全情况表格15'
+                },
+                {
+                    field: 'secInfo16',
+                    title: '安全情况表格16'
+                },
+                {
+                    field: 'secInfo17',
+                    title: '安全情况表格17'
+                },
+                {
+                    field: 'secInfo18',
+                    title: '安全情况表格18'
+                },
+                {
+                    field: 'secInfo19',
+                    title: '安全情况表格19'
+                },
+                {
+                    field: 'secInfo20',
+                    title: '安全情况表格20'
+                },
+                {
+                    field: 'secInfo21',
+                    title: '安全情况表格21'
+                },
+                {
+                    field: 'secInfo22',
+                    title: '安全情况表格22'
+                },
+                {
+                    field: 'updatedTime',
+                    title: '更新时间如有，请填写'
+                },
+                {
+                    field: 'userId',
+                    title: '客户id'
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.id + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增调查问卷库')" />
+    <th:block th:include="include :: datetimepicker-css" />
+    <th:block th:include="include :: bootstrap-fileinput-css"/>
+    <th:block th:include="include :: summernote-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-questionnaire-add">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label is-required">企业名称：</label>
+                <div class="col-sm-8">
+                    <input name="companyName" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">统一社会信用代码：</label>
+                <div class="col-sm-8">
+                    <input name="socialCreditCode" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">所属行业：</label>
+                <div class="col-sm-8">
+                    <input name="industry" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">上一年度营业收入：</label>
+                <div class="col-sm-8">
+                    <input name="priorYearIncome" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">海外销售区域包括：</label>
+                <div class="col-sm-8">
+                    <input name="overseasSalesArea" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">分别的营业收入占比为：</label>
+                <div class="col-sm-8">
+                    <input name="operatingIncomeRatio" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">员工人数：</label>
+                <div class="col-sm-8">
+                    <input name="employeesNumber" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">联系姓名：</label>
+                <div class="col-sm-8">
+                    <input name="contactName" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">联系电话：</label>
+                <div class="col-sm-8">
+                    <input name="contactMobile" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">电子邮箱：</label>
+                <div class="col-sm-8">
+                    <input name="email" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">IP地址：</label>
+                <div class="col-sm-8">
+                    <input name="ip" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">带宽：</label>
+                <div class="col-sm-8">
+                    <input name="bandwidths" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">运营商：</label>
+                <div class="col-sm-8">
+                    <input name="operator" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">是否存在网络拓扑图：</label>
+                <div class="col-sm-8">
+                    <input name="networkTopology" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">附件上传地址：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="networkTopologyPath">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="networkTopologyPath" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">外网区：</label>
+                <div class="col-sm-8">
+                    <input name="extranetArea" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">DMZ区：</label>
+                <div class="col-sm-8">
+                    <input name="dmzArea" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">内网区：</label>
+                <div class="col-sm-8">
+                    <input name="intranetArea" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">办公区：</label>
+                <div class="col-sm-8">
+                    <input name="officeArea" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">运维区：</label>
+                <div class="col-sm-8">
+                    <input name="operationArea" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">工业区：</label>
+                <div class="col-sm-8">
+                    <input name="industrialZone" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">单位使用的IP段及其用途：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="ipSegment">
+                    <div class="summernote" id="ipSegment"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">防火墙是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isFirewalls" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">防火墙品牌：</label>
+                <div class="col-sm-8">
+                    <input name="firewallsBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">防火墙上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="firewallsDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">防火墙是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isFirewallsInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">数据库审计系统是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isDatabaseAudits" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">数据库审计系统品牌：</label>
+                <div class="col-sm-8">
+                    <input name="databaseAuditsBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">数据库审计系统上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="databaseAuditsDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">数据库审计系统是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isDatabaseAuditsInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">日志审计系统是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isLogAudit" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">日志审计系统品牌：</label>
+                <div class="col-sm-8">
+                    <input name="logAuditBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">日志审计系统上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="logAuditDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">日志审计系统是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isLogAuditInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">堡垒机是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isCitadel" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">堡垒机品牌：</label>
+                <div class="col-sm-8">
+                    <input name="citadelBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">堡垒机上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="citadelDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">堡垒机是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isCitadelInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">态势感知是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isSituational" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">态势感知品牌：</label>
+                <div class="col-sm-8">
+                    <input name="situationalBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">态势感知上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="situationalDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">态势感知是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isSituationalInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">WAF是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isWaf" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">WAF品牌：</label>
+                <div class="col-sm-8">
+                    <input name="wafBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">WAF上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="wafDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">WAF是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isWafInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">漏洞扫描是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isScan" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">漏洞扫描品牌：</label>
+                <div class="col-sm-8">
+                    <input name="scanBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">漏洞扫描上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="scanDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">漏洞扫描是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isScanInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">EDR是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isEdr" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">EDR品牌：</label>
+                <div class="col-sm-8">
+                    <input name="edrBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">EDR上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="edrDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">EDR是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isEdrInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">蜜罐是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isPrivilegedEnv" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">蜜罐品牌：</label>
+                <div class="col-sm-8">
+                    <input name="privilegedEnvBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">蜜罐上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="privilegedEnvDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">蜜罐是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isPrivilegedEnvInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网闸是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isInternetAccess" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网闸品牌：</label>
+                <div class="col-sm-8">
+                    <input name="internetAccessBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网闸上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="internetAccessDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网闸是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isInternetAccessInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">上网行为管理设备是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isInternetDevice" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">上网行为管理设备品牌：</label>
+                <div class="col-sm-8">
+                    <input name="internetDeviceBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">上网行为管理设备上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="internetDeviceDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">上网行为管理设备是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isInternetDeviceInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">杀毒软件是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isAntiSoftware" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">杀毒软件品牌：</label>
+                <div class="col-sm-8">
+                    <input name="antiSoftwareBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">杀毒软件上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="antiSoftwareDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">杀毒软件是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isAntiSoftwareInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">探针是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isProbes" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">探针品牌：</label>
+                <div class="col-sm-8">
+                    <input name="probesBrand" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">探针上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="probesDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">探针是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isProbesInnocence" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全设备其他：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="safetyOther">
+                    <div class="summernote" id="safetyOther"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">请列出您所在单位现有的网络安全专业从业人员情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="cyberSecurity">
+                    <div class="summernote" id="cyberSecurity"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">请列出您所在单位现有的硬件服务器设备及用途：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="hardwareRes">
+                    <div class="summernote" id="hardwareRes"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">办公系统：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="officeRes">
+                    <div class="summernote" id="officeRes"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">业务系统：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="businessRes">
+                    <div class="summernote" id="businessRes"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">辅助系统：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="ancillaryRes">
+                    <div class="summernote" id="ancillaryRes"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">传呼系统：</label>
+                <div class="col-sm-8">
+                    <input name="pagingSystem" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">短信系统：</label>
+                <div class="col-sm-8">
+                    <input name="messageSystem" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">环保系统：</label>
+                <div class="col-sm-8">
+                    <input name="environmentalSystem" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">其他外部系统 其他：</label>
+                <div class="col-sm-8">
+                    <input name="externalSystemOther" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">门户网站：</label>
+                <div class="col-sm-8">
+                    <input name="webPortal" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">互联网业务站点：</label>
+                <div class="col-sm-8">
+                    <input name="internetBusinessSite" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">支付宝小程序：</label>
+                <div class="col-sm-8">
+                    <input name="aliPay" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">微信小程序：</label>
+                <div class="col-sm-8">
+                    <input name="wechatPay" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">微信公众号：</label>
+                <div class="col-sm-8">
+                    <input name="wechatPublicNumber" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">外部业务系统 其他：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="externalSystemBusOther">
+                    <div class="summernote" id="externalSystemBusOther"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">您所在单位是否提供无线局域网环境：</label>
+                <div class="col-sm-8">
+                    <input name="unlimitedNetwork" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">自助机：</label>
+                <div class="col-sm-8">
+                    <input name="selfServiceMachine" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">扫码一体机：</label>
+                <div class="col-sm-8">
+                    <input name="scanningMachine" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">PAD设备：</label>
+                <div class="col-sm-8">
+                    <input name="padDevice" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">手持遥控设备：</label>
+                <div class="col-sm-8">
+                    <input name="handheldDevice" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">辅助设备其他：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="ancillaryDeviceOther">
+                    <div class="summernote" id="ancillaryDeviceOther"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">如存在联网辅助设备，请列出具体设备名称：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="ancillaryDeviceOtherEre">
+                    <div class="summernote" id="ancillaryDeviceOtherEre"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保系统1名称：</label>
+                <div class="col-sm-8">
+                    <input name="equalProtectionSystemA" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保等级1保护建设情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="equalProtectionSystemADetail">
+                    <div class="summernote" id="equalProtectionSystemADetail"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保系统2名称：</label>
+                <div class="col-sm-8">
+                    <input name="equalProtectionSystemB" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保等级2保护建设情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="equalProtectionSystemBDetail">
+                    <div class="summernote" id="equalProtectionSystemBDetail"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保系统3名称：</label>
+                <div class="col-sm-8">
+                    <input name="equalProtectionSystemC" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保等级3保护建设情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="equalProtectionSystemCDetail">
+                    <div class="summernote" id="equalProtectionSystemCDetail"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网络安全服务情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="cybersecurityServices">
+                    <div class="summernote" id="cybersecurityServices"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网络安全情报订阅情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" name="cybersecurityServicesSub">
+                    <div class="summernote" id="cybersecurityServicesSub"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格1：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo1" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格2：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo2" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格3：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo3" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格4：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo4" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格5：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo5" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格6：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo6" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格7：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo7" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格8：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo8" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格9：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo9" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格10：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo10" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格11：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo11" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格12：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo12" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格13：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo13" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格14：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo14" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格15：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo15" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格16：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo16" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格17：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo17" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格18：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo18" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格19：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo19" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格20：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo20" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格21：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo21" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格22：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo22" class="form-control" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <th:block th:include="include :: bootstrap-fileinput-js"/>
+    <th:block th:include="include :: summernote-js" />
+    <script th:inline="javascript">
+        var prefix = ctx + "system/questionnaire"
+        $("#form-questionnaire-add").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/add", $('#form-questionnaire-add').serialize());
+            }
+        }
+
+        $("input[name='firewallsDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='databaseAuditsDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='logAuditDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='citadelDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='situationalDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='wafDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='scanDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='edrDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='privilegedEnvDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='internetAccessDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='internetDeviceDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='antiSoftwareDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='probesDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='updatedTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $(".file-upload").fileinput({
+            uploadUrl: ctx + 'common/upload',
+            maxFileCount: 1,
+            autoReplace: true
+        }).on('fileuploaded', function (event, data, previewId, index) {
+            $("input[name='" + event.currentTarget.id + "']").val(data.response.url)
+        }).on('fileremoved', function (event, id, index) {
+            $("input[name='" + event.currentTarget.id + "']").val('')
+        })
+
+        $(function() {
+            $('.summernote').summernote({
+                lang: 'zh-CN',
+                dialogsInBody: true,
+                callbacks: {
+                    onChange: function(contents, $edittable) {
+                        $("input[name='" + this.id + "']").val(contents);
+                    },
+                    onImageUpload: function(files) {
+                        var obj = this;
+                    	var data = new FormData();
+                    	data.append("file", files[0]);
+                    	$.ajax({
+                            type: "post",
+                            url: ctx + "common/upload",
+                    		data: data,
+                    		cache: false,
+                    		contentType: false,
+                    		processData: false,
+                    		dataType: 'json',
+                    		success: function(result) {
+                    		    if (result.code == web_status.SUCCESS) {
+                    		        $('#' + obj.id).summernote('insertImage', result.url);
+                    		    } else {
+                    		        $.modal.alertError(result.msg);
+                    		    }
+                    		},
+                    		error: function(error) {
+                    		    $.modal.alertWarning("图片上传失败。");
+                    		}
+                    	});
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

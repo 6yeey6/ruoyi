@@ -1,0 +1,127 @@
+package com.ruoyi.system.controller;
+
+import java.util.List;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import com.ruoyi.common.annotation.Log;
+import com.ruoyi.common.enums.BusinessType;
+import com.ruoyi.system.domain.Questionnaire;
+import com.ruoyi.system.service.IQuestionnaireService;
+import com.ruoyi.common.core.controller.BaseController;
+import com.ruoyi.common.core.domain.AjaxResult;
+import com.ruoyi.common.utils.poi.ExcelUtil;
+import com.ruoyi.common.core.page.TableDataInfo;
+
+/**
+ * 调查问卷库Controller
+ * 
+ * @author ruoyi
+ * @date 2024-08-23
+ */
+@Controller
+@RequestMapping("/system/questionnaire")
+public class QuestionnaireController extends BaseController
+{
+    private String prefix = "system/questionnaire";
+
+    @Autowired
+    private IQuestionnaireService questionnaireService;
+
+    @RequiresPermissions("system:questionnaire:view")
+    @GetMapping()
+    public String questionnaire()
+    {
+        return prefix + "/questionnaire";
+    }
+
+    /**
+     * 查询调查问卷库列表
+     */
+    @RequiresPermissions("system:questionnaire:list")
+    @PostMapping("/list")
+    @ResponseBody
+    public TableDataInfo list(Questionnaire questionnaire)
+    {
+        startPage();
+        List<Questionnaire> list = questionnaireService.selectQuestionnaireList(questionnaire);
+        return getDataTable(list);
+    }
+
+    /**
+     * 导出调查问卷库列表
+     */
+    @RequiresPermissions("system:questionnaire:export")
+    @Log(title = "调查问卷库", businessType = BusinessType.EXPORT)
+    @PostMapping("/export")
+    @ResponseBody
+    public AjaxResult export(Questionnaire questionnaire)
+    {
+        List<Questionnaire> list = questionnaireService.selectQuestionnaireList(questionnaire);
+        ExcelUtil<Questionnaire> util = new ExcelUtil<Questionnaire>(Questionnaire.class);
+        return util.exportExcel(list, "调查问卷库数据");
+    }
+
+    /**
+     * 新增调查问卷库
+     */
+    @GetMapping("/add")
+    public String add()
+    {
+        return prefix + "/add";
+    }
+
+    /**
+     * 新增保存调查问卷库
+     */
+    @RequiresPermissions("system:questionnaire:add")
+    @Log(title = "调查问卷库", businessType = BusinessType.INSERT)
+    @PostMapping("/add")
+    @ResponseBody
+    public AjaxResult addSave(Questionnaire questionnaire)
+    {
+        return toAjax(questionnaireService.insertQuestionnaire(questionnaire));
+    }
+
+    /**
+     * 修改调查问卷库
+     */
+    @RequiresPermissions("system:questionnaire:edit")
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") Long id, ModelMap mmap)
+    {
+        Questionnaire questionnaire = questionnaireService.selectQuestionnaireById(id);
+        mmap.put("questionnaire", questionnaire);
+        return prefix + "/edit";
+    }
+
+    /**
+     * 修改保存调查问卷库
+     */
+    @RequiresPermissions("system:questionnaire:edit")
+    @Log(title = "调查问卷库", businessType = BusinessType.UPDATE)
+    @PostMapping("/edit")
+    @ResponseBody
+    public AjaxResult editSave(Questionnaire questionnaire)
+    {
+        return toAjax(questionnaireService.updateQuestionnaire(questionnaire));
+    }
+
+    /**
+     * 删除调查问卷库
+     */
+    @RequiresPermissions("system:questionnaire:remove")
+    @Log(title = "调查问卷库", businessType = BusinessType.DELETE)
+    @PostMapping( "/remove")
+    @ResponseBody
+    public AjaxResult remove(String ids)
+    {
+        return toAjax(questionnaireService.deleteQuestionnaireByIds(ids));
+    }
+}

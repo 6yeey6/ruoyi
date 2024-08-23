@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改调查问卷库')" />
+    <th:block th:include="include :: datetimepicker-css" />
+    <th:block th:include="include :: bootstrap-fileinput-css"/>
+    <th:block th:include="include :: summernote-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-questionnaire-edit" th:object="${questionnaire}">
+            <input name="id" th:field="*{id}" type="hidden">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label is-required">企业名称：</label>
+                <div class="col-sm-8">
+                    <input name="companyName" th:field="*{companyName}" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">统一社会信用代码：</label>
+                <div class="col-sm-8">
+                    <input name="socialCreditCode" th:field="*{socialCreditCode}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">所属行业：</label>
+                <div class="col-sm-8">
+                    <input name="industry" th:field="*{industry}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">上一年度营业收入：</label>
+                <div class="col-sm-8">
+                    <input name="priorYearIncome" th:field="*{priorYearIncome}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">海外销售区域包括：</label>
+                <div class="col-sm-8">
+                    <input name="overseasSalesArea" th:field="*{overseasSalesArea}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">分别的营业收入占比为：</label>
+                <div class="col-sm-8">
+                    <input name="operatingIncomeRatio" th:field="*{operatingIncomeRatio}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">员工人数：</label>
+                <div class="col-sm-8">
+                    <input name="employeesNumber" th:field="*{employeesNumber}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">联系姓名：</label>
+                <div class="col-sm-8">
+                    <input name="contactName" th:field="*{contactName}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">联系电话：</label>
+                <div class="col-sm-8">
+                    <input name="contactMobile" th:field="*{contactMobile}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">电子邮箱：</label>
+                <div class="col-sm-8">
+                    <input name="email" th:field="*{email}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">IP地址：</label>
+                <div class="col-sm-8">
+                    <input name="ip" th:field="*{ip}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">带宽：</label>
+                <div class="col-sm-8">
+                    <input name="bandwidths" th:field="*{bandwidths}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">运营商：</label>
+                <div class="col-sm-8">
+                    <input name="operator" th:field="*{operator}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">是否存在网络拓扑图：</label>
+                <div class="col-sm-8">
+                    <input name="networkTopology" th:field="*{networkTopology}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">附件上传地址：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="networkTopologyPath" th:field="*{networkTopologyPath}">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="networkTopologyPath" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">外网区：</label>
+                <div class="col-sm-8">
+                    <input name="extranetArea" th:field="*{extranetArea}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">DMZ区：</label>
+                <div class="col-sm-8">
+                    <input name="dmzArea" th:field="*{dmzArea}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">内网区：</label>
+                <div class="col-sm-8">
+                    <input name="intranetArea" th:field="*{intranetArea}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">办公区：</label>
+                <div class="col-sm-8">
+                    <input name="officeArea" th:field="*{officeArea}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">运维区：</label>
+                <div class="col-sm-8">
+                    <input name="operationArea" th:field="*{operationArea}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">工业区：</label>
+                <div class="col-sm-8">
+                    <input name="industrialZone" th:field="*{industrialZone}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">单位使用的IP段及其用途：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{ipSegment}">
+                    <div class="summernote" id="ipSegment"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">防火墙是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isFirewalls" th:field="*{isFirewalls}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">防火墙品牌：</label>
+                <div class="col-sm-8">
+                    <input name="firewallsBrand" th:field="*{firewallsBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">防火墙上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="firewallsDate" th:value="${#dates.format(questionnaire.firewallsDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">防火墙是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isFirewallsInnocence" th:field="*{isFirewallsInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">数据库审计系统是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isDatabaseAudits" th:field="*{isDatabaseAudits}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">数据库审计系统品牌：</label>
+                <div class="col-sm-8">
+                    <input name="databaseAuditsBrand" th:field="*{databaseAuditsBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">数据库审计系统上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="databaseAuditsDate" th:value="${#dates.format(questionnaire.databaseAuditsDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">数据库审计系统是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isDatabaseAuditsInnocence" th:field="*{isDatabaseAuditsInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">日志审计系统是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isLogAudit" th:field="*{isLogAudit}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">日志审计系统品牌：</label>
+                <div class="col-sm-8">
+                    <input name="logAuditBrand" th:field="*{logAuditBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">日志审计系统上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="logAuditDate" th:value="${#dates.format(questionnaire.logAuditDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">日志审计系统是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isLogAuditInnocence" th:field="*{isLogAuditInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">堡垒机是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isCitadel" th:field="*{isCitadel}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">堡垒机品牌：</label>
+                <div class="col-sm-8">
+                    <input name="citadelBrand" th:field="*{citadelBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">堡垒机上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="citadelDate" th:value="${#dates.format(questionnaire.citadelDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">堡垒机是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isCitadelInnocence" th:field="*{isCitadelInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">态势感知是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isSituational" th:field="*{isSituational}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">态势感知品牌：</label>
+                <div class="col-sm-8">
+                    <input name="situationalBrand" th:field="*{situationalBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">态势感知上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="situationalDate" th:value="${#dates.format(questionnaire.situationalDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">态势感知是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isSituationalInnocence" th:field="*{isSituationalInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">WAF是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isWaf" th:field="*{isWaf}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">WAF品牌：</label>
+                <div class="col-sm-8">
+                    <input name="wafBrand" th:field="*{wafBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">WAF上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="wafDate" th:value="${#dates.format(questionnaire.wafDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">WAF是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isWafInnocence" th:field="*{isWafInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">漏洞扫描是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isScan" th:field="*{isScan}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">漏洞扫描品牌：</label>
+                <div class="col-sm-8">
+                    <input name="scanBrand" th:field="*{scanBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">漏洞扫描上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="scanDate" th:value="${#dates.format(questionnaire.scanDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">漏洞扫描是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isScanInnocence" th:field="*{isScanInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">EDR是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isEdr" th:field="*{isEdr}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">EDR品牌：</label>
+                <div class="col-sm-8">
+                    <input name="edrBrand" th:field="*{edrBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">EDR上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="edrDate" th:value="${#dates.format(questionnaire.edrDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">EDR是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isEdrInnocence" th:field="*{isEdrInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">蜜罐是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isPrivilegedEnv" th:field="*{isPrivilegedEnv}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">蜜罐品牌：</label>
+                <div class="col-sm-8">
+                    <input name="privilegedEnvBrand" th:field="*{privilegedEnvBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">蜜罐上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="privilegedEnvDate" th:value="${#dates.format(questionnaire.privilegedEnvDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">蜜罐是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isPrivilegedEnvInnocence" th:field="*{isPrivilegedEnvInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网闸是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isInternetAccess" th:field="*{isInternetAccess}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网闸品牌：</label>
+                <div class="col-sm-8">
+                    <input name="internetAccessBrand" th:field="*{internetAccessBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网闸上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="internetAccessDate" th:value="${#dates.format(questionnaire.internetAccessDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网闸是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isInternetAccessInnocence" th:field="*{isInternetAccessInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">上网行为管理设备是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isInternetDevice" th:field="*{isInternetDevice}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">上网行为管理设备品牌：</label>
+                <div class="col-sm-8">
+                    <input name="internetDeviceBrand" th:field="*{internetDeviceBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">上网行为管理设备上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="internetDeviceDate" th:value="${#dates.format(questionnaire.internetDeviceDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">上网行为管理设备是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isInternetDeviceInnocence" th:field="*{isInternetDeviceInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">杀毒软件是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isAntiSoftware" th:field="*{isAntiSoftware}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">杀毒软件品牌：</label>
+                <div class="col-sm-8">
+                    <input name="antiSoftwareBrand" th:field="*{antiSoftwareBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">杀毒软件上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="antiSoftwareDate" th:value="${#dates.format(questionnaire.antiSoftwareDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">杀毒软件是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isAntiSoftwareInnocence" th:field="*{isAntiSoftwareInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">探针是否存在：</label>
+                <div class="col-sm-8">
+                    <input name="isProbes" th:field="*{isProbes}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">探针品牌：</label>
+                <div class="col-sm-8">
+                    <input name="probesBrand" th:field="*{probesBrand}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">探针上线日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="probesDate" th:value="${#dates.format(questionnaire.probesDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">探针是否在保：</label>
+                <div class="col-sm-8">
+                    <input name="isProbesInnocence" th:field="*{isProbesInnocence}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全设备其他：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{safetyOther}">
+                    <div class="summernote" id="safetyOther"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">请列出您所在单位现有的网络安全专业从业人员情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{cyberSecurity}">
+                    <div class="summernote" id="cyberSecurity"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">请列出您所在单位现有的硬件服务器设备及用途：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{hardwareRes}">
+                    <div class="summernote" id="hardwareRes"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">办公系统：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{officeRes}">
+                    <div class="summernote" id="officeRes"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">业务系统：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{businessRes}">
+                    <div class="summernote" id="businessRes"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">辅助系统：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{ancillaryRes}">
+                    <div class="summernote" id="ancillaryRes"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">传呼系统：</label>
+                <div class="col-sm-8">
+                    <input name="pagingSystem" th:field="*{pagingSystem}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">短信系统：</label>
+                <div class="col-sm-8">
+                    <input name="messageSystem" th:field="*{messageSystem}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">环保系统：</label>
+                <div class="col-sm-8">
+                    <input name="environmentalSystem" th:field="*{environmentalSystem}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">其他外部系统 其他：</label>
+                <div class="col-sm-8">
+                    <input name="externalSystemOther" th:field="*{externalSystemOther}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">门户网站：</label>
+                <div class="col-sm-8">
+                    <input name="webPortal" th:field="*{webPortal}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">互联网业务站点：</label>
+                <div class="col-sm-8">
+                    <input name="internetBusinessSite" th:field="*{internetBusinessSite}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">支付宝小程序：</label>
+                <div class="col-sm-8">
+                    <input name="aliPay" th:field="*{aliPay}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">微信小程序：</label>
+                <div class="col-sm-8">
+                    <input name="wechatPay" th:field="*{wechatPay}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">微信公众号：</label>
+                <div class="col-sm-8">
+                    <input name="wechatPublicNumber" th:field="*{wechatPublicNumber}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">外部业务系统 其他：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{externalSystemBusOther}">
+                    <div class="summernote" id="externalSystemBusOther"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">您所在单位是否提供无线局域网环境：</label>
+                <div class="col-sm-8">
+                    <input name="unlimitedNetwork" th:field="*{unlimitedNetwork}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">自助机：</label>
+                <div class="col-sm-8">
+                    <input name="selfServiceMachine" th:field="*{selfServiceMachine}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">扫码一体机：</label>
+                <div class="col-sm-8">
+                    <input name="scanningMachine" th:field="*{scanningMachine}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">PAD设备：</label>
+                <div class="col-sm-8">
+                    <input name="padDevice" th:field="*{padDevice}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">手持遥控设备：</label>
+                <div class="col-sm-8">
+                    <input name="handheldDevice" th:field="*{handheldDevice}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">辅助设备其他：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{ancillaryDeviceOther}">
+                    <div class="summernote" id="ancillaryDeviceOther"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">如存在联网辅助设备，请列出具体设备名称：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{ancillaryDeviceOtherEre}">
+                    <div class="summernote" id="ancillaryDeviceOtherEre"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保系统1名称：</label>
+                <div class="col-sm-8">
+                    <input name="equalProtectionSystemA" th:field="*{equalProtectionSystemA}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保等级1保护建设情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{equalProtectionSystemADetail}">
+                    <div class="summernote" id="equalProtectionSystemADetail"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保系统2名称：</label>
+                <div class="col-sm-8">
+                    <input name="equalProtectionSystemB" th:field="*{equalProtectionSystemB}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保等级2保护建设情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{equalProtectionSystemBDetail}">
+                    <div class="summernote" id="equalProtectionSystemBDetail"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保系统3名称：</label>
+                <div class="col-sm-8">
+                    <input name="equalProtectionSystemC" th:field="*{equalProtectionSystemC}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">等保等级3保护建设情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{equalProtectionSystemCDetail}">
+                    <div class="summernote" id="equalProtectionSystemCDetail"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网络安全服务情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{cybersecurityServices}">
+                    <div class="summernote" id="cybersecurityServices"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">网络安全情报订阅情况：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" th:field="*{cybersecurityServicesSub}">
+                    <div class="summernote" id="cybersecurityServicesSub"></div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格1：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo1" th:field="*{secInfo1}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格2：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo2" th:field="*{secInfo2}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格3：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo3" th:field="*{secInfo3}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格4：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo4" th:field="*{secInfo4}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格5：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo5" th:field="*{secInfo5}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格6：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo6" th:field="*{secInfo6}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格7：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo7" th:field="*{secInfo7}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格8：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo8" th:field="*{secInfo8}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格9：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo9" th:field="*{secInfo9}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格10：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo10" th:field="*{secInfo10}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格11：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo11" th:field="*{secInfo11}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格12：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo12" th:field="*{secInfo12}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格13：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo13" th:field="*{secInfo13}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格14：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo14" th:field="*{secInfo14}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格15：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo15" th:field="*{secInfo15}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格16：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo16" th:field="*{secInfo16}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格17：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo17" th:field="*{secInfo17}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格18：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo18" th:field="*{secInfo18}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格19：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo19" th:field="*{secInfo19}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格20：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo20" th:field="*{secInfo20}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格21：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo21" th:field="*{secInfo21}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">安全情况表格22：</label>
+                <div class="col-sm-8">
+                    <input name="secInfo22" th:field="*{secInfo22}" class="form-control" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <th:block th:include="include :: bootstrap-fileinput-js"/>
+    <th:block th:include="include :: summernote-js" />
+    <script th:inline="javascript">
+        var prefix = ctx + "system/questionnaire";
+        $("#form-questionnaire-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-questionnaire-edit').serialize());
+            }
+        }
+
+        $("input[name='firewallsDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='databaseAuditsDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='logAuditDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='citadelDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='situationalDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='wafDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='scanDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='edrDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='privilegedEnvDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='internetAccessDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='internetDeviceDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='antiSoftwareDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='probesDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='updatedTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $(".file-upload").each(function (i) {
+            var val = $("input[name='" + this.id + "']").val()
+            $(this).fileinput({
+                'uploadUrl': ctx + 'common/upload',
+                initialPreviewAsData: true,
+                initialPreview: [val],
+                maxFileCount: 1,
+                autoReplace: true
+            }).on('fileuploaded', function (event, data, previewId, index) {
+                $("input[name='" + event.currentTarget.id + "']").val(data.response.url)
+            }).on('fileremoved', function (event, id, index) {
+                $("input[name='" + event.currentTarget.id + "']").val('')
+            })
+            $(this).fileinput('_initFileActions');
+        });
+
+        $(function() {
+            $('.summernote').each(function(i) {
+                $('#' + this.id).summernote({
+                    lang: 'zh-CN',
+                    dialogsInBody: true,
+                    callbacks: {
+                        onChange: function(contents, $edittable) {
+                            $("input[name='" + this.id + "']").val(contents);
+                        },
+                        onImageUpload: function(files) {
+                            var obj = this;
+                            var data = new FormData();
+                            data.append("file", files[0]);
+                            $.ajax({
+                                type: "post",
+                                url: ctx + "common/upload",
+                                data: data,
+                                cache: false,
+                                contentType: false,
+                                processData: false,
+                                dataType: 'json',
+                                success: function(result) {
+                                    if (result.code == web_status.SUCCESS) {
+                                        $('#' + obj.id).summernote('insertImage', result.url);
+                                    } else {
+                                        $.modal.alertError(result.msg);
+                                    }
+                                },
+                                error: function(error) {
+                                    $.modal.alertWarning("图片上传失败。");
+                                }
+                            });
+                        }
+                    }
+                });
+                var content = $("input[name='" + this.id + "']").val();
+                $('#' + this.id).summernote('code', content);
+            })
+        });
+    </script>
+</body>
+</html>
