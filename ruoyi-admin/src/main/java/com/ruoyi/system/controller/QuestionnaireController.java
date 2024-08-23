@@ -1,6 +1,8 @@
 package com.ruoyi.system.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,7 @@ import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 调查问卷库Controller
@@ -63,9 +66,44 @@ public class QuestionnaireController extends BaseController
     @ResponseBody
     public AjaxResult export(Questionnaire questionnaire)
     {
-        List<Questionnaire> list = questionnaireService.selectQuestionnaireList(questionnaire);
+//        List<Questionnaire> list = questionnaireService.selectQuestionnaireList(questionnaire);
+        List<Questionnaire> list1 = new ArrayList<>();
         ExcelUtil<Questionnaire> util = new ExcelUtil<Questionnaire>(Questionnaire.class);
-        return util.exportExcel(list, "调查问卷库数据");
+        return util.exportExcel(list1, "调查问卷库数据");
+    }
+
+    /**
+     * 导入模版
+     * @return
+     */
+    @RequiresPermissions("system:questionnaire:view")
+    @GetMapping("/importTemplate")
+    @ResponseBody
+    public AjaxResult importTemplate()
+    {
+        ExcelUtil<Questionnaire> util = new ExcelUtil<Questionnaire>(Questionnaire.class);
+        return util.importTemplateExcel("资产数据");
+    }
+
+    /**
+     * 导入数据
+     * @param file
+     * @param updateSupport
+     * @return
+     * @throws Exception
+     */
+    @Log(title = "调查问卷库", businessType = BusinessType.IMPORT)
+    @RequiresPermissions("system:questionnaire:importDate")
+    @PostMapping("/importData")
+    @ResponseBody
+    public AjaxResult importDate(MultipartFile file, boolean updateSupport) throws Exception
+    {
+        ExcelUtil<Questionnaire> util = new ExcelUtil<Questionnaire>(Questionnaire.class);
+        List<Questionnaire> userList = util.importExcel(file.getInputStream());
+        for (Questionnaire  questionnaire: userList){
+            questionnaireService.insertQuestionnaire(questionnaire);
+        }
+        return AjaxResult.success();
     }
 
     /**

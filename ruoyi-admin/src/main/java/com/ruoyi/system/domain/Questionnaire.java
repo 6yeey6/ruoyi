@@ -438,23 +438,23 @@ public class Questionnaire extends BaseEntity
     private String equalProtectionSystemB;
 
     /** 等保等级2保护建设情况 */
-    @Excel(name = "等保等级2保护建设情况")
+    @Excel(name = "等级保护建设情况")
     private String equalProtectionSystemBDetail;
 
     /** 等保系统3名称 */
-    @Excel(name = "等保系统3名称")
+    @Excel(name = "等保系统名称")
     private String equalProtectionSystemC;
 
     /** 等保等级3保护建设情况 */
-    @Excel(name = "等保等级3保护建设情况")
+    @Excel(name = "等级保护建设情况")
     private String equalProtectionSystemCDetail;
 
     /** 网络安全服务情况 */
-    @Excel(name = "网络安全服务情况")
+    @Excel(name = "您单位是否聘请专业外部团队或内部团队定期进行网络安全相关检测，如渗透测试、代码审计、基线检查等")
     private String cybersecurityServices;
 
     /** 网络安全情报订阅情况 */
-    @Excel(name = "网络安全情报订阅情况")
+    @Excel(name = "您单位是否订阅网络安全情报以能及时获取到最新漏洞情况")
     private String cybersecurityServicesSub;
 
     /** 安全情况表格1 */
