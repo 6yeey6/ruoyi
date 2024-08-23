@@ -37,7 +37,7 @@ public class Questionnaire extends BaseEntity
     private String priorYearIncome;
 
     /** 海外销售区域包括（国家） */
-    @Excel(name = "海外销售区域包括", readConverterExp = "国=家")
+    @Excel(name = "海外销售区域包括(国家)")
     private String overseasSalesArea;
 
     /** 分别的营业收入占比为 */
@@ -61,7 +61,7 @@ public class Questionnaire extends BaseEntity
     private String email;
 
     /** 是否云服务器 */
-    @Excel(name = "是否云服务器")
+    @Excel(name = "云服务器(是/否)")
     private String cloudServer;
 
     /** IP地址 */
@@ -77,43 +77,42 @@ public class Questionnaire extends BaseEntity
     private String operator;
 
     /** 是否存在网络拓扑图 */
-    @Excel(name = "是否存在网络拓扑图")
+    @Excel(name = "存在网络拓扑图(是/否)")
     private String networkTopology;
 
     /** 附件上传地址 */
-    @Excel(name = "附件上传地址")
     private String networkTopologyPath;
 
     /** 外网区 */
-    @Excel(name = "外网区")
+    @Excel(name = "外网区(是/否)")
     private String extranetArea;
 
     /** DMZ区 */
-    @Excel(name = "DMZ区")
+    @Excel(name = "DMZ区(是/否)")
     private String dmzArea;
 
     /** 内网区 */
-    @Excel(name = "内网区")
+    @Excel(name = "内网区(是/否)")
     private String intranetArea;
 
     /** 办公区 */
-    @Excel(name = "办公区")
+    @Excel(name = "办公区(是/否)")
     private String officeArea;
 
     /** 运维区 */
-    @Excel(name = "运维区")
+    @Excel(name = "运维区(是/否)")
     private String operationArea;
 
     /** 工业区 */
-    @Excel(name = "工业区")
+    @Excel(name = "工业区(是/否)")
     private String industrialZone;
 
     /** 单位使用的IP段及其用途（例如，10.10.10段用于办公，10.10.20段用于PACS设备等） */
-    @Excel(name = "单位使用的IP段及其用途", readConverterExp = "例=如，10.10.10段用于办公，10.10.20段用于PACS设备等")
+    @Excel(name = "单位使用的IP段及其用途(例如，10.10.10段用于办公，10.10.20段用于PACS设备等)")
     private String ipSegment;
 
     /** 防火墙是否存在 */
-    @Excel(name = "防火墙是否存在")
+    @Excel(name = "防火墙(是/否)")
     private String isFirewalls;
 
     /** 防火墙品牌 */
@@ -126,11 +125,11 @@ public class Questionnaire extends BaseEntity
     private Date firewallsDate;
 
     /** 防火墙是否在保 */
-    @Excel(name = "防火墙是否在保")
+    @Excel(name = "防火墙在保(是/否)")
     private String isFirewallsInnocence;
 
     /** 数据库审计系统是否存在 */
-    @Excel(name = "数据库审计系统是否存在")
+    @Excel(name = "数据库审计系统存在(是/否)")
     private String isDatabaseAudits;
 
     /** 数据库审计系统品牌 */
@@ -143,11 +142,11 @@ public class Questionnaire extends BaseEntity
     private Date databaseAuditsDate;
 
     /** 数据库审计系统是否在保 */
-    @Excel(name = "数据库审计系统是否在保")
+    @Excel(name = "数据库审计系统在保(是/否)")
     private String isDatabaseAuditsInnocence;
 
     /** 日志审计系统是否存在 */
-    @Excel(name = "日志审计系统是否存在")
+    @Excel(name = "日志审计系统存在(是/否)")
     private String isLogAudit;
 
     /** 日志审计系统品牌 */
@@ -160,11 +159,11 @@ public class Questionnaire extends BaseEntity
     private Date logAuditDate;
 
     /** 日志审计系统是否在保 */
-    @Excel(name = "日志审计系统是否在保")
+    @Excel(name = "日志审计系统在保(是/否)")
     private String isLogAuditInnocence;
 
     /** 堡垒机是否存在 */
-    @Excel(name = "堡垒机是否存在")
+    @Excel(name = "堡垒机存在(是/否)")
     private String isCitadel;
 
     /** 堡垒机品牌 */
@@ -177,11 +176,11 @@ public class Questionnaire extends BaseEntity
     private Date citadelDate;
 
     /** 堡垒机是否在保 */
-    @Excel(name = "堡垒机是否在保")
+    @Excel(name = "堡垒机在保(是/否)")
     private String isCitadelInnocence;
 
     /** 态势感知是否存在 */
-    @Excel(name = "态势感知是否存在")
+    @Excel(name = "态势感知存在(是/否)")
     private String isSituational;
 
     /** 态势感知品牌 */
@@ -194,11 +193,11 @@ public class Questionnaire extends BaseEntity
     private Date situationalDate;
 
     /** 态势感知是否在保 */
-    @Excel(name = "态势感知是否在保")
+    @Excel(name = "态势感知在保(是/否)")
     private String isSituationalInnocence;
 
     /** WAF是否存在 */
-    @Excel(name = "WAF是否存在")
+    @Excel(name = "WAF存在(是/否)")
     private String isWaf;
 
     /** WAF品牌 */
@@ -211,11 +210,11 @@ public class Questionnaire extends BaseEntity
     private Date wafDate;
 
     /** WAF是否在保 */
-    @Excel(name = "WAF是否在保")
+    @Excel(name = "WAF在保(是/否)")
     private String isWafInnocence;
 
     /** 漏洞扫描是否存在 */
-    @Excel(name = "漏洞扫描是否存在")
+    @Excel(name = "漏洞扫描存在(是/否)")
     private String isScan;
 
     /** 漏洞扫描品牌 */
@@ -228,11 +227,11 @@ public class Questionnaire extends BaseEntity
     private Date scanDate;
 
     /** 漏洞扫描是否在保 */
-    @Excel(name = "漏洞扫描是否在保")
+    @Excel(name = "漏洞扫描在保(是/否)")
     private String isScanInnocence;
 
     /** EDR是否存在 */
-    @Excel(name = "EDR是否存在")
+    @Excel(name = "EDR存在(是/否)")
     private String isEdr;
 
     /** EDR品牌 */
@@ -245,11 +244,11 @@ public class Questionnaire extends BaseEntity
     private Date edrDate;
 
     /** EDR是否在保 */
-    @Excel(name = "EDR是否在保")
+    @Excel(name = "EDR在保(是/否)")
     private String isEdrInnocence;
 
     /** 蜜罐是否存在 */
-    @Excel(name = "蜜罐是否存在")
+    @Excel(name = "蜜罐存在(是/否)")
     private String isPrivilegedEnv;
 
     /** 蜜罐品牌 */
@@ -262,11 +261,11 @@ public class Questionnaire extends BaseEntity
     private Date privilegedEnvDate;
 
     /** 蜜罐是否在保 */
-    @Excel(name = "蜜罐是否在保")
+    @Excel(name = "蜜罐在保(是/否)")
     private String isPrivilegedEnvInnocence;
 
     /** 网闸是否存在 */
-    @Excel(name = "网闸是否存在")
+    @Excel(name = "网闸存在(是/否)")
     private String isInternetAccess;
 
     /** 网闸品牌 */
@@ -279,11 +278,11 @@ public class Questionnaire extends BaseEntity
     private Date internetAccessDate;
 
     /** 网闸是否在保 */
-    @Excel(name = "网闸是否在保")
+    @Excel(name = "网闸在保(是/否)")
     private String isInternetAccessInnocence;
 
     /** 上网行为管理设备是否存在 */
-    @Excel(name = "上网行为管理设备是否存在")
+    @Excel(name = "上网行为管理设备存在(是/否)")
     private String isInternetDevice;
 
     /** 上网行为管理设备品牌 */
@@ -296,11 +295,11 @@ public class Questionnaire extends BaseEntity
     private Date internetDeviceDate;
 
     /** 上网行为管理设备是否在保 */
-    @Excel(name = "上网行为管理设备是否在保")
+    @Excel(name = "上网行为管理设备在保(是/否)")
     private String isInternetDeviceInnocence;
 
     /** 杀毒软件是否存在 */
-    @Excel(name = "杀毒软件是否存在")
+    @Excel(name = "杀毒软件存在")
     private String isAntiSoftware;
 
     /** 杀毒软件品牌 */
@@ -313,11 +312,11 @@ public class Questionnaire extends BaseEntity
     private Date antiSoftwareDate;
 
     /** 杀毒软件是否在保 */
-    @Excel(name = "杀毒软件是否在保")
+    @Excel(name = "杀毒软件在保(是/否)")
     private String isAntiSoftwareInnocence;
 
     /** 探针是否存在 */
-    @Excel(name = "探针是否存在")
+    @Excel(name = "探针存在")
     private String isProbes;
 
     /** 探针品牌 */
@@ -330,11 +329,11 @@ public class Questionnaire extends BaseEntity
     private Date probesDate;
 
     /** 探针是否在保 */
-    @Excel(name = "探针是否在保")
+    @Excel(name = "探针在保(是/否)")
     private String isProbesInnocence;
 
     /** 安全设备其他（请注明） */
-    @Excel(name = "安全设备其他", readConverterExp = "请=注明")
+    @Excel(name = "安全设备其他补充")
     private String safetyOther;
 
     /** 请列出您所在单位现有的网络安全专业从业人员情况 */
@@ -342,83 +341,83 @@ public class Questionnaire extends BaseEntity
     private String cyberSecurity;
 
     /** 请列出您所在单位现有的硬件服务器设备及用途（例如，存储服务器、计算服务器等） */
-    @Excel(name = "请列出您所在单位现有的硬件服务器设备及用途", readConverterExp = "例=如，存储服务器、计算服务器等")
+    @Excel(name = "请列出您所在单位现有的硬件服务器设备及用途(例如，存储服务器、计算服务器等)")
     private String hardwareRes;
 
     /** 办公系统 */
-    @Excel(name = "办公系统")
+    @Excel(name = "办公系统(例如，OA办公、ERP、SAP等)")
     private String officeRes;
 
     /** 业务系统 */
-    @Excel(name = "业务系统")
+    @Excel(name = "业务系统(例如，客户关系系统、商城系统、服务客户业务系统等)")
     private String businessRes;
 
     /** 辅助系统 */
-    @Excel(name = "辅助系统")
+    @Excel(name = "辅助系统(例如，系统维护系统、决策支持、物资管理、BI系统等)")
     private String ancillaryRes;
 
     /** 传呼系统 */
-    @Excel(name = "传呼系统")
+    @Excel(name = "对接传呼系统(是/否)")
     private String pagingSystem;
 
     /** 短信系统 */
-    @Excel(name = "短信系统")
+    @Excel(name = "对接短信系统(是/否)")
     private String messageSystem;
 
     /** 环保系统 */
-    @Excel(name = "环保系统")
+    @Excel(name = "对接环保系统(是/否)")
     private String environmentalSystem;
 
     /** 其他外部系统 其他（请注明） */
-    @Excel(name = "其他外部系统 其他", readConverterExp = "请=注明")
+    @Excel(name = "对接其他外部系统")
     private String externalSystemOther;
 
     /** 门户网站 */
-    @Excel(name = "门户网站")
+    @Excel(name = "提供门户网站(是/否)")
     private String webPortal;
 
     /** 互联网业务站点 */
-    @Excel(name = "互联网业务站点")
+    @Excel(name = "提供互联网业务站点(是/否)")
     private String internetBusinessSite;
 
     /** 支付宝小程序 */
-    @Excel(name = "支付宝小程序")
+    @Excel(name = "提供支付宝小程序(是/否)")
     private String aliPay;
 
     /** 微信小程序 */
-    @Excel(name = "微信小程序")
+    @Excel(name = "微信小程序(是/否)")
     private String wechatPay;
 
     /** 微信公众号 */
-    @Excel(name = "微信公众号")
+    @Excel(name = "微信公众号(是/否)")
     private String wechatPublicNumber;
 
     /** 外部业务系统 其他（请注明） */
-    @Excel(name = "外部业务系统 其他", readConverterExp = "请=注明")
+    @Excel(name = "外部业务系统补充")
     private String externalSystemBusOther;
 
     /** 您所在单位是否提供无线局域网环境 */
-    @Excel(name = "您所在单位是否提供无线局域网环境")
+    @Excel(name = "您所在单位提供无线局域网环境(是/否)")
     private String unlimitedNetwork;
 
     /** 自助机 */
-    @Excel(name = "自助机")
+    @Excel(name = "自助机(是/否)")
     private String selfServiceMachine;
 
     /** 扫码一体机 */
-    @Excel(name = "扫码一体机")
+    @Excel(name = "扫码一体机(是/否)")
     private String scanningMachine;
 
     /** PAD设备 */
-    @Excel(name = "PAD设备")
+    @Excel(name = "PAD设备(是/否)")
     private String padDevice;
 
     /** 手持遥控设备 */
-    @Excel(name = "手持遥控设备")
+    @Excel(name = "手持遥控设备(是/否)")
     private String handheldDevice;
 
     /** 辅助设备其他（请注明） */
-    @Excel(name = "辅助设备其他", readConverterExp = "请=注明")
+    @Excel(name = "其他辅助设备补充")
     private String ancillaryDeviceOther;
 
     /** 如存在联网辅助设备，请列出具体设备名称 */
@@ -438,111 +437,111 @@ public class Questionnaire extends BaseEntity
     private String equalProtectionSystemB;
 
     /** 等保等级2保护建设情况 */
-    @Excel(name = "等级保护建设情况")
+    @Excel(name = "等级保护2建设情况")
     private String equalProtectionSystemBDetail;
 
     /** 等保系统3名称 */
-    @Excel(name = "等保系统名称")
+    @Excel(name = "等保系统3名称")
     private String equalProtectionSystemC;
 
     /** 等保等级3保护建设情况 */
-    @Excel(name = "等级保护建设情况")
+    @Excel(name = "等级保护3建设情况")
     private String equalProtectionSystemCDetail;
 
     /** 网络安全服务情况 */
-    @Excel(name = "您单位是否聘请专业外部团队或内部团队定期进行网络安全相关检测，如渗透测试、代码审计、基线检查等")
+    @Excel(name = "您单位是否聘请专业外部团队或内部团队定期进行网络安全相关检测，如渗透测试、代码审计、基线检查等如有，请填写:")
     private String cybersecurityServices;
 
     /** 网络安全情报订阅情况 */
-    @Excel(name = "您单位是否订阅网络安全情报以能及时获取到最新漏洞情况")
+    @Excel(name = "您单位是否订阅网络安全情报以能及时获取到最新漏洞情况如有，请填写:")
     private String cybersecurityServicesSub;
 
     /** 安全情况表格1 */
-    @Excel(name = "安全情况表格1")
+    @Excel(name = "是否建立安全管理制度(是/否)")
     private String secInfo1;
 
     /** 安全情况表格2 */
-    @Excel(name = "安全情况表格2")
+    @Excel(name = "有专人负责IT安全(是/否)")
     private String secInfo2;
 
     /** 安全情况表格3 */
-    @Excel(name = "安全情况表格3")
+    @Excel(name = "贵公司有设定不同的安全岗位职责(是/否)")
     private String secInfo3;
 
     /** 安全情况表格4 */
-    @Excel(name = "安全情况表格4")
+    @Excel(name = "定期更新系统补丁(是/否)")
     private String secInfo4;
 
     /** 安全情况表格5 */
-    @Excel(name = "安全情况表格5")
+    @Excel(name = "物理安全区域部署安防设备(是/否)")
     private String secInfo5;
 
     /** 安全情况表格6 */
-    @Excel(name = "安全情况表格6")
+    @Excel(name = "机房有相关管控措施(是/否)")
     private String secInfo6;
 
     /** 安全情况表格7 */
-    @Excel(name = "安全情况表格7")
+    @Excel(name = "清晰的管理员账户清单并且严格控制管理员权限(是/否)")
     private String secInfo7;
 
     /** 安全情况表格8 */
-    @Excel(name = "安全情况表格8")
+    @Excel(name = "公司在网络边界处部署防火墙等设备(是/否)")
     private String secInfo8;
 
     /** 安全情况表格9 */
-    @Excel(name = "安全情况表格9")
+    @Excel(name = "部署抗DDoS设备或云防(是/否)")
     private String secInfo9;
 
     /** 安全情况表格10 */
-    @Excel(name = "安全情况表格10")
+    @Excel(name = "严格限制网络端口、通讯协议及系统服务(是/否)")
     private String secInfo10;
 
     /** 安全情况表格11 */
-    @Excel(name = "安全情况表格11")
+    @Excel(name = "业务重要性或敏感性对网络进行分区管理（VLAN）(是/否)")
     private String secInfo11;
 
     /** 安全情况表格12 */
-    @Excel(name = "安全情况表格12")
+    @Excel(name = "所有外部远程访问实现加密措施(是/否)")
     private String secInfo12;
 
     /** 安全情况表格13 */
-    @Excel(name = "安全情况表格13")
+    @Excel(name = "信息系统安装安全防护软件(是/否)")
     private String secInfo13;
 
     /** 安全情况表格14 */
-    @Excel(name = "安全情况表格14")
+    @Excel(name = "对重要业务数据进行定期备份(是/否)")
     private String secInfo14;
 
     /** 安全情况表格15 */
-    @Excel(name = "安全情况表格15")
+    @Excel(name = "在终端部署软件对USB和其他外设的使用进行监控(是/否)")
     private String secInfo15;
 
     /** 安全情况表格16 */
-    @Excel(name = "安全情况表格16")
+    @Excel(name = "建立人员离岗管理制度,员工离职后终止访问权限(是/否)")
     private String secInfo16;
 
     /** 安全情况表格17 */
-    @Excel(name = "安全情况表格17")
+    @Excel(name = "贵公司针对安全团队有定期安全技能培训(是/否)")
     private String secInfo17;
 
     /** 安全情况表格18 */
-    @Excel(name = "安全情况表格18")
+    @Excel(name = "贵公司针对全体员工有定期安全技能培训(是/否)")
     private String secInfo18;
 
     /** 安全情况表格19 */
-    @Excel(name = "安全情况表格19")
+    @Excel(name = "近一年内，重要信息系统通过等级保护测评(是/否)")
     private String secInfo19;
 
     /** 安全情况表格20 */
-    @Excel(name = "安全情况表格20")
+    @Excel(name = "?")
     private String secInfo20;
 
     /** 安全情况表格21 */
-    @Excel(name = "安全情况表格21")
+    @Excel(name = "电子邮件采取安全防护措施(是否)")
     private String secInfo21;
 
     /** 安全情况表格22 */
-    @Excel(name = "安全情况表格22")
+    @Excel(name = "集中监控和管理信息系统的计算和存储资源(是否)")
     private String secInfo22;
 
     /** 更新时间如有，请填写 */
