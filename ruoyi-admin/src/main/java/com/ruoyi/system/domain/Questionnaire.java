@@ -521,19 +521,19 @@ public class Questionnaire extends BaseEntity
     private String secInfo16;
 
     /** 安全情况表格17 */
-    @Excel(name = "贵公司针对安全团队有定期安全技能培训(是/否)")
+    @Excel(name = "贵公司针对安全团队有定期(每年至少1次)安全技能培训(是/否)")
     private String secInfo17;
 
     /** 安全情况表格18 */
-    @Excel(name = "贵公司针对全体员工有定期安全技能培训(是/否)")
+    @Excel(name = "贵公司针对全体员工有定期(每年至少1次)安全技能培训(是/否)")
     private String secInfo18;
 
     /** 安全情况表格19 */
-    @Excel(name = "近一年内，重要信息系统通过等级保护测评(是/否)")
+    @Excel(name = "通过相关信息安全管理体系认证(ISO 27001)(是否)")
     private String secInfo19;
 
     /** 安全情况表格20 */
-    @Excel(name = "?")
+    @Excel(name = "近一年内重要信息系统通过等级保护测评(是否)")
     private String secInfo20;
 
     /** 安全情况表格21 */
