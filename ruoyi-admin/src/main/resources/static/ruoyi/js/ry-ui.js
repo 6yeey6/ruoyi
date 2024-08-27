@@ -1121,7 +1121,6 @@ var table = {
                 table.set();
                 $.modal.confirm("确定导出该条" + table.options.modalName + "信息吗？", function() {
                     var url = $.common.isEmpty(id) ? table.options.exportWordUrl : table.options.exportWordUrl.replace("{id}", id);
-                    $.modal.alert(url);
                     if (table.options.type == table_type.bootstrapTreeTable) {
 
                         $.operate.get(url);
