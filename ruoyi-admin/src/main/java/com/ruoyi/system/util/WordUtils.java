@@ -49,6 +49,14 @@ public class WordUtils {
             }
 
             XWPFDocument document = WordExportUtil.exportWord07(templatePath, data);
+            //TODO 转换为pdf
+//            PdfOptions pdfOptions = PdfOptions.create();
+//            byteArrayOutputStream = new ByteArrayOutputStream();
+//            PdfConverter.getInstance().convert(xwpfDocument, byteArrayOutputStream, pdfOptions);
+//            pdfBytes = byteArrayOutputStream.toByteArray());
+//            // word文件对应的pdf文件名称
+//            filename = filename.substring(0, filename.indexOf(".")) + ".pdf");
+
             String tempPath = tempDir + filename;
             FileOutputStream out = new FileOutputStream(tempPath);
             document.write(out);
@@ -56,7 +64,7 @@ public class WordUtils {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            deleteTempFile(tempDir, filename);
+//            deleteTempFile(tempDir, filename);
         }
         return filename;
     }

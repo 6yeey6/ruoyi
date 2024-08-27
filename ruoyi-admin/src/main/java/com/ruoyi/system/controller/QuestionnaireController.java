@@ -1,8 +1,9 @@
 package com.ruoyi.system.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+import com.ruoyi.common.config.RuoYiConfig;
+import com.ruoyi.system.util.WordUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,9 @@ import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 调查问卷库Controller
@@ -161,5 +165,46 @@ public class QuestionnaireController extends BaseController
     public AjaxResult remove(String ids)
     {
         return toAjax(questionnaireService.deleteQuestionnaireByIds(ids));
+    }
+
+
+    /**
+     * 导出
+     */
+    /**
+     * 根据模板导出word
+     */
+    @Log(title = "根据模板导出word", businessType = BusinessType.EXPORT)
+    @RequiresPermissions("system:questionnaire:export")
+    @PostMapping("/exportWord")
+    @ResponseBody
+    public AjaxResult exportWord(long ids, HttpServletRequest request, HttpServletResponse response){
+        Map<String, Object> map = new HashMap<>();
+        Questionnaire questionnaire = questionnaireService.selectQuestionnaireById(ids);
+        String title = questionnaire.getCompanyName();
+        //        Class clazz = questionnaire.getClass();
+//        // 获取类中声明的字段
+//        Field[] fields = clazz.getDeclaredFields();
+//        for (Field field : fields) {
+//            // 避免 can not access a member of class com.java.test.Person with modifiers "private"
+//            field.setAccessible(true);
+//            try {
+//                System.out.println(field.getName() + ":"+ field.get(questionnaire));
+//            } catch (IllegalAccessException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        if(title.equals("true")){
+//            map.put("title", "是"+"\u2611" +" " +"否"+"\u25A1");
+//        }else{
+//            map.put("title", "否"+"\u2611" +" " +"是"+"\u25A1");
+//        }
+            map.put("title", title);
+
+        String str = UUID.randomUUID().toString()+".docx";
+        //获取yml配置地址
+        String tempDir = RuoYiConfig.getProfile() + "/download/";
+        String name = WordUtils.easyPoiExport("static/word/template.docx", tempDir, str, map, request, response);
+        return AjaxResult.success(name);
     }
 }
