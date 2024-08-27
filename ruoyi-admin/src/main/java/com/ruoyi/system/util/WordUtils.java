@@ -3,6 +3,7 @@ package com.ruoyi.system.util;
 import cn.afterturn.easypoi.word.WordExportUtil;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.util.Assert;
+import org.apache.pdfbox.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,16 +51,11 @@ public class WordUtils {
 
             XWPFDocument document = WordExportUtil.exportWord07(templatePath, data);
             //TODO 转换为pdf
-//            PdfOptions pdfOptions = PdfOptions.create();
-//            byteArrayOutputStream = new ByteArrayOutputStream();
-//            PdfConverter.getInstance().convert(xwpfDocument, byteArrayOutputStream, pdfOptions);
-//            pdfBytes = byteArrayOutputStream.toByteArray());
-//            // word文件对应的pdf文件名称
-//            filename = filename.substring(0, filename.indexOf(".")) + ".pdf");
-
             String tempPath = tempDir + filename;
             FileOutputStream out = new FileOutputStream(tempPath);
             document.write(out);
+            out.flush();
+            out.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,4 +74,28 @@ public class WordUtils {
         file.delete();
         f.delete();
     }
+
+//    public static void convertWordToPdf(String wordFilePath, String pdfFilePath) {
+//        try (XWPFDocument document = new XWPFDocument(new FileInputStream(wordFilePath));
+//             PDDocument pdfDocument = new PDDocument()) {
+//
+//            PDPage page = new PDPage();
+//            pdfDocument.addPage(page);
+//            PDPageContentStream contentStream = new PDPageContentStream(pdfDocument, page);
+//
+//            // 获取 Word 中的段落并写入 PDF
+//            for (XWPFParagraph paragraph : document.getParagraphs()) {
+//                contentStream.beginText();
+//                contentStream.setFont(PDType1Font.HELVETICA, 12);
+//                contentStream.newLineAtOffset(25, 750 - 20 * document.getParagraphs().indexOf(paragraph));
+//                contentStream.showText(paragraph.getText());
+//                contentStream.endText();
+//            }
+//
+//            contentStream.close();
+//            pdfDocument.save(pdfFilePath);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
