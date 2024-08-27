@@ -3,7 +3,6 @@ package com.ruoyi.system.util;
 import cn.afterturn.easypoi.word.WordExportUtil;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.util.Assert;
-import org.apache.pdfbox.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
