@@ -1,5 +1,6 @@
 package com.ruoyi.system.controller;
 
+import java.lang.reflect.Field;
 import java.util.*;
 
 import com.ruoyi.common.config.RuoYiConfig;
@@ -182,14 +183,26 @@ public class QuestionnaireController extends BaseController
         Map<String, Object> map = new HashMap<>();
         Questionnaire questionnaire = questionnaireService.selectQuestionnaireById(ids);
         String title = questionnaire.getCompanyName();
-        //        Class clazz = questionnaire.getClass();
+//        Class clazz = questionnaire.getClass();
 //        // 获取类中声明的字段
 //        Field[] fields = clazz.getDeclaredFields();
 //        for (Field field : fields) {
 //            // 避免 can not access a member of class com.java.test.Person with modifiers "private"
 //            field.setAccessible(true);
 //            try {
-//                System.out.println(field.getName() + ":"+ field.get(questionnaire));
+////                System.out.println(field.getName() + ":"+ field.get(questionnaire));
+//                //根据属性填充表格
+//                //TODO radio格式的需要判断
+//                //先判断是否是单选类型
+//                if (true){
+//                if("是".equals(field.get(questionnaire)) || "1".equals(field.get(questionnaire))){
+//                    map.put(field.getName(), "是"+"\u2611" +" " +"否"+"\u25A1");
+//                }else {
+//                    map.put(field.getName(), "否"+"\u2611" +" " +"是"+"\u25A1");
+//                }
+//                }else {
+//                map.put(field.getName(), field.get(questionnaire));
+//                }
 //            } catch (IllegalAccessException e) {
 //                e.printStackTrace();
 //            }
