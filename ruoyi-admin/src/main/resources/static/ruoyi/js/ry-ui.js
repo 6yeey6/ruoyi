@@ -1116,6 +1116,30 @@ var table = {
                     }
                 });
             },
+            //导出信息
+            exportWord: function(id) {
+                table.set();
+                $.modal.confirm("确定导出该条" + table.options.modalName + "信息吗？", function() {
+                    var url = $.common.isEmpty(id) ? table.options.exportWordUrl : table.options.exportWordUrl.replace("{id}", id);
+                    $.modal.alert(url);
+                    if (table.options.type == table_type.bootstrapTreeTable) {
+
+                        $.operate.get(url);
+                    } else {
+                        var data = { "ids": id };
+                        $.operate.submit(url, "post", "json", data,function (result) {
+                            if (result.code == web_status.SUCCESS) {
+                                window.location.href = ctx + "common/download?fileName=" + encodeURI(result.msg) + "&delete=" + true;
+                            } else if (result.code == web_status.WARNING) {
+                                $.modal.alertWarning(result.msg)
+                            } else {
+                                $.modal.alertError(result.msg);
+                            }
+                        });
+
+                    }
+                });
+            },
             // 批量删除信息
             removeAll: function() {
                 table.set();
