@@ -33,17 +33,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="title != null and title != ''">title,</if>
             <if test="type != null">type,</if>
             <if test="sort != null and sort != ''">sort,</if>
-            <if test="createdAt != null">created_at,</if>
-            <if test="updatedAt != null">updated_at,</if>
-            <if test="deletedAt != null">deleted_at,</if>
+            created_at,
+            updated_at,
+            deleted_at,
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="title != null and title != ''">#{title},</if>
             <if test="type != null">#{type},</if>
             <if test="sort != null and sort != ''">#{sort},</if>
-            <if test="createdAt != null">#{createdAt},</if>
-            <if test="updatedAt != null">#{updatedAt},</if>
-            <if test="deletedAt != null">#{deletedAt},</if>
+            NOW(),
+            NOW(),
+            NOW(),
          </trim>
     </insert>
 
