@@ -22,15 +22,16 @@ public class WordUtils {
 
     /**
      * EasyPoi 替换数据 导出 word
+     *
      * @param templatePath word模板地址
      * @param tempDir      临时文件存放地址
-     * @param wordFilename     文件名称
+     * @param wordFilename 文件名称
      * @param data         替换参数
-     * @param isPdf       是否导出pdf
+     * @param isPdf        是否导出pdf
      * @param request
      * @param response
      */
-    public static String easyPoiExport(String templatePath, String tempDir, String wordFilename, Map<String, Object> data, HttpServletRequest request, HttpServletResponse response,boolean isPdf) {
+    public static String easyPoiExport(String templatePath, String tempDir, String wordFilename, Map<String, Object> data, HttpServletRequest request, HttpServletResponse response, boolean isPdf) {
         Assert.notNull(templatePath, "模板路径不能为空");
         Assert.notNull(tempDir, "临时文件路径不能为空");
         Assert.notNull(wordFilename, "文件名称不能为空");
@@ -54,14 +55,15 @@ public class WordUtils {
 
             XWPFDocument document = WordExportUtil.exportWord07(templatePath, data);
             //TODO 转换为pdf
-            if(isPdf){
+            if (isPdf) {
                 wordFilename = docConvertPdf(document);
+            } else {
+                String tempPath = tempDir + wordFilename;
+                FileOutputStream out = new FileOutputStream(tempPath);
+                document.write(out);
+                out.flush();
+                out.close();
             }
-            String tempPath = tempDir + wordFilename;
-            FileOutputStream out = new FileOutputStream(tempPath);
-            document.write(out);
-            out.flush();
-            out.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -81,17 +83,20 @@ public class WordUtils {
 
     /**
      * doc转pdf
+     *
      * @param xwpfDocument
      * @return
      * @throws IOException
      */
     public static String docConvertPdf(XWPFDocument xwpfDocument) throws IOException {
-    PdfOptions pdfOptions = PdfOptions.create();
-    String realFileName = System.currentTimeMillis() + "_export.pdf";
-    String path = RuoYiConfig.getDownloadPath() + realFileName;
-    FileOutputStream fileOutputStream = new FileOutputStream(path);
-    PdfConverter.getInstance().convert(xwpfDocument,fileOutputStream,pdfOptions);
-    fileOutputStream.close();
-    return realFileName;
+        PdfOptions pdfOptions = PdfOptions.create();
+        String realFileName = System.currentTimeMillis() + "export.pdf";
+//    String path = RuoYiConfig.getDownloadPath() + realFileName;
+        String path = RuoYiConfig.getProfile() + "/download/" + realFileName;
+        FileOutputStream fileOutputStream = new FileOutputStream(path);
+        PdfConverter.getInstance().convert(xwpfDocument, fileOutputStream, pdfOptions);
+        fileOutputStream.flush();
+        fileOutputStream.close();
+        return realFileName;
     }
 }

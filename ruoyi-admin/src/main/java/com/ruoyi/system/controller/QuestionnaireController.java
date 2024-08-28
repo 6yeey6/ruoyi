@@ -218,7 +218,7 @@ public class QuestionnaireController extends BaseController
         String str = UUID.randomUUID().toString()+".docx";
         //获取yml配置地址
         String tempDir = RuoYiConfig.getProfile() + "/download/";
-        String name = WordUtils.easyPoiExport("static/word/template.docx", tempDir, str, map, request, response,false);
+        String name = WordUtils.easyPoiExport("static/word/template.docx", tempDir, str, map, request, response,true);
         return AjaxResult.success(name);
     }
 }
