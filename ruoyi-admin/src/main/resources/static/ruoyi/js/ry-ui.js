@@ -1119,7 +1119,7 @@ var table = {
             //导出信息
             exportWord: function(id) {
                 table.set();
-                $.modal.confirm("确定导出该条" + table.options.modalName + "信息吗？", function() {
+                $.modal.confirm("确定导出该条" + table.options.modalName + "报告吗？", function() {
                     var url = $.common.isEmpty(id) ? table.options.exportWordUrl : table.options.exportWordUrl.replace("{id}", id);
                     if (table.options.type == table_type.bootstrapTreeTable) {
 
