@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.*;
 
 import com.ruoyi.common.config.RuoYiConfig;
+import com.ruoyi.system.util.DateUtils;
 import com.ruoyi.system.util.WordUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -183,6 +184,7 @@ public class QuestionnaireController extends BaseController
         Map<String, Object> map = new HashMap<>();
         Questionnaire questionnaire = questionnaireService.selectQuestionnaireById(ids);
         String title = questionnaire.getCompanyName();
+        String time = DateUtils.format(new Date(),DateUtils.DATE_FORMAT_PATTERN);
 //        Class clazz = questionnaire.getClass();
 //        // 获取类中声明的字段
 //        Field[] fields = clazz.getDeclaredFields();
@@ -212,8 +214,7 @@ public class QuestionnaireController extends BaseController
 //        }else{
 //            map.put("title", "否"+"\u2611" +" " +"是"+"\u25A1");
 //        }
-        //TODO 时间戳参数化
-        map.put("title", title);
+        map.put("time", time);
         String str = UUID.randomUUID().toString()+".docx";
         //获取yml配置地址
         String tempDir = RuoYiConfig.getProfile() + "/download/";
