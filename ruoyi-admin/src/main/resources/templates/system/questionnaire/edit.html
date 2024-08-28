@@ -70,6 +70,16 @@
                     <input name="email" th:field="*{email}" class="form-control" type="text">
                 </div>
             </div>
+            <div class="form-group">
+            <label class="col-sm-3 control-label">云服务器：</label>
+            <div class="col-sm-8">
+                <select class="form-control" th:field="*{cloudServer}">
+                    <option value="">请选择</option>
+                    <option value="是">是</option>
+                    <option value="否">否</option>
+                </select>
+            </div>
+            </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">IP地址：</label>
                 <div class="col-sm-8">
@@ -91,7 +101,11 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">是否存在网络拓扑图：</label>
                 <div class="col-sm-8">
-                    <input name="networkTopology" th:field="*{networkTopology}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{networkTopology}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -106,37 +120,61 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">外网区：</label>
                 <div class="col-sm-8">
-                    <input name="extranetArea" th:field="*{extranetArea}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{extranetArea}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">DMZ区：</label>
                 <div class="col-sm-8">
-                    <input name="dmzArea" th:field="*{dmzArea}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{dmzArea}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">内网区：</label>
                 <div class="col-sm-8">
-                    <input name="intranetArea" th:field="*{intranetArea}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{intranetArea}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">办公区：</label>
                 <div class="col-sm-8">
-                    <input name="officeArea" th:field="*{officeArea}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{officeArea}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">运维区：</label>
                 <div class="col-sm-8">
-                    <input name="operationArea" th:field="*{operationArea}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{operationArea}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">工业区：</label>
                 <div class="col-sm-8">
-                    <input name="industrialZone" th:field="*{industrialZone}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{industrialZone}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -149,7 +187,11 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">防火墙是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isFirewalls" th:field="*{isFirewalls}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isFirewalls}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -170,13 +212,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">防火墙是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isFirewallsInnocence" th:field="*{isFirewallsInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isFirewallsInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">数据库审计系统是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isDatabaseAudits" th:field="*{isDatabaseAudits}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isDatabaseAudits}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -197,13 +247,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">数据库审计系统是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isDatabaseAuditsInnocence" th:field="*{isDatabaseAuditsInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isDatabaseAuditsInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">日志审计系统是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isLogAudit" th:field="*{isLogAudit}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isLogAudit}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -224,13 +282,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">日志审计系统是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isLogAuditInnocence" th:field="*{isLogAuditInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isLogAuditInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">堡垒机是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isCitadel" th:field="*{isCitadel}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isCitadel}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -251,13 +317,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">堡垒机是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isCitadelInnocence" th:field="*{isCitadelInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isCitadelInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">态势感知是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isSituational" th:field="*{isSituational}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isSituational}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -278,13 +352,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">态势感知是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isSituationalInnocence" th:field="*{isSituationalInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isSituationalInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">WAF是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isWaf" th:field="*{isWaf}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isWaf}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -305,13 +387,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">WAF是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isWafInnocence" th:field="*{isWafInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isWafInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">漏洞扫描是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isScan" th:field="*{isScan}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isScan}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -332,13 +422,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">漏洞扫描是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isScanInnocence" th:field="*{isScanInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isScanInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">EDR是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isEdr" th:field="*{isEdr}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isEdr}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -359,19 +457,31 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">EDR是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isEdrInnocence" th:field="*{isEdrInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isEdrInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">蜜罐是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isPrivilegedEnv" th:field="*{isPrivilegedEnv}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isPrivilegedEnv}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">蜜罐品牌：</label>
                 <div class="col-sm-8">
-                    <input name="privilegedEnvBrand" th:field="*{privilegedEnvBrand}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{privilegedEnvBrand}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -392,13 +502,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">网闸是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isInternetAccess" th:field="*{isInternetAccess}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isInternetAccess}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">网闸品牌：</label>
                 <div class="col-sm-8">
-                    <input name="internetAccessBrand" th:field="*{internetAccessBrand}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{internetAccessBrand}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -413,13 +531,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">网闸是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isInternetAccessInnocence" th:field="*{isInternetAccessInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isInternetAccessInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">上网行为管理设备是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isInternetDevice" th:field="*{isInternetDevice}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isInternetDevice}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -440,13 +566,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">上网行为管理设备是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isInternetDeviceInnocence" th:field="*{isInternetDeviceInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isInternetDeviceInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">杀毒软件是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isAntiSoftware" th:field="*{isAntiSoftware}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isAntiSoftware}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -467,13 +601,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">杀毒软件是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isAntiSoftwareInnocence" th:field="*{isAntiSoftwareInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isAntiSoftwareInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">探针是否存在：</label>
                 <div class="col-sm-8">
-                    <input name="isProbes" th:field="*{isProbes}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isProbes}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -494,7 +636,11 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">探针是否在保：</label>
                 <div class="col-sm-8">
-                    <input name="isProbesInnocence" th:field="*{isProbesInnocence}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{isProbesInnocence}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -519,21 +665,21 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">办公系统：</label>
+                <label class="col-sm-3 control-label">办公系统（例如，OA办公、ERP、SAP等）：</label>
                 <div class="col-sm-8">
                     <input type="hidden" class="form-control" th:field="*{officeRes}">
                     <div class="summernote" id="officeRes"></div>
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">业务系统：</label>
+                <label class="col-sm-3 control-label">业务系统（例如，客户关系系统、商城系统、服务客户业务系统等）：</label>
                 <div class="col-sm-8">
                     <input type="hidden" class="form-control" th:field="*{businessRes}">
                     <div class="summernote" id="businessRes"></div>
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">辅助系统：</label>
+                <label class="col-sm-3 control-label">辅助系统（例如，系统维护系统、决策支持、物资管理、BI系统等）：</label>
                 <div class="col-sm-8">
                     <input type="hidden" class="form-control" th:field="*{ancillaryRes}">
                     <div class="summernote" id="ancillaryRes"></div>
@@ -542,19 +688,31 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">传呼系统：</label>
                 <div class="col-sm-8">
-                    <input name="pagingSystem" th:field="*{pagingSystem}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{pagingSystem}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">短信系统：</label>
                 <div class="col-sm-8">
-                    <input name="messageSystem" th:field="*{messageSystem}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{messageSystem}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">环保系统：</label>
                 <div class="col-sm-8">
-                    <input name="environmentalSystem" th:field="*{environmentalSystem}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{environmentalSystem}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -566,72 +724,112 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">门户网站：</label>
                 <div class="col-sm-8">
-                    <input name="webPortal" th:field="*{webPortal}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{webPortal}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">互联网业务站点：</label>
                 <div class="col-sm-8">
-                    <input name="internetBusinessSite" th:field="*{internetBusinessSite}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{internetBusinessSite}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">支付宝小程序：</label>
                 <div class="col-sm-8">
-                    <input name="aliPay" th:field="*{aliPay}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{aliPay}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">微信小程序：</label>
                 <div class="col-sm-8">
-                    <input name="wechatPay" th:field="*{wechatPay}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{wechatPay}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">微信公众号：</label>
                 <div class="col-sm-8">
-                    <input name="wechatPublicNumber" th:field="*{wechatPublicNumber}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{wechatPublicNumber}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">外部业务系统 其他：</label>
+                <label class="col-sm-3 control-label">外部业务系统其他补充内容：</label>
                 <div class="col-sm-8">
                     <input type="hidden" class="form-control" th:field="*{externalSystemBusOther}">
                     <div class="summernote" id="externalSystemBusOther"></div>
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">您所在单位是否提供无线局域网环境：</label>
+                <label class="col-sm-3 control-label">您所在单位提供无线局域网环境：</label>
                 <div class="col-sm-8">
-                    <input name="unlimitedNetwork" th:field="*{unlimitedNetwork}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{unlimitedNetwork}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">自助机：</label>
                 <div class="col-sm-8">
-                    <input name="selfServiceMachine" th:field="*{selfServiceMachine}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{selfServiceMachine}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">扫码一体机：</label>
                 <div class="col-sm-8">
-                    <input name="scanningMachine" th:field="*{scanningMachine}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{scanningMachine}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">PAD设备：</label>
                 <div class="col-sm-8">
-                    <input name="padDevice" th:field="*{padDevice}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{padDevice}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">手持遥控设备：</label>
                 <div class="col-sm-8">
-                    <input name="handheldDevice" th:field="*{handheldDevice}" class="form-control" type="text">
+                    <select class="form-control" th:field="*{handheldDevice}">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">辅助设备其他：</label>
+                <label class="col-sm-3 control-label">辅助设备其他补充内容：</label>
                 <div class="col-sm-8">
                     <input type="hidden" class="form-control" th:field="*{ancillaryDeviceOther}">
                     <div class="summernote" id="ancillaryDeviceOther"></div>
