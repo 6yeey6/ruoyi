@@ -1,6 +1,9 @@
 package com.ruoyi.system.util;
 
 import cn.afterturn.easypoi.word.WordExportUtil;
+import com.ruoyi.common.config.RuoYiConfig;
+import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
+import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.util.Assert;
 
@@ -8,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.Map;
 
@@ -20,16 +24,17 @@ public class WordUtils {
      * EasyPoi 替换数据 导出 word
      * @param templatePath word模板地址
      * @param tempDir      临时文件存放地址
-     * @param filename     文件名称
+     * @param wordFilename     文件名称
      * @param data         替换参数
+     * @param isPdf       是否导出pdf
      * @param request
      * @param response
      */
-    public static String easyPoiExport(String templatePath, String tempDir, String filename, Map<String, Object> data, HttpServletRequest request, HttpServletResponse response) {
+    public static String easyPoiExport(String templatePath, String tempDir, String wordFilename, Map<String, Object> data, HttpServletRequest request, HttpServletResponse response,boolean isPdf) {
         Assert.notNull(templatePath, "模板路径不能为空");
         Assert.notNull(tempDir, "临时文件路径不能为空");
-        Assert.notNull(filename, "文件名称不能为空");
-        Assert.isTrue(filename.endsWith(".docx"), "文件名称仅支持docx格式");
+        Assert.notNull(wordFilename, "文件名称不能为空");
+        Assert.isTrue(wordFilename.endsWith(".docx"), "文件名称仅支持docx格式");
 
         if (!tempDir.endsWith("/")) {
             tempDir = tempDir + File.separator;
@@ -39,18 +44,20 @@ public class WordUtils {
         if (!file.exists()) {
             file.mkdirs();
         }
-
         try {
             String userAgent = request.getHeader("user-agent").toLowerCase();
             if (userAgent.contains("msie") || userAgent.contains("like gecko")) {
-                filename = URLEncoder.encode(filename, "UTF-8");
+                wordFilename = URLEncoder.encode(wordFilename, "UTF-8");
             } else {
-                filename = new String(filename.getBytes("utf-8"), "ISO-8859-1");
+                wordFilename = new String(wordFilename.getBytes("utf-8"), "ISO-8859-1");
             }
 
             XWPFDocument document = WordExportUtil.exportWord07(templatePath, data);
             //TODO 转换为pdf
-            String tempPath = tempDir + filename;
+            if(isPdf){
+                wordFilename = docConvertPdf(document);
+            }
+            String tempPath = tempDir + wordFilename;
             FileOutputStream out = new FileOutputStream(tempPath);
             document.write(out);
             out.flush();
@@ -58,10 +65,8 @@ public class WordUtils {
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-//            deleteTempFile(tempDir, filename);
         }
-        return filename;
+        return wordFilename;
     }
 
     /**
@@ -74,27 +79,19 @@ public class WordUtils {
         f.delete();
     }
 
-//    public static void convertWordToPdf(String wordFilePath, String pdfFilePath) {
-//        try (XWPFDocument document = new XWPFDocument(new FileInputStream(wordFilePath));
-//             PDDocument pdfDocument = new PDDocument()) {
-//
-//            PDPage page = new PDPage();
-//            pdfDocument.addPage(page);
-//            PDPageContentStream contentStream = new PDPageContentStream(pdfDocument, page);
-//
-//            // 获取 Word 中的段落并写入 PDF
-//            for (XWPFParagraph paragraph : document.getParagraphs()) {
-//                contentStream.beginText();
-//                contentStream.setFont(PDType1Font.HELVETICA, 12);
-//                contentStream.newLineAtOffset(25, 750 - 20 * document.getParagraphs().indexOf(paragraph));
-//                contentStream.showText(paragraph.getText());
-//                contentStream.endText();
-//            }
-//
-//            contentStream.close();
-//            pdfDocument.save(pdfFilePath);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    /**
+     * doc转pdf
+     * @param xwpfDocument
+     * @return
+     * @throws IOException
+     */
+    public static String docConvertPdf(XWPFDocument xwpfDocument) throws IOException {
+    PdfOptions pdfOptions = PdfOptions.create();
+    String realFileName = System.currentTimeMillis() + "_export.pdf";
+    String path = RuoYiConfig.getDownloadPath() + realFileName;
+    FileOutputStream fileOutputStream = new FileOutputStream(path);
+    PdfConverter.getInstance().convert(xwpfDocument,fileOutputStream,pdfOptions);
+    fileOutputStream.close();
+    return realFileName;
+    }
 }
