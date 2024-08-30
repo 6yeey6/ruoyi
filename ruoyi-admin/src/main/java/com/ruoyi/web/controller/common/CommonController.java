@@ -53,7 +53,8 @@ public class CommonController
             {
                 throw new Exception(StringUtils.format("文件名称({})非法，不允许下载。 ", fileName));
             }
-            String realFileName = System.currentTimeMillis() + fileName.substring(fileName.indexOf("_") + 1);
+//            String realFileName = System.currentTimeMillis() + fileName.substring(fileName.indexOf("_") + 1);
+            String realFileName = fileName;
 //            String realFileName = System.currentTimeMillis() + "_"+ "问卷调查表.pdf";
             String filePath = RuoYiConfig.getDownloadPath() + fileName;
 

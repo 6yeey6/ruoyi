@@ -193,6 +193,7 @@ public class QuestionnaireController extends BaseController {
         Questionnaire questionnaire = questionnaireService.selectQuestionnaireById(ids);
         String time = DateUtils.format(new Date(), DateUtils.DATE_FORMAT_PATTERN);
         Class clazz = questionnaire.getClass();
+        String companyName = null;
         // 获取类中声明的字段
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
@@ -221,6 +222,9 @@ public class QuestionnaireController extends BaseController {
                         map.put("a"+field.getName(),"否" + "\u2611");
                     }
                 }else {
+                    if ("companyName".equals(field.getName())){
+                        companyName = field.get(questionnaire).toString();
+                    }
                     //非单选则
                     map.put(field.getName(), field.get(questionnaire));
                 }
@@ -230,7 +234,8 @@ public class QuestionnaireController extends BaseController {
         }
         //时间戳填充
         map.put("time", time);
-        String str = UUID.randomUUID().toString() + ".docx";
+        String str = companyName + "调查问卷表_" + DateUtils.format(new Date(),DateUtils.DATE_TIME_UTC_FORMAT) + ".docx";
+        System.out.println(str);
         //获取yml配置地址
         String tempDir = RuoYiConfig.getProfile() + "/download/";
         String name = WordUtils.easyPoiExport("static/word/template.docx", tempDir, str, map, request, response, false);

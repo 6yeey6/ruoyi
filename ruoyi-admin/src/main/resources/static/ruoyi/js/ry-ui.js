@@ -1128,7 +1128,7 @@ var table = {
                         var data = { "ids": id };
                         $.operate.submit(url, "post", "json", data,function (result) {
                             if (result.code == web_status.SUCCESS) {
-                                window.location.href = ctx + "common/download?fileName=" + encodeURI(result.msg) + "&delete=" + true;
+                                window.location.href = ctx + "common/download?fileName=" + result.msg + "&delete=" + true;
                             } else if (result.code == web_status.WARNING) {
                                 $.modal.alertWarning(result.msg)
                             } else {
