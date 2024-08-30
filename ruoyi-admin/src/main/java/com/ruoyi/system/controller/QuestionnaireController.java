@@ -45,12 +45,16 @@ public class QuestionnaireController extends BaseController {
             "isFirewallsInnocence","isDatabaseAudits","isDatabaseAuditsInnocence","isLogAudit","isLogAuditInnocence","isCitadel",
             "isCitadelInnocence","isSituational","isSituationalInnocence","isWaf","isWafInnocence","isScan","isScanInnocence","isEdr",
             "isEdrInnocence","isPrivilegedEnv","isPrivilegedEnvInnocence","isInternetAccess","isInternetAccessInnocence","isInternetDevice",
-            "isInternetDeviceInnocence","isAntiSoftwareInnocence","isProbesInnocence","pagingSystem","messageSystem","environmentalSystem",
+            "isInternetDeviceInnocence","isAntiSoftware","isAntiSoftwareInnocence","isProbes","isProbesInnocence","pagingSystem","messageSystem","environmentalSystem",
             "webPortal","internetBusinessSite","aliPay","wechatPay","wechatPublicNumber","unlimitedNetwork","selfServiceMachine","scanningMachine",
-            "padDevice","handheldDevice","secInfo1","secInfo2","secInfo3","secInfo4","secInfo5","secInfo6","secInfo7","secInfo8","secInfo9","secInfo10","secInfo11",
-            "secInfo12","secInfo13","secInfo14","secInfo15","secInfo16","secInfo17","secInfo18","secInfo19","secInfo20","secInfo21","secInfo22");
+            "padDevice","handheldDevice");
 
-    private static final List<String> timeList = Arrays.asList("firewallsDate");
+    private static final List<String> timeList = Arrays.asList("firewallsDate","databaseAuditsDate","logAuditDate",
+            "citadelDate","situationalDate","wafDate","scanDate","edrDate","privilegedEnvDate","internetAccessDate",
+            "internetDeviceDate","antiSoftwareDate","probesDate");
+
+    private static final List<String> radioList2 = Arrays.asList("secInfo1","secInfo2","secInfo3","secInfo4","secInfo5","secInfo6","secInfo7","secInfo8","secInfo9","secInfo10","secInfo11",
+            "secInfo12","secInfo13","secInfo14","secInfo15","secInfo16","secInfo17","secInfo18","secInfo19","secInfo20","secInfo21","secInfo22");
 
     @Autowired
     private IQuestionnaireService questionnaireService;
@@ -208,7 +212,15 @@ public class QuestionnaireController extends BaseController {
                     calendar.setTime((Date) field.get(questionnaire));
                     Date date = calendar.getTime();
                     map.put(field.getName(),DateUtils.format(date,DateUtils.DATE_FORMAT_PATTERN));
-                } else {
+                } else if(radioList2.contains(field.getName())){
+                    if ("1".equals(String.valueOf(field.get(questionnaire)))){
+                        map.put(field.getName(),"是" + "\u2611");
+                        map.put("a"+field.getName(),"否" + "\u25A1");
+                    }else {
+                        map.put(field.getName(),"是" + "\u25A1");
+                        map.put("a"+field.getName(),"否" + "\u2611");
+                    }
+                }else {
                     //非单选则
                     map.put(field.getName(), field.get(questionnaire));
                 }
