@@ -30,14 +30,23 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 调查问卷库Controller
- * 
+ *
  * @author ruoyi
  * @date 2024-08-23
  */
 @Controller
 @RequestMapping("/system/questionnaire")
-public class QuestionnaireController extends BaseController
-{
+public class QuestionnaireController extends BaseController {
+
+    private static final List<String> radioList = Arrays.asList("cloudServer","networkTopology",
+            "extranetArea","dmzArea","intranetArea","officeArea","operationArea","industrialZone","isFirewalls",
+            "isFirewallsInnocence","isDatabaseAudits","isDatabaseAuditsInnocence","isLogAudit","isLogAuditInnocence","isCitadel",
+            "isCitadelInnocence","isSituational","isSituationalInnocence","isWaf","isWafInnocence","isScan","isScanInnocence","isEdr",
+            "isEdrInnocence","isPrivilegedEnv","isPrivilegedEnvInnocence","isInternetAccess","isInternetAccessInnocence","isInternetDevice",
+            "isInternetDeviceInnocence","isAntiSoftwareInnocence","isProbesInnocence","pagingSystem","messageSystem","environmentalSystem",
+            "webPortal","internetBusinessSite","aliPay","wechatPay","wechatPublicNumber","unlimitedNetwork","selfServiceMachine","scanningMachine",
+            "padDevice","handheldDevice","secInfo1","secInfo2","secInfo3","secInfo4","secInfo5","secInfo6","secInfo7","secInfo8","secInfo9","secInfo10","secInfo11",
+            "secInfo12","secInfo13","secInfo14","secInfo15","secInfo16","secInfo17","secInfo18","secInfo19","secInfo20","secInfo21","secInfo22");
     private String prefix = "system/questionnaire";
 
     @Autowired
@@ -45,8 +54,7 @@ public class QuestionnaireController extends BaseController
 
     @RequiresPermissions("system:questionnaire:view")
     @GetMapping()
-    public String questionnaire()
-    {
+    public String questionnaire() {
         return prefix + "/questionnaire";
     }
 
@@ -56,8 +64,7 @@ public class QuestionnaireController extends BaseController
     @RequiresPermissions("system:questionnaire:list")
     @PostMapping("/list")
     @ResponseBody
-    public TableDataInfo list(Questionnaire questionnaire)
-    {
+    public TableDataInfo list(Questionnaire questionnaire) {
         startPage();
         List<Questionnaire> list = questionnaireService.selectQuestionnaireList(questionnaire);
         return getDataTable(list);
@@ -70,8 +77,7 @@ public class QuestionnaireController extends BaseController
     @Log(title = "调查问卷库", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
-    public AjaxResult export(Questionnaire questionnaire)
-    {
+    public AjaxResult export(Questionnaire questionnaire) {
 //        List<Questionnaire> list = questionnaireService.selectQuestionnaireList(questionnaire);
         List<Questionnaire> list1 = new ArrayList<>();
         ExcelUtil<Questionnaire> util = new ExcelUtil<Questionnaire>(Questionnaire.class);
@@ -80,19 +86,20 @@ public class QuestionnaireController extends BaseController
 
     /**
      * 导入模版
+     *
      * @return
      */
     @RequiresPermissions("system:questionnaire:view")
     @GetMapping("/importTemplate")
     @ResponseBody
-    public AjaxResult importTemplate()
-    {
+    public AjaxResult importTemplate() {
         ExcelUtil<Questionnaire> util = new ExcelUtil<Questionnaire>(Questionnaire.class);
         return util.importTemplateExcel("资产数据");
     }
 
     /**
      * 导入数据
+     *
      * @param file
      * @param updateSupport
      * @return
@@ -102,11 +109,10 @@ public class QuestionnaireController extends BaseController
     @RequiresPermissions("system:questionnaire:importDate")
     @PostMapping("/importData")
     @ResponseBody
-    public AjaxResult importDate(MultipartFile file, boolean updateSupport) throws Exception
-    {
+    public AjaxResult importDate(MultipartFile file, boolean updateSupport) throws Exception {
         ExcelUtil<Questionnaire> util = new ExcelUtil<Questionnaire>(Questionnaire.class);
         List<Questionnaire> userList = util.importExcel(file.getInputStream());
-        for (Questionnaire  questionnaire: userList){
+        for (Questionnaire questionnaire : userList) {
             questionnaireService.insertQuestionnaire(questionnaire);
         }
         return AjaxResult.success();
@@ -116,8 +122,7 @@ public class QuestionnaireController extends BaseController
      * 新增调查问卷库
      */
     @GetMapping("/add")
-    public String add()
-    {
+    public String add() {
         return prefix + "/add";
     }
 
@@ -128,8 +133,7 @@ public class QuestionnaireController extends BaseController
     @Log(title = "调查问卷库", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
-    public AjaxResult addSave(Questionnaire questionnaire)
-    {
+    public AjaxResult addSave(Questionnaire questionnaire) {
         return toAjax(questionnaireService.insertQuestionnaire(questionnaire));
     }
 
@@ -138,8 +142,7 @@ public class QuestionnaireController extends BaseController
      */
     @RequiresPermissions("system:questionnaire:edit")
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable("id") Long id, ModelMap mmap)
-    {
+    public String edit(@PathVariable("id") Long id, ModelMap mmap) {
         Questionnaire questionnaire = questionnaireService.selectQuestionnaireById(id);
         mmap.put("questionnaire", questionnaire);
         return prefix + "/edit";
@@ -152,8 +155,7 @@ public class QuestionnaireController extends BaseController
     @Log(title = "调查问卷库", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
-    public AjaxResult editSave(Questionnaire questionnaire)
-    {
+    public AjaxResult editSave(Questionnaire questionnaire) {
         return toAjax(questionnaireService.updateQuestionnaire(questionnaire));
     }
 
@@ -162,10 +164,9 @@ public class QuestionnaireController extends BaseController
      */
     @RequiresPermissions("system:questionnaire:remove")
     @Log(title = "调查问卷库", businessType = BusinessType.DELETE)
-    @PostMapping( "/remove")
+    @PostMapping("/remove")
     @ResponseBody
-    public AjaxResult remove(String ids)
-    {
+    public AjaxResult remove(String ids) {
         return toAjax(questionnaireService.deleteQuestionnaireByIds(ids));
     }
 
@@ -180,45 +181,38 @@ public class QuestionnaireController extends BaseController
     @RequiresPermissions("system:questionnaire:export")
     @PostMapping("/exportWord")
     @ResponseBody
-    public AjaxResult exportWord(long ids, HttpServletRequest request, HttpServletResponse response){
+    public AjaxResult exportWord(long ids, HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> map = new HashMap<>();
         Questionnaire questionnaire = questionnaireService.selectQuestionnaireById(ids);
-        String title = questionnaire.getCompanyName();
-        String time = DateUtils.format(new Date(),DateUtils.DATE_FORMAT_PATTERN);
-//        Class clazz = questionnaire.getClass();
-//        // 获取类中声明的字段
-//        Field[] fields = clazz.getDeclaredFields();
-//        for (Field field : fields) {
-//            // 避免 can not access a member of class com.java.test.Person with modifiers "private"
-//            field.setAccessible(true);
-//            try {
-////                System.out.println(field.getName() + ":"+ field.get(questionnaire));
-//                //根据属性填充表格
-//                //TODO radio格式的需要判断
-//                //先判断是否是单选类型
-//                if (true){
-//                if("是".equals(field.get(questionnaire)) || "1".equals(field.get(questionnaire))){
-//                    map.put(field.getName(), "是"+"\u2611" +" " +"否"+"\u25A1");
-//                }else {
-//                    map.put(field.getName(), "否"+"\u2611" +" " +"是"+"\u25A1");
-//                }
-//                }else {
-//                map.put(field.getName(), field.get(questionnaire));
-//                }
-//            } catch (IllegalAccessException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        if(title.equals("true")){
-//            map.put("title", "是"+"\u2611" +" " +"否"+"\u25A1");
-//        }else{
-//            map.put("title", "否"+"\u2611" +" " +"是"+"\u25A1");
-//        }
+        String time = DateUtils.format(new Date(), DateUtils.DATE_FORMAT_PATTERN);
+        Class clazz = questionnaire.getClass();
+        // 获取类中声明的字段
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            field.setAccessible(true);
+            try {
+                //根据属性填充表格
+                //先判断是否是单选类型
+                if (radioList.contains(field.getName())) {
+                    if ("1".equals(field.get(questionnaire))) {
+                        map.put(field.getName(), "是" + "\u2611" + " " + "否" + "\u25A1");
+                    } else {
+                        map.put(field.getName(), "是" + "\u25A1" + " " + "否" + "\u2611");
+                    }
+                } else {
+                    //非单选则
+                    map.put(field.getName(), field.get(questionnaire));
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        //时间戳填充
         map.put("time", time);
-        String str = UUID.randomUUID().toString()+".docx";
+        String str = UUID.randomUUID().toString() + ".docx";
         //获取yml配置地址
         String tempDir = RuoYiConfig.getProfile() + "/download/";
-        String name = WordUtils.easyPoiExport("static/word/template.docx", tempDir, str, map, request, response,true);
+        String name = WordUtils.easyPoiExport("static/word/template.docx", tempDir, str, map, request, response, false);
         return AjaxResult.success(name);
     }
 }
