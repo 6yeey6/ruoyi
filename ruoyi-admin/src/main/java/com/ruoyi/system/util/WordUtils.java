@@ -1,9 +1,6 @@
 package com.ruoyi.system.util;
 
 import cn.afterturn.easypoi.word.WordExportUtil;
-import com.ruoyi.common.config.RuoYiConfig;
-import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
-import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.util.Assert;
 
@@ -12,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.util.Map;
 
 /**
@@ -90,14 +86,14 @@ public class WordUtils {
      * @throws IOException
      */
     public static String docConvertPdf(XWPFDocument xwpfDocument) throws IOException {
-        PdfOptions pdfOptions = PdfOptions.create();
+//        PdfOptions pdfOptions = PdfOptions.create();
         String realFileName = System.currentTimeMillis() + "export.pdf";
-//    String path = RuoYiConfig.getDownloadPath() + realFileName;
-        String path = RuoYiConfig.getProfile() + "/download/" + realFileName;
-        FileOutputStream fileOutputStream = new FileOutputStream(path);
-        PdfConverter.getInstance().convert(xwpfDocument, fileOutputStream, pdfOptions);
-        fileOutputStream.flush();
-        fileOutputStream.close();
+////    String path = RuoYiConfig.getDownloadPath() + realFileName;
+//        String path = RuoYiConfig.getProfile() + "/download/" + realFileName;
+//        FileOutputStream fileOutputStream = new FileOutputStream(path);
+//        PdfConverter.getInstance().convert(xwpfDocument, fileOutputStream, pdfOptions);
+//        fileOutputStream.flush();
+//        fileOutputStream.close();
         return realFileName;
     }
 }

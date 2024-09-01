@@ -96,7 +96,7 @@ public class QuestionnaireController extends BaseController {
      *
      * @return
      */
-    @RequiresPermissions("system:questionnaire:view")
+//    @RequiresPermissions("system:questionnaire:view")
     @GetMapping("/importTemplate")
     @ResponseBody
     public AjaxResult importTemplate() {
@@ -119,6 +119,9 @@ public class QuestionnaireController extends BaseController {
     public AjaxResult importDate(MultipartFile file, boolean updateSupport) throws Exception {
         ExcelUtil<Questionnaire> util = new ExcelUtil<Questionnaire>(Questionnaire.class);
         List<Questionnaire> userList = util.importExcel(file.getInputStream());
+        if (userList.isEmpty()){
+            return AjaxResult.error("请至少填写一条数据!");
+        }
         for (Questionnaire questionnaire : userList) {
             questionnaireService.insertQuestionnaire(questionnaire);
         }
@@ -210,9 +213,14 @@ public class QuestionnaireController extends BaseController {
                     //时间类型特殊处理
                 }else if(timeList.contains(field.getName())){
                     Calendar calendar = Calendar.getInstance();
-                    calendar.setTime((Date) field.get(questionnaire));
-                    Date date = calendar.getTime();
-                    map.put(field.getName(),DateUtils.format(date,DateUtils.DATE_FORMAT_PATTERN));
+                    if (Objects.isNull(field.get(questionnaire))){
+                        //时间为空
+                        map.put(field.getName(),null);
+                    }else {
+                        calendar.setTime((Date) field.get(questionnaire));
+                        Date date = calendar.getTime();
+                        map.put(field.getName(),DateUtils.format(date,DateUtils.DATE_FORMAT_PATTERN));
+                    }
                 } else if(radioList2.contains(field.getName())){
                     if ("1".equals(String.valueOf(field.get(questionnaire)))){
                         map.put(field.getName(),"是" + "\u2611");
