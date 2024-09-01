@@ -48,7 +48,8 @@ public class WordUtils {
         try {
             String userAgent = request.getHeader("user-agent").toLowerCase();
             if (userAgent.contains("msie") || userAgent.contains("like gecko")) {
-                wordFilename = URLEncoder.encode(wordFilename, "UTF-8");
+//                wordFilename = URLEncoder.encode(wordFilename, "UTF-8");
+                wordFilename = wordFilename;
             } else {
                 wordFilename = new String(wordFilename.getBytes("utf-8"), "ISO-8859-1");
             }
