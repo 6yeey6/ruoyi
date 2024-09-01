@@ -121,7 +121,7 @@ public class Questionnaire extends BaseEntity
 
     /** 防火墙上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "防火墙上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "防火墙上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date firewallsDate;
 
     /** 防火墙是否在保 */
@@ -138,7 +138,7 @@ public class Questionnaire extends BaseEntity
 
     /** 数据库审计系统上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "数据库审计系统上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "数据库审计系统上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date databaseAuditsDate;
 
     /** 数据库审计系统是否在保 */
@@ -155,7 +155,7 @@ public class Questionnaire extends BaseEntity
 
     /** 日志审计系统上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "日志审计系统上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "日志审计系统上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date logAuditDate;
 
     /** 日志审计系统是否在保 */
@@ -172,7 +172,7 @@ public class Questionnaire extends BaseEntity
 
     /** 堡垒机上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "堡垒机上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "堡垒机上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date citadelDate;
 
     /** 堡垒机是否在保 */
@@ -189,7 +189,7 @@ public class Questionnaire extends BaseEntity
 
     /** 态势感知上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "态势感知上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "态势感知上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date situationalDate;
 
     /** 态势感知是否在保 */
@@ -206,7 +206,7 @@ public class Questionnaire extends BaseEntity
 
     /** WAF上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "WAF上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "WAF上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date wafDate;
 
     /** WAF是否在保 */
@@ -223,7 +223,7 @@ public class Questionnaire extends BaseEntity
 
     /** 漏洞扫描上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "漏洞扫描上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "漏洞扫描上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date scanDate;
 
     /** 漏洞扫描是否在保 */
@@ -240,7 +240,7 @@ public class Questionnaire extends BaseEntity
 
     /** EDR上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "EDR上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "EDR上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date edrDate;
 
     /** EDR是否在保 */
@@ -257,7 +257,7 @@ public class Questionnaire extends BaseEntity
 
     /** 蜜罐上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "蜜罐上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "蜜罐上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date privilegedEnvDate;
 
     /** 蜜罐是否在保 */
@@ -274,7 +274,7 @@ public class Questionnaire extends BaseEntity
 
     /** 网闸上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "网闸上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "网闸上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date internetAccessDate;
 
     /** 网闸是否在保 */
@@ -291,7 +291,7 @@ public class Questionnaire extends BaseEntity
 
     /** 上网行为管理设备上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "上网行为管理设备上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "上网行为管理设备上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date internetDeviceDate;
 
     /** 上网行为管理设备是否在保 */
@@ -308,7 +308,7 @@ public class Questionnaire extends BaseEntity
 
     /** 杀毒软件上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "杀毒软件上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "杀毒软件上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date antiSoftwareDate;
 
     /** 杀毒软件是否在保 */
@@ -325,7 +325,7 @@ public class Questionnaire extends BaseEntity
 
     /** 探针上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "探针上线日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "探针上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date probesDate;
 
     /** 探针是否在保 */
