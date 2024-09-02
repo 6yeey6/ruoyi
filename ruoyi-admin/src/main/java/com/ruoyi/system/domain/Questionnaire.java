@@ -121,7 +121,7 @@ public class Questionnaire extends BaseEntity
 
     /** 防火墙上线日期 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "防火墙上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "防火墙上线日期", width = 30, dateFormat = "yyyy-MM-dd")
     private Date firewallsDate;
 
     /** 防火墙是否在保 */
