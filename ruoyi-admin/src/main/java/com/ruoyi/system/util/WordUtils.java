@@ -1,6 +1,7 @@
 package com.ruoyi.system.util;
 
 import cn.afterturn.easypoi.word.WordExportUtil;
+import com.ruoyi.common.config.RuoYiConfig;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.util.Assert;
 
@@ -86,14 +87,30 @@ public class WordUtils {
      * @throws IOException
      */
     public static String docConvertPdf(XWPFDocument xwpfDocument) throws IOException {
-//        PdfOptions pdfOptions = PdfOptions.create();
+////        PdfOptions pdfOptions = PdfOptions.create();
         String realFileName = System.currentTimeMillis() + "export.pdf";
 ////    String path = RuoYiConfig.getDownloadPath() + realFileName;
-//        String path = RuoYiConfig.getProfile() + "/download/" + realFileName;
-//        FileOutputStream fileOutputStream = new FileOutputStream(path);
-//        PdfConverter.getInstance().convert(xwpfDocument, fileOutputStream, pdfOptions);
-//        fileOutputStream.flush();
-//        fileOutputStream.close();
-        return realFileName;
+        String path = RuoYiConfig.getProfile() + "/download/" + realFileName;
+////        FileOutputStream fileOutputStream = new FileOutputStream(path);
+////        PdfConverter.getInstance().convert(xwpfDocument, fileOutputStream, pdfOptions);
+////        fileOutputStream.flush();
+////        fileOutputStream.close();
+////        return realFileName;
+//        PDDocument pdfDocument = new PDDocument();
+//        PDPage page = new PDPage();
+//        pdfDocument.addPage(page);
+//        PDPageContentStream contentStream = new PDPageContentStream(pdfDocument, page);
+//
+//        // 获取 Word 中的段落并写入 PDF
+//        for (XWPFParagraph paragraph : xwpfDocument.getParagraphs()) {
+//            contentStream.beginText();
+//            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+//            contentStream.newLineAtOffset(25, 750 - 20 * xwpfDocument.getParagraphs().indexOf(paragraph));
+//            contentStream.showText(paragraph.getText());
+//            contentStream.endText();
+//        }
+//        contentStream.close();
+//        pdfDocument.save(path);
+        return path;
     }
 }
