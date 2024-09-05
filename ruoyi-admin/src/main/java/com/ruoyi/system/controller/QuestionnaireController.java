@@ -96,7 +96,7 @@ public class QuestionnaireController extends BaseController {
      *
      * @return
      */
-//    @RequiresPermissions("system:questionnaire:view")
+    @RequiresPermissions("system:questionnaire:importTemplate")
     @GetMapping("/importTemplate")
     @ResponseBody
     public AjaxResult importTemplate() {
