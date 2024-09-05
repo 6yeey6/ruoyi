@@ -62,8 +62,11 @@
                     checkbox: true
                 },
                 {
-                    field: 'id',
-                    title: '编号'
+                    // field: 'id',
+                    title: '序号',
+                    formatter: function (value, row, index){
+                        return index+1;
+                    }
                 },
                 {
                     field: 'companyName',
