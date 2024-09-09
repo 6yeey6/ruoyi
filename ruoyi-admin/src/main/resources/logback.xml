@@ -14,12 +14,14 @@
 	
 	<!-- 系统日志输出 -->
 	<appender name="file_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- 修改日志路径 -->
-	    <file>/Users/liuye/Desktop/logs/sys-info.log</file>
+        <!-- 修改日志路径  -->
+        <!-- TODO 本地 /Users/liuye/Desktop/logs -->
+	    <file>/usr/local/webapp/logs/sys-info.log</file>
         <!-- 循环政策：基于时间创建日志文件 -->
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 日志文件名格式 -->
-			<fileNamePattern>/Users/liuye/Desktop/logs/sys-info.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- TODO 本地 /Users/liuye/Desktop/logs -->
+			<fileNamePattern>/usr/local/webapp/logs/sys-info.%d{yyyy-MM-dd}.log</fileNamePattern>
 			<!-- 日志最大的历史 60天 -->
 			<maxHistory>60</maxHistory>
 		</rollingPolicy>
@@ -37,11 +39,13 @@
 	</appender>
 	
 	<appender name="file_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
-	    <file>/Users/liuye/Desktop/logs/sys-error.log </file>
+        <!-- TODO 本地 /Users/liuye/Desktop/logs -->
+	    <file>/usr/local/webapp/logs/sys-error.log </file>
         <!-- 循环政策：基于时间创建日志文件 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 日志文件名格式 -->
-            <fileNamePattern>/Users/liuye/Desktop/logs/sys-error.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- TODO 本地 /Users/liuye/Desktop/logs -->
+            <fileNamePattern>/usr/local/webapp/logs/sys-error.%d{yyyy-MM-dd}.log</fileNamePattern>
 			<!-- 日志最大的历史 60天 -->
 			<maxHistory>60</maxHistory>
         </rollingPolicy>
@@ -60,10 +64,12 @@
 	
 	<!-- 用户访问日志输出  -->
     <appender name="sys-user" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/Users/liuye/Desktop/logs/sys-user.log</file>
+        <!-- TODO 本地 /Users/liuye/Desktop/logs -->
+		<file>/usr/local/webapp/logs/sys-user.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 按天回滚 daily -->
-            <fileNamePattern>/Users/liuye/Desktop/logs/sys-user.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- TODO 本地 /Users/liuye/Desktop/logs -->
+            <fileNamePattern>/usr/local/webapp/logs/sys-user.%d{yyyy-MM-dd}.log</fileNamePattern>
             <!-- 日志最大的历史 60天 -->
             <maxHistory>60</maxHistory>
         </rollingPolicy>
