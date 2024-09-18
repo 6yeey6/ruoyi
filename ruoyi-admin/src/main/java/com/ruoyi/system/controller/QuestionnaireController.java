@@ -53,7 +53,7 @@ public class QuestionnaireController extends BaseController {
             "citadelDate","situationalDate","wafDate","scanDate","edrDate","privilegedEnvDate","internetAccessDate",
             "internetDeviceDate","antiSoftwareDate","probesDate");
 
-    private static final List<String> radioList2 = Arrays.asList("secInfo1","secInfo2","secInfo3","secInfo4","secInfo5","secInfo6","secInfo7","secInfo8","secInfo9","secInfo10","secInfo11",
+    private static final List<String> radioList2 = Arrays.asList("secInfo2","secInfo3","secInfo4","secInfo5","secInfo6","secInfo7","secInfo8","secInfo9","secInfo10","secInfo11",
             "secInfo12","secInfo13","secInfo14","secInfo15","secInfo16","secInfo17","secInfo18","secInfo19","secInfo20","secInfo21","secInfo22");
 
     @Autowired
