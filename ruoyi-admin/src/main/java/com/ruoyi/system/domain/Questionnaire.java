@@ -25,31 +25,31 @@ public class Questionnaire extends BaseEntity
     private String companyName;
 
     /** 统一社会信用代码 */
-    @Excel(name = "统一社会信用代码")
+//    @Excel(name = "统一社会信用代码")
     private String socialCreditCode;
 
     /** 所属行业 */
-    @Excel(name = "所属行业")
+//    @Excel(name = "所属行业")
     private String industry;
 
     /** 上一年度营业收入 */
-    @Excel(name = "上一年度营业收入")
+//    @Excel(name = "上一年度营业收入")
     private String priorYearIncome;
 
     /** 海外销售区域包括（国家） */
-    @Excel(name = "海外销售区域包括(国家)")
+//    @Excel(name = "海外销售区域包括(国家)")
     private String overseasSalesArea;
 
     /** 分别的营业收入占比为 */
-    @Excel(name = "分别的营业收入占比为")
+//    @Excel(name = "分别的营业收入占比为")
     private String operatingIncomeRatio;
 
     /** 员工人数 */
-    @Excel(name = "员工人数")
+//    @Excel(name = "员工人数")
     private String employeesNumber;
 
     /** 联系姓名 */
-    @Excel(name = "联系姓名")
+    @Excel(name = "联系人姓名")
     private String contactName;
 
     /** 联系电话 */
