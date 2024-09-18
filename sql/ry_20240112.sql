@@ -465,7 +465,7 @@ insert into sys_dict_type values(7,  '通知类型', 'sys_notice_type',     '0',
 insert into sys_dict_type values(8,  '通知状态', 'sys_notice_status',   '0', 'admin', sysdate(), '', null, '通知状态列表');
 insert into sys_dict_type values(9,  '操作类型', 'sys_oper_type',       '0', 'admin', sysdate(), '', null, '操作类型列表');
 insert into sys_dict_type values(10, '系统状态', 'sys_common_status',   '0', 'admin', sysdate(), '', null, '登录状态列表');
-
+insert into sys_dict_type values ( 11,  '运营商列表', 'question_naire_operator','0', 'admin', sysdate(), null, null, 'admin');
 
 -- ----------------------------
 -- 12、字典数据表
@@ -519,6 +519,17 @@ insert into sys_dict_data values(26, 8,  '生成代码', '8',       'sys_oper_ty
 insert into sys_dict_data values(27, 9,  '清空数据', '9',       'sys_oper_type',       '',   'danger',  'N', '0', 'admin', sysdate(), '', null, '清空操作');
 insert into sys_dict_data values(28, 1,  '成功',     '0',       'sys_common_status',   '',   'primary', 'N', '0', 'admin', sysdate(), '', null, '正常状态');
 insert into sys_dict_data values(29, 2,  '失败',     '1',       'sys_common_status',   '',   'danger',  'N', '0', 'admin', sysdate(), '', null, '停用状态');
+insert into sys_dict_data values(31, 1,  '联通',       '联通',       'question_naire_operator',          '',   'info', 'N', '0', 'admin', sysdate(), '', null, '默认分组');
+insert into sys_dict_data values(32, 2,  '电信',       '电信',       'question_naire_operator',          '',   'info',  'N', '0', 'admin', sysdate(), '', null, '默认分组');
+insert into sys_dict_data values(33, 3,  '移动',       '移动',       'question_naire_operator',          '',   'info', 'N', '0', 'admin', sysdate(), '', null, '默认分组');
+insert into sys_dict_data values(34, 4,  '教育',       '教育',       'question_naire_operator',          '',   'info',  'N', '0', 'admin', sysdate(), '', null, '默认分组');
+insert into sys_dict_data values(35, 5,  '广电',       '广电',       'question_naire_operator',          '',   'info', 'N', '0', 'admin', sysdate(), '', null, '默认分组');
+insert into sys_dict_data values(36, 6,  '阿里云',       '阿里云',       'question_naire_operator',          '',   'info',  'N', '0', 'admin', sysdate(), '', null, '默认分组');
+insert into sys_dict_data values(37, 7,  '腾讯云',       '腾讯云',       'question_naire_operator',          '',   'info', 'N', '0', 'admin', sysdate(), '', null, '默认分组');
+insert into sys_dict_data values(38, 8,  '华为云',       '华为云',       'question_naire_operator',          '',   'info',  'N', '0', 'admin', sysdate(), '', null, '默认分组');
+insert into sys_dict_data values(39, 9,  '亚马逊云',       '亚马逊云',       'question_naire_operator',          '',   'info', 'N', '0', 'admin', sysdate(), '', null, '默认分组');
+insert into sys_dict_data values(40, 10,  '微软云',       '微软云',       'question_naire_operator',          '',   'info',  'N', '0', 'admin', sysdate(), '', null, '默认分组');
+
 
 
 -- ----------------------------
