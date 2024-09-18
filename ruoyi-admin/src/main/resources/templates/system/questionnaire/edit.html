@@ -604,16 +604,16 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">探针是否存在：</label>
-                <div class="col-sm-8">
-                    <select class="form-control" th:field="*{isProbes}">
-                        <option value="">请选择</option>
-                        <option value="1">是</option>
-                        <option value="0">否</option>
-                    </select>
-                </div>
-            </div>
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">探针是否存在：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                    <select class="form-control" th:field="*{isProbes}">-->
+<!--                        <option value="">请选择</option>-->
+<!--                        <option value="1">是</option>-->
+<!--                        <option value="0">否</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="form-group">    
                 <label class="col-sm-3 control-label">探针品牌：</label>
                 <div class="col-sm-8">
@@ -682,7 +682,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">传呼系统：</label>
+                <label class="col-sm-3 control-label">医保系统：</label>
                 <div class="col-sm-8">
                     <select class="form-control" th:field="*{pagingSystem}">
                         <option value="">请选择</option>
@@ -692,7 +692,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">短信系统：</label>
+                <label class="col-sm-3 control-label">工伤系统：</label>
                 <div class="col-sm-8">
                     <select class="form-control" th:field="*{messageSystem}">
                         <option value="">请选择</option>
@@ -892,225 +892,222 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">建立安全管理制度：</label>
+                <label class="col-sm-3 control-label">有完整的建立安全管理制度：</label>
                 <div class="col-sm-8">
-                    <select class="form-control" th:field="*{secInfo1}">
-                        <option value="">请选择</option>
-                        <option value="1">是</option>
-                        <option value="0">否</option>
-                    </select>
+                    <input type="hidden" class="form-control" th:field="*{secInfo1}">
+                    <div class="summernote" id="secInfo1"></div>
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">有专人负责IT安全：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo2}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">贵公司有设定不同的安全岗位职责：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo3}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">定期更新系统补丁：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo4}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">物理安全区域部署安防设备：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo5}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">机房有相关管控措施：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo6}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">清晰的管理员账户清单并且严格控制管理员权限：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo7}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">公司在网络边界处部署防火墙等设备：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo8}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">部署抗DDoS设备或云防：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo9}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">严格限制网络端口、通讯协议及系统服务：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo10}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">业务重要性或敏感性对网络进行分区管理（VLAN）：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo11}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">所有外部远程访问实现加密措施：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo12}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">信息系统安装安全防护软件：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo13}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">对重要业务数据进行定期备份：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo14}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">在终端部署软件对USB和其他外设的使用进行监控：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo15}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-               </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">建立人员离岗管理制度,员工离职后终止访问权限：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo16}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">贵公司针对安全团队有定期(每年至少1次)安全技能培训：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo17}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">贵公司针对全体员工有定期：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo18}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">通过相关信息安全管理体系认证(ISO 27001)：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo19}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">近一年内重要信息系统通过等级保护测评：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo20}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">电子邮件采取安全防护措施：</label>
-                <div class="col-sm-8">
-                <select class="form-control" th:field="*{secInfo21}">
-                    <option value="">请选择</option>
-                    <option value="1">是</option>
-                    <option value="0">否</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">集中监控和管理信息系统的计算和存储资源：</label>
-                <div class="col-sm-8">
-                    <select class="form-control" th:field="*{secInfo22}">
-                        <option value="">请选择</option>
-                        <option value="1">是</option>
-                        <option value="0">否</option>
-                    </select>
-                </div>
-            </div>
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">有专人负责IT安全：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo2}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">贵公司有设定不同的安全岗位职责：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo3}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">定期更新系统补丁：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo4}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">物理安全区域部署安防设备：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo5}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">机房有相关管控措施：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo6}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">清晰的管理员账户清单并且严格控制管理员权限：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo7}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">公司在网络边界处部署防火墙等设备：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo8}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">部署抗DDoS设备或云防：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo9}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">严格限制网络端口、通讯协议及系统服务：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo10}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">业务重要性或敏感性对网络进行分区管理（VLAN）：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo11}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">所有外部远程访问实现加密措施：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo12}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">信息系统安装安全防护软件：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo13}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">对重要业务数据进行定期备份：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo14}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">在终端部署软件对USB和其他外设的使用进行监控：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo15}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--               </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">建立人员离岗管理制度,员工离职后终止访问权限：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo16}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">贵公司针对安全团队有定期(每年至少1次)安全技能培训：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo17}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">贵公司针对全体员工有定期：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo18}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">通过相关信息安全管理体系认证(ISO 27001)：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo19}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">近一年内重要信息系统通过等级保护测评：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo20}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">电子邮件采取安全防护措施：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                <select class="form-control" th:field="*{secInfo21}">-->
+<!--                    <option value="">请选择</option>-->
+<!--                    <option value="1">是</option>-->
+<!--                    <option value="0">否</option>-->
+<!--                </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">集中监控和管理信息系统的计算和存储资源：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                    <select class="form-control" th:field="*{secInfo22}">-->
+<!--                        <option value="">请选择</option>-->
+<!--                        <option value="1">是</option>-->
+<!--                        <option value="0">否</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
         </form>
     </div>
     <th:block th:include="include :: footer" />

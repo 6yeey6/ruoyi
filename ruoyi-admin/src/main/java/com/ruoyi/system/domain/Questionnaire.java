@@ -316,20 +316,20 @@ public class Questionnaire extends BaseEntity
     private String isAntiSoftwareInnocence;
 
     /** 探针是否存在 */
-    @Excel(name = "探针存在")
+//    @Excel(name = "探针存在")
     private String isProbes;
 
     /** 探针品牌 */
-    @Excel(name = "探针品牌")
+//    @Excel(name = "探针品牌")
     private String probesBrand;
 
     /** 探针上线日期 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
+//    @JsonFormat(pattern = "yyyy-MM-dd")
     @Excel(name = "探针上线日期(yyyy-MM-dd)", width = 30, dateFormat = "yyyy-MM-dd")
     private Date probesDate;
 
     /** 探针是否在保 */
-    @Excel(name = "探针在保",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "探针在保",readConverterExp = "0=否,1=是",combo = "否,是")
     private String isProbesInnocence;
 
     /** 安全设备其他（请注明） */
@@ -357,15 +357,15 @@ public class Questionnaire extends BaseEntity
     private String ancillaryRes;
 
     /** 传呼系统 */
-    @Excel(name = "对接传呼系统",readConverterExp = "0=否,1=是",combo = "否,是")
+    @Excel(name = "医保系统",readConverterExp = "0=否,1=是",combo = "否,是")
     private String pagingSystem;
 
     /** 短信系统 */
-    @Excel(name = "对接短信系统",readConverterExp = "0=否,1=是",combo = "否,是")
+    @Excel(name = "工商系统",readConverterExp = "0=否,1=是",combo = "否,是")
     private String messageSystem;
 
     /** 环保系统 */
-    @Excel(name = "对接环保系统",readConverterExp = "0=否,1=是",combo = "否,是")
+    @Excel(name = "环保系统",readConverterExp = "0=否,1=是",combo = "否,是")
     private String environmentalSystem;
 
     /** 其他外部系统 其他（请注明） */
@@ -461,87 +461,87 @@ public class Questionnaire extends BaseEntity
     private String secInfo1;
 
     /** 安全情况表格2 */
-    @Excel(name = "有专人负责IT安全",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "有专人负责IT安全",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo2;
 
     /** 安全情况表格3 */
-    @Excel(name = "贵公司有设定不同的安全岗位职责",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "贵公司有设定不同的安全岗位职责",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo3;
 
     /** 安全情况表格4 */
-    @Excel(name = "定期更新系统补丁",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "定期更新系统补丁",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo4;
 
     /** 安全情况表格5 */
-    @Excel(name = "物理安全区域部署安防设备",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "物理安全区域部署安防设备",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo5;
 
     /** 安全情况表格6 */
-    @Excel(name = "机房有相关管控措施",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "机房有相关管控措施",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo6;
 
     /** 安全情况表格7 */
-    @Excel(name = "清晰的管理员账户清单并且严格控制管理员权限",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "清晰的管理员账户清单并且严格控制管理员权限",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo7;
 
     /** 安全情况表格8 */
-    @Excel(name = "公司在网络边界处部署防火墙等设备",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "公司在网络边界处部署防火墙等设备",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo8;
 
     /** 安全情况表格9 */
-    @Excel(name = "部署抗DDoS设备或云防",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "部署抗DDoS设备或云防",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo9;
 
     /** 安全情况表格10 */
-    @Excel(name = "严格限制网络端口、通讯协议及系统服务",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "严格限制网络端口、通讯协议及系统服务",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo10;
 
     /** 安全情况表格11 */
-    @Excel(name = "业务重要性或敏感性对网络进行分区管理（VLAN）",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "业务重要性或敏感性对网络进行分区管理（VLAN）",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo11;
 
     /** 安全情况表格12 */
-    @Excel(name = "所有外部远程访问实现加密措施",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "所有外部远程访问实现加密措施",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo12;
 
     /** 安全情况表格13 */
-    @Excel(name = "信息系统安装安全防护软件",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "信息系统安装安全防护软件",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo13;
 
     /** 安全情况表格14 */
-    @Excel(name = "对重要业务数据进行定期备份",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "对重要业务数据进行定期备份",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo14;
 
     /** 安全情况表格15 */
-    @Excel(name = "在终端部署软件对USB和其他外设的使用进行监控",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "在终端部署软件对USB和其他外设的使用进行监控",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo15;
 
     /** 安全情况表格16 */
-    @Excel(name = "建立人员离岗管理制度,员工离职后终止访问权限",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "建立人员离岗管理制度,员工离职后终止访问权限",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo16;
 
     /** 安全情况表格17 */
-    @Excel(name = "贵公司针对安全团队有定期(每年至少1次)安全技能培训",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "贵公司针对安全团队有定期(每年至少1次)安全技能培训",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo17;
 
     /** 安全情况表格18 */
-    @Excel(name = "贵公司针对全体员工有定期(每年至少1次)安全技能培训",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "贵公司针对全体员工有定期(每年至少1次)安全技能培训",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo18;
 
     /** 安全情况表格19 */
-    @Excel(name = "通过相关信息安全管理体系认证(ISO 27001)(是否)",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "通过相关信息安全管理体系认证(ISO 27001)(是否)",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo19;
 
     /** 安全情况表格20 */
-    @Excel(name = "近一年内重要信息系统通过等级保护测评(是否)",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "近一年内重要信息系统通过等级保护测评(是否)",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo20;
 
     /** 安全情况表格21 */
-    @Excel(name = "电子邮件采取安全防护措施(是否)",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "电子邮件采取安全防护措施(是否)",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo21;
 
     /** 安全情况表格22 */
-    @Excel(name = "集中监控和管理信息系统的计算和存储资源(是否)",readConverterExp = "0=否,1=是",combo = "否,是")
+//    @Excel(name = "集中监控和管理信息系统的计算和存储资源(是否)",readConverterExp = "0=否,1=是",combo = "否,是")
     private String secInfo22;
 
     /** 更新时间如有，请填写 */
