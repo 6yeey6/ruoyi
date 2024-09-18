@@ -74,11 +74,39 @@
                 },
                 {
                     field: 'contactName',
-                    title: '联系人姓名'
+                    title: '联系人姓名',
+                    formatter: function (value, row, index) {
+                        //如果该字段为空，则不显示
+                        if (value.length === 0){
+                            return value;
+                        }
+                        // 不为空 首显
+                        let maskedStr = value.charAt(0);
+                        for (let i = 1; i < value.length; i++) {
+                            maskedStr += '*'; // 从第二个字符开始，每个字符都替换为'*'
+                        }
+                        // 返回格式化后的值
+                        return maskedStr;
+                    }
                 },
                 {
                     field: 'contactMobile',
-                    title: '联系人电话'
+                    title: '联系人电话',
+                    formatter: function (value, row, index) {
+                        //为空则输出空
+                        if (value.length === 0){
+                            return value;
+                        }
+                        let mob = value.trim();
+                        //不是手机号
+                        if (mob.length !== 11) {
+                            return value;
+                        }
+                        // 不为空 首显
+                        mob = value.slice(0, 3) + '****' + value.slice(7);
+                        // 返回格式化后的值
+                        return mob;
+                    }
                 },
                 {
                     title: '操作',
