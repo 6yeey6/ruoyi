@@ -11,7 +11,8 @@
 <body class="white-bg">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
         <form class="form-horizontal m" id="form-questionnaire-add">
-            <div class="form-group">    
+            <h3 class="m-t-none m-b">1.基本信息</h3>
+            <div class="form-group">
                 <label class="col-sm-3 control-label is-required">客户名称：</label>
                 <div class="col-sm-8">
                     <input name="companyName" class="form-control" type="text" required>
@@ -81,6 +82,7 @@
                     </select>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">2.公网IP</h3>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">IP地址：</label>
                 <div class="col-sm-8">
@@ -99,6 +101,7 @@
                     <input name="operator" class="form-control" type="text">
                 </div>
             </div>
+            <h3 class="m-t-none m-b">3.网络拓扑图</h3>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">是否存在网络拓扑图：</label>
                 <div class="col-sm-8">
@@ -118,6 +121,7 @@
                     </div>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">4.网络分域情况</h3>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">外网区：</label>
                 <div class="col-sm-8">
@@ -185,6 +189,7 @@
                     <div class="summernote" id="ipSegment"></div>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">5.网络安全设备</h3>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">防火墙是否存在：</label>
                 <div class="col-sm-8">
@@ -257,9 +262,6 @@
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">日志审计系统是否存在：</label>
-                <div class="col-sm-8">
-                    <input name="isLogAudit" class="form-control" type="text">
-                </div>
                 <div class="col-sm-8">
                     <select class="form-control" name="isLogAudit">
                         <option value="">请选择</option>
@@ -618,31 +620,31 @@
 <!--                    </select>-->
 <!--                </div>-->
 <!--            </div>-->
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">探针品牌：</label>
-                <div class="col-sm-8">
-                    <input name="probesBrand" class="form-control" type="text">
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">探针上线日期：</label>
-                <div class="col-sm-8">
-                    <div class="input-group date">
-                        <input name="probesDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
-                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">探针是否在保：</label>
-                <div class="col-sm-8">
-                    <select class="form-control" name="isProbesInnocence" >
-                        <option value="">请选择</option>
-                        <option value="1">是</option>
-                        <option value="0">否</option>
-                    </select>
-                </div>
-            </div>
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">探针品牌：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                    <input name="probesBrand" class="form-control" type="text">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">探针上线日期：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                    <div class="input-group date">-->
+<!--                        <input name="probesDate" class="form-control" placeholder="yyyy-MM-dd" type="text">-->
+<!--                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">探针是否在保：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                    <select class="form-control" name="isProbesInnocence" >-->
+<!--                        <option value="">请选择</option>-->
+<!--                        <option value="1">是</option>-->
+<!--                        <option value="0">否</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="form-group">    
                 <label class="col-sm-3 control-label">安全设备其他：</label>
                 <div class="col-sm-8">
@@ -650,6 +652,7 @@
                     <div class="summernote" id="safetyOther"></div>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">6.人力资源</h3>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">请列出您所在单位现有的网络安全专业从业人员情况：</label>
                 <div class="col-sm-8">
@@ -657,6 +660,7 @@
                     <div class="summernote" id="cyberSecurity"></div>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">7.硬件资源</h3>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">请列出您所在单位现有的硬件服务器设备及用途：</label>
                 <div class="col-sm-8">
@@ -664,6 +668,8 @@
                     <div class="summernote" id="hardwareRes"></div>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">8.软件资源</h3>
+            <h4 class="m-t-none m-b">8.1 办公系统</h4>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">办公系统（例如，OA办公、ERP、SAP等）：</label>
                 <div class="col-sm-8">
@@ -671,6 +677,7 @@
                     <div class="summernote" id="officeRes"></div>
                 </div>
             </div>
+            <h4 class="m-t-none m-b">8.2 业务系统</h4>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">业务系统（例如，客户关系系统、商城系统、服务客户业务系统等）：</label>
                 <div class="col-sm-8">
@@ -678,6 +685,7 @@
                     <div class="summernote" id="businessRes"></div>
                 </div>
             </div>
+            <h4 class="m-t-none m-b">8.3 辅助系统</h4>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">辅助系统（例如，系统维护系统、决策支持、物资管理、BI系统等）：</label>
                 <div class="col-sm-8">
@@ -685,6 +693,8 @@
                     <div class="summernote" id="ancillaryRes"></div>
                 </div>
             </div>
+            <h4 class="m-t-none m-b">8.4 外部对接系统</h4>
+            <h4 class="m-t-none m-b">您单位是否对接以下外部系统？</h4>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">医保系统：</label>
                 <div class="col-sm-8">
@@ -696,7 +706,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">工商系统：</label>
+                <label class="col-sm-3 control-label">工伤系统：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="messageSystem">
                         <option value="">请选择</option>
@@ -721,6 +731,8 @@
                     <input name="externalSystemOther" class="form-control" type="text">
                 </div>
             </div>
+            <h4 class="m-t-none m-b">8.5 外部业务系统</h4>
+            <h4 class="m-t-none m-b">您单位是否提供以下对外服务系统？</h4>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">门户网站：</label>
                 <div class="col-sm-8">
@@ -778,6 +790,7 @@
                     <div class="summernote" id="externalSystemBusOther"></div>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">9.外部业务系统</h3>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">您所在单位是否提供无线局域网环境：</label>
                 <div class="col-sm-8">
@@ -788,6 +801,8 @@
                     </select>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">10.辅助设备</h3>
+            <h4 class="m-t-none m-b">您单位是否使用以下联网辅助设备？</h4>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">自助机：</label>
                 <div class="col-sm-8">
@@ -842,6 +857,8 @@
                     <div class="summernote" id="ancillaryDeviceOtherEre"></div>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">11.等级保护建设情况</h3>
+            <h4 class="m-t-none m-b">您单位是否有系统做了等级保护建设？</h4>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">等保系统1名称：</label>
                 <div class="col-sm-8">
@@ -881,22 +898,31 @@
                     <div class="summernote" id="equalProtectionSystemCDetail"></div>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">12.网络安全服务情况</h3>
+            <h4 class="m-t-none m-b">您单位是否聘请专业外部团队或内部团队定期进行网络安全相关检测，如渗透测试、代码审计、基线检查等。</h4>
+<!--            <h4 class="m-t-none m-b">如有，请填写：</h4>-->
             <div class="form-group">    
-                <label class="col-sm-3 control-label">网络安全服务情况：</label>
+                <label class="col-sm-3 control-label">如有，请填写：</label>
                 <div class="col-sm-8">
                     <input type="hidden" class="form-control" name="cybersecurityServices">
                     <div class="summernote" id="cybersecurityServices"></div>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">13.网络安全情报订阅情况</h3>
+            <h4 class="m-t-none m-b">您单位是否订阅网络安全情报以能及时获取到最新漏洞情况。</h4>
+<!--            <h4 class="m-t-none m-b">如有，请填写：</h4>-->
             <div class="form-group">    
-                <label class="col-sm-3 control-label">网络安全情报订阅情况：</label>
+                <label class="col-sm-3 control-label">如有，请填写：</label>
                 <div class="col-sm-8">
                     <input type="hidden" class="form-control" name="cybersecurityServicesSub">
                     <div class="summernote" id="cybersecurityServicesSub"></div>
                 </div>
             </div>
+            <h3 class="m-t-none m-b">14.信息安全制度建设情况</h3>
+            <h4 class="m-t-none m-b">您单位是否有完整的信息安全制度，如应急处理、风险管理、数据备份等。</h4>
+<!--            <h4 class="m-t-none m-b">如有，请填写：</h4>-->
             <div class="form-group">
-                    <label class="col-sm-3 control-label">有完整的建立安全管理制度：</label>
+                    <label class="col-sm-3 control-label">如有，请填写：</label>
                     <div class="col-sm-8">
 <!--                        <select class="form-control" name="secInfo1">-->
 <!--                            <option value="">请选择</option>-->
