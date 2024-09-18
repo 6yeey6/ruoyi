@@ -72,16 +72,7 @@
                     <input name="email" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">云服务器：</label>
-                <div class="col-sm-8">
-                    <select class="form-control" name="cloudServer">
-                        <option value="">请选择</option>
-                        <option value="1">是</option>
-                        <option value="0">否</option>
-                    </select>
-                </div>
-            </div>
+
             <h3 class="m-t-none m-b">2.公网IP</h3>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">IP地址：</label>
@@ -93,6 +84,16 @@
                 <label class="col-sm-3 control-label">带宽：</label>
                 <div class="col-sm-8">
                     <input name="bandwidths" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">云服务器：</label>
+                <div class="col-sm-8">
+                    <select class="form-control" name="cloudServer">
+                        <option value="">请选择</option>
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -123,7 +124,7 @@
             </div>
             <h3 class="m-t-none m-b">4.网络分域情况</h3>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">外网区：</label>
+                <label class="col-sm-3 control-label">1.外网区：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="extranetArea">
                         <option value="">请选择</option>
@@ -133,7 +134,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">DMZ区：</label>
+                <label class="col-sm-3 control-label">2.DMZ区：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="dmzArea">
                         <option value="">请选择</option>
@@ -143,7 +144,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">内网区：</label>
+                <label class="col-sm-3 control-label">3.内网区：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="intranetArea">
                         <option value="">请选择</option>
@@ -153,7 +154,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">办公区：</label>
+                <label class="col-sm-3 control-label">3.1 办公区：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="officeArea" >
                         <option value="">请选择</option>
@@ -163,7 +164,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">运维区：</label>
+                <label class="col-sm-3 control-label">3.2 运维区：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="operationArea">
                         <option value="">请选择</option>
@@ -173,7 +174,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">工业区：</label>
+                <label class="col-sm-3 control-label">3.3 工业区：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="industrialZone">
                         <option value="">请选择</option>
@@ -183,7 +184,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">单位使用的IP段及其用途：</label>
+                <label class="col-sm-3 control-label">4.单位使用的IP段及其用途：</label>
                 <div class="col-sm-8">
                     <input type="hidden" class="form-control" name="ipSegment">
                     <div class="summernote" id="ipSegment"></div>
@@ -191,7 +192,7 @@
             </div>
             <h3 class="m-t-none m-b">5.网络安全设备</h3>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">防火墙是否存在：</label>
+                <label class="col-sm-3 control-label">1.防火墙：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isFirewalls">
                         <option value="">请选择</option>
@@ -201,13 +202,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">防火墙品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="firewallsBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">防火墙上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="firewallsDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -216,7 +217,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">防火墙是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isFirewallsInnocence">
                         <option value="">请选择</option>
@@ -226,7 +227,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">数据库审计系统是否存在：</label>
+                <label class="col-sm-3 control-label">2.数据库审计系统：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isDatabaseAudits">
                         <option value="">请选择</option>
@@ -236,13 +237,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">数据库审计系统品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="databaseAuditsBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">数据库审计系统上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="databaseAuditsDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -251,7 +252,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">数据库审计系统是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isDatabaseAuditsInnocence">
                         <option value="">请选择</option>
@@ -261,7 +262,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">日志审计系统是否存在：</label>
+                <label class="col-sm-3 control-label">3.日志审计系统：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isLogAudit">
                         <option value="">请选择</option>
@@ -271,13 +272,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">日志审计系统品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="logAuditBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">日志审计系统上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="logAuditDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -286,7 +287,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">日志审计系统是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isLogAuditInnocence">
                         <option value="">请选择</option>
@@ -296,7 +297,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">堡垒机是否存在：</label>
+                <label class="col-sm-3 control-label">4.堡垒机：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isCitadel">
                         <option value="">请选择</option>
@@ -306,13 +307,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">堡垒机品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="citadelBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">堡垒机上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="citadelDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -321,7 +322,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">堡垒机是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isCitadelInnocence">
                         <option value="">请选择</option>
@@ -331,7 +332,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">态势感知是否存在：</label>
+                <label class="col-sm-3 control-label">5.态势感知：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isSituational">
                         <option value="">请选择</option>
@@ -341,13 +342,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">态势感知品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="situationalBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">态势感知上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="situationalDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -356,7 +357,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">态势感知是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isSituationalInnocence">
                         <option value="">请选择</option>
@@ -366,7 +367,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">WAF是否存在：</label>
+                <label class="col-sm-3 control-label">6.WAF：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isWaf">
                         <option value="">请选择</option>
@@ -376,13 +377,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">WAF品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="wafBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">WAF上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="wafDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -391,7 +392,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">WAF是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isWafInnocence">
                         <option value="">请选择</option>
@@ -401,7 +402,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">漏洞扫描是否存在：</label>
+                <label class="col-sm-3 control-label">7.漏洞扫描：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isScan">
                         <option value="">请选择</option>
@@ -411,13 +412,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">漏洞扫描品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="scanBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">漏洞扫描上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="scanDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -426,7 +427,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">漏洞扫描是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isScanInnocence">
                         <option value="">请选择</option>
@@ -436,7 +437,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">EDR是否存在：</label>
+                <label class="col-sm-3 control-label">8.EDR：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isEdr">
                         <option value="">请选择</option>
@@ -446,13 +447,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">EDR品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="edrBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">EDR上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="edrDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -461,7 +462,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">EDR是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isEdrInnocence">
                         <option value="">请选择</option>
@@ -471,7 +472,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">蜜罐是否存在：</label>
+                <label class="col-sm-3 control-label">9.蜜罐：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isPrivilegedEnv">
                         <option value="">请选择</option>
@@ -481,13 +482,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">蜜罐品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="privilegedEnvBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">蜜罐上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="privilegedEnvDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -496,7 +497,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">蜜罐是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isPrivilegedEnvInnocence">
                         <option value="">请选择</option>
@@ -506,7 +507,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">网闸是否存在：</label>
+                <label class="col-sm-3 control-label">10.网闸：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isInternetAccess">
                         <option value="">请选择</option>
@@ -516,13 +517,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">网闸品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="internetAccessBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">网闸上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="internetAccessDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -531,7 +532,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">网闸是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isInternetAccessInnocence">
                         <option value="">请选择</option>
@@ -541,7 +542,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">上网行为管理设备是否存在：</label>
+                <label class="col-sm-3 control-label">11.上网行为管理设备：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isInternetDevice">
                         <option value="">请选择</option>
@@ -551,13 +552,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">上网行为管理设备品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="internetDeviceBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">上网行为管理设备上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="internetDeviceDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -566,7 +567,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">上网行为管理设备是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isInternetDeviceInnocence">
                         <option value="">请选择</option>
@@ -576,7 +577,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">杀毒软件是否存在：</label>
+                <label class="col-sm-3 control-label">12.杀毒软件：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isAntiSoftware">
                         <option value="">请选择</option>
@@ -586,13 +587,13 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">杀毒软件品牌：</label>
+                <label class="col-sm-3 control-label">品牌：</label>
                 <div class="col-sm-8">
                     <input name="antiSoftwareBrand" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">杀毒软件上线日期：</label>
+                <label class="col-sm-3 control-label">上线日期：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
                         <input name="antiSoftwareDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
@@ -601,7 +602,7 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">杀毒软件是否在保：</label>
+                <label class="col-sm-3 control-label">是否在保：</label>
                 <div class="col-sm-8">
                     <select class="form-control" name="isAntiSoftwareInnocence">
                         <option value="">请选择</option>
@@ -646,7 +647,7 @@
 <!--                </div>-->
 <!--            </div>-->
             <div class="form-group">    
-                <label class="col-sm-3 control-label">安全设备其他：</label>
+                <label class="col-sm-3 control-label">13.其他（请注明）：</label>
                 <div class="col-sm-8">
                     <input type="hidden" class="form-control" name="safetyOther">
                     <div class="summernote" id="safetyOther"></div>
