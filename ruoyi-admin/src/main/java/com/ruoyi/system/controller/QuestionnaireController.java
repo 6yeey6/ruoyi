@@ -207,8 +207,10 @@ public class QuestionnaireController extends BaseController {
                 if (radioList.contains(field.getName())) {
                     if ("1".equals(field.get(questionnaire))) {
                         map.put(field.getName(), "是" + "\u2611" + " " + "否" + "\u25A1");
-                    } else {
+                    } else if("0".equals(field.get(questionnaire))){
                         map.put(field.getName(), "是" + "\u25A1" + " " + "否" + "\u2611");
+                    }else {
+                        map.put(field.getName(), "是" + "\u25A1" + " " + "否" + "\u25A1");
                     }
                     //时间类型特殊处理
                 }else if(timeList.contains(field.getName())){
