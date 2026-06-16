@@ -14,7 +14,7 @@ public interface IQuestionService
     /**
      * 查询调查问卷库
      * 
-     * @param id 调查问卷库主键
+     * @param id 调查问卷库接口
      * @return 调查问卷库
      */
     public Question selectQuestionById(Long id);
